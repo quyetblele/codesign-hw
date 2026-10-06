@@ -1,0 +1,54 @@
+=== OS ===
+PRETTY_NAME="Ubuntu 22.04.5 LTS"
+NAME="Ubuntu"
+VERSION_ID="22.04"
+VERSION="22.04.5 LTS (Jammy Jellyfish)"
+VERSION_CODENAME=jammy
+ID=ubuntu
+ID_LIKE=debian
+HOME_URL="https://www.ubuntu.com/"
+SUPPORT_URL="https://help.ubuntu.com/"
+BUG_REPORT_URL="https://bugs.launchpad.net/ubuntu/"
+PRIVACY_POLICY_URL="https://www.ubuntu.com/legal/terms-and-policies/privacy-policy"
+UBUNTU_CODENAME=jammy
+
+=== Python ===
+Python 3.10.12
+
+=== NVIDIA ===
+Tue Oct  6 21:10:39 2026       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 615.78.02              KMD Version: 617.14        CUDA UMD Version: 13.4     |
++-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA GeForce GTX 1650        On  |   00000000:01:00.0 Off |                  N/A |
+| N/A   45C    P8              3W /   50W |     433MiB /   4096MiB |      4%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+
+=== ONNX Runtime ===
+1.23.2
+['TensorrtExecutionProvider', 'CUDAExecutionProvider', 'CPUExecutionProvider']
+
+=== NVIDIA Python packages ===
+nvidia-cublas-cu12       12.9.2.10
+nvidia-cuda-nvrtc-cu12   12.9.86
+nvidia-cuda-runtime-cu12 12.9.79
+nvidia-cudnn-cu12        9.27.0.42
+nvidia-cufft-cu12        11.4.1.4
+nvidia-curand-cu12       10.3.10.19
+nvidia-nvjitlink-cu12    12.9.86
+
+=== Environment ===
+LD_LIBRARY_PATH=:/home/yoo/HDH/.venv/lib/python3.10/site-packages/nvidia/cublas/lib:/home/yoo/HDH/.venv/lib/python3.10/site-packages/nvidia/cuda_nvrtc/lib:/home/yoo/HDH/.venv/lib/python3.10/site-packages/nvidia/cuda_runtime/lib:/home/yoo/HDH/.venv/lib/python3.10/site-packages/nvidia/cudnn/lib:/home/yoo/HDH/.venv/lib/python3.10/site-packages/nvidia/cufft/lib:/home/yoo/HDH/.venv/lib/python3.10/site-packages/nvidia/curand/lib:/home/yoo/HDH/.venv/lib/python3.10/site-packages/nvidia/nvjitlink/lib
