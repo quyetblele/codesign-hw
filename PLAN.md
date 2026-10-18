@@ -1,6 +1,6 @@
 # Kế hoạch triển khai và đánh giá project CPU/GPU Edge AI
 
-Tài liệu này xác định cách xây dựng và đánh giá project. Giới thiệu tổng quan nằm trong [README.md](README.md). Kế hoạch chưa gắn ngày bắt đầu/hạn nộp; chưa có bằng chứng implementation trong các file được cung cấp. Mọi checkbox nghiệm thu đều để trống.
+Tài liệu này xác định cách xây dựng và đánh giá project. Giới thiệu tổng quan nằm trong [README.md](README.md). Kế hoạch chưa gắn ngày bắt đầu/hạn nộp. Cập nhật 2026-10-18: đã có backend T06 và bằng chứng chạy hai model trên CPU/CUDA trong [T06_report.md](T06_report.md); các tiêu chí pipeline/benchmark còn lại chưa được nghiệm thu.
 
 ## 1. Scope
 
@@ -172,7 +172,7 @@ Nếu mở rộng deadline, định nghĩa hạn hoàn thành cho từng job; b�
 
 ## 9. Acceptance Criteria
 
-- [ ] Ít nhất hai model chạy thực tế trên cả CPU và GPU.
+- [x] Ít nhất hai model chạy thực tế trên cả CPU và GPU — bằng chứng T06_report.md, 2026-10-18.
 - [ ] Có CPU-only, GPU-only, Round Robin và Resource-aware.
 - [ ] Có low, medium, high và burst workload.
 - [ ] Replay cùng manifest cho các scheduler.

@@ -1,5 +1,7 @@
 # T04 – Integration Contract v1 (implementation review)
-Status: IMPLEMENTED AS CONTRACT; A/B REVIEW PENDING. No real ONNX Worker, Controller, Monitor or Collector has been added.
+Status: T04 IMPLEMENTED AS CONTRACT; A/B REVIEW PENDING. Update 2026-10-18:
+T06 CPUBackend/GPUBackend are implemented and verified; see T06_report.md.
+Controller, WorkerLoop, Monitor and Collector remain outside this implementation.
 
 ## 1. Components and ownership
 | Component | Owner | Code/contract | Main purpose |
@@ -16,7 +18,9 @@ Status: IMPLEMENTED AS CONTRACT; A/B REVIEW PENDING. No real ONNX Worker, Contro
 ## 2. Contract direction
 Workload -> JobQueues.accept -> Controller -> Scheduler.choose_device(job, queued_jobs, snapshot) -> JobQueues.dispatch -> device queue -> WorkerLoop -> backend.infer(model_id, input_ref) -> WorkerMessage -> Controller -> Job.mark_running/completed/failed -> JobQueues.record_terminal -> MetricsCollector.record(JobEvent).
 
-The existing accept and dispatch methods update WAITING and SCHEDULED status respectively. Only Controller calls accept/dispatch and only Controller handles state updates after dispatch. The Backend does not mutate Job.
+The planned accept/dispatch methods update WAITING/SCHEDULED respectively.
+queues.py is not present in this checkout. Only Controller should call these
+methods and handle state updates after dispatch. The Backend does not mutate Job.
 
 ## 3. Frozen names for review
 - model_id: mobilenetv2 or resnet50 (not the .onnx filename).
@@ -47,18 +51,21 @@ The current Job.mark_* methods do NOT enforce all the rules above. T05/T07 must 
 
 ## 5. Test command and status
 Run:
-    python3 -m unittest discover -s tests -p test_t04_contract_unittest.py -v
-    PYTHONPATH=src python3 tests/smoke_member_a.py
+    .venv/bin/python -m unittest discover -s tests -p test_t04_contract.py -v
 
-Last verified: 10 T04 tests PASS; pre-existing smoke PASS.
+Current checkout: 9 T04 tests PASS. The old test_t04_contract_unittest.py and
+smoke_member_a.py paths are not present here.
 These tests exercise FakeBackend only. They are NOT measurements of CPU/GPU ONNX inference.
 
 ## 6. Handoff and unresolved gates
-A should build T07 Controller + WorkerLoop using ControllerPort/WorkerMessage. B should build T06 CpuBackend/GpuBackend using InferenceBackend; T08 ResourceMonitor and T10 MetricsCollector using the contracts. A/B must agree on API before treating v1 as frozen.
+A should build T07 Controller + WorkerLoop using ControllerPort/WorkerMessage.
+T06 CPUBackend/GPUBackend now implement InferenceBackend without changing its
+signatures. T08 ResourceMonitor and T10 MetricsCollector still use the contracts.
+A/B must agree on API before treating v1 as frozen.
 
 Further items outside T04 contract implementation:
 - JobQueues thread-safe queued_jobs snapshot and consumer methods (T05)
-- Real ONNX Backend and ResNet50 CUDA verification (T06)
+- Real ONNX Backend and ResNet50 CUDA verification (T06): implemented; evidence in T06_report.md
 - Controller and full event-loop processing (T07)
 - Resource availability and all-inf scheduler handling (T13)
 - Graceful shutdown and terminal reconciliation under concurrency (T14)

@@ -66,6 +66,10 @@ Preprocessing được triển khai dùng chung trong:
 scripts/preprocess.py
 ```
 
+Cập nhật T06 (2026-10-18): implementation dùng chung đã chuyển sang
+`src/edge_scheduler/preprocess.py`. `scripts/preprocess.py` giữ compatibility
+import; script T03 và hai backend T06 đều dùng cùng hàm trong package.
+
 ## 4. Kiểm tra thực tế
 
 Lệnh chạy:

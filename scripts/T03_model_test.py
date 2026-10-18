@@ -1,9 +1,11 @@
 from pathlib import Path
+import sys
 
 import numpy as np
 import onnxruntime as ort
 
-from preprocess import preprocess_image
+sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
+from edge_scheduler.preprocess import preprocess_image
 
 
 ROOT = Path(__file__).resolve().parents[1]

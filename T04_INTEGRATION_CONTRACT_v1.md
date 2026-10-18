@@ -3,6 +3,10 @@
 Mục đích: hai người có thể code độc lập và ghép các phần không phải đoán kiểu dữ liệu, chữ ký hàm hoặc nơi chịu trách nhiệm.
 Trạng thái: ĐỀ XUẤT CẦN HAI NGƯỜI DUYỆT. Tệp này KHÔNG thay đổi mã nguồn hiện tại.
 
+Cập nhật checkout 2026-10-18: hợp đồng Python đã có trong `contracts.py` và
+backend T06 đã triển khai. Tài liệu này vẫn giữ vai trò thiết kế; các phần
+Queue/Scheduler/Controller mô tả bên dưới chưa có implementation trong checkout.
+
 ## 1. Nguyên tắc kiến trúc
 
 - Job là cấu trúc dữ liệu duy nhất của một yêu cầu suy luận.
@@ -35,12 +39,11 @@ flowchart TD
 
 - src/edge_scheduler/models.py: Job, JobStatus, Device và mark_waiting, mark_scheduled, mark_running, mark_completed, mark_failed.
 - src/edge_scheduler/interfaces.py: WorkerState, ResourceSnapshot, Scheduler Protocol.
-- src/edge_scheduler/queues.py: JobQueues.accept, dispatch, record_terminal, reconcile.
-- src/edge_scheduler/schedulers.py: CpuOnlyScheduler, GpuOnlyScheduler, RoundRobinScheduler, ResourceAwareScheduler, ServiceTimeProfile.
-- src/edge_scheduler/workload.py: ManifestEntry, tạo Poisson/burst, save/load/to_jobs.
-- src/edge_scheduler/shutdown.py: ShutdownController.
+- src/edge_scheduler/contracts.py: InferenceBackend, JobEvent, WorkerMessage và các protocol tích hợp.
+- src/edge_scheduler/cpu_backend.py, gpu_backend.py: backend T06; xem T06_report.md.
 
-Chưa xác nhận có WorkerBackend, JobEvent, Controller và MetricsCollector/ResourceMonitor hoàn chỉnh trong mã hiện tại.
+`queues.py`, `schedulers.py`, `workload.py`, `shutdown.py`, Controller,
+WorkerLoop và implementation MetricsCollector/ResourceMonitor chưa có trong checkout này.
 
 ## 4. Hợp đồng T04 cần đóng băng trước khi triển khai
 
@@ -79,7 +82,7 @@ accepted, terminal = queues.reconcile()
 
 T05 bổ sung phương thức lấy queue và snapshot Job đang chờ an toàn giữa các thread. Không yêu cầu người B truy cập cấu trúc nội bộ queue.
 
-### 4.4. InferenceBackend (API ĐỀ XUẤT CHƯA CODE — NGƯỜI B)
+### 4.4. InferenceBackend (API ĐÃ TRIỂN KHAI TRONG T06 — NGƯỜI B)
 
 ~~~python
 from typing import Protocol
@@ -179,7 +182,9 @@ Quy ước đo đề xuất: START ngay trước preprocess; FINISH sau khi ONNX
 | resource_monitor.py / metrics_collector.py / profiling.py | Gọi API | Triển khai |
 | tests/test_contract.py / tests/test_integration.py | Chủ trì | Cùng nghiệm thu |
 
-Các file controller.py, worker_loop.py, cpu_backend.py, gpu_backend.py, model_registry.py, resource_monitor.py, metrics_collector.py, profiling.py và JobEvent là kiến trúc dự kiến, KHÔNG phải file đã tồn tại.
+`cpu_backend.py`, `gpu_backend.py`, `model_registry.py`, preprocessing và
+`JobEvent` đã có. `controller.py`, `worker_loop.py`, `resource_monitor.py`,
+`metrics_collector.py`, `profiling.py` vẫn là kiến trúc dự kiến.
 
 ## 7. Checklist nghiệm thu trước khi code song song
 
@@ -198,13 +203,13 @@ Các file controller.py, worker_loop.py, cpu_backend.py, gpu_backend.py, model_r
 
 ## 8. Các vấn đề trong code hiện tại cần sửa khi triển khai tiếp
 
-1. Thiếu Worker/Monitor/Collector/Event contracts trong interfaces.py.
+1. Worker/Monitor/Collector/Event contracts hiện nằm trong contracts.py; implementation tích hợp còn thiếu.
 2. JobQueues chưa cung cấp snapshot hàng đợi an toàn cho Scheduler.
 3. Job.mark_* chưa kiểm soát hoàn toàn các bước chuyển trạng thái sai.
 4. Job.arrival_time lấy ở lúc tạo thay vì lúc phát lại Job thực sự đến.
 5. ResourceAwareScheduler cần xử lý trường hợp cả CPU/GPU không khả dụng thay vì tie-breaker.
 6. priority chưa được sử dụng trong điều phối; tránh giới thiệu như đã hoạt động.
-7. Cần phân biệt smoke-test MobileNetV2 GPU (đã có) với xác nhận ResNet-50 GPU (chưa đủ bằng chứng).
+7. T06 đã xác nhận cả MobileNetV2 và ResNet-50 trên CUDA bằng operator trace; xem T06_report.md.
 
 ## 9. Quy trình tích hợp để giảm lỗi
 

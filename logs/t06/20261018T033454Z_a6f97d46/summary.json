@@ -1,0 +1,112 @@
+{
+  "status": "failed",
+  "run_id": "20261018T033454Z_a6f97d46",
+  "config": {
+    "device": "both",
+    "require_gpu": true,
+    "profile": true,
+    "root": "/home/yoo/HDH",
+    "input": "inputs/test.jpg",
+    "runs": 10,
+    "warmup": 5,
+    "threads": 2,
+    "device_id": 0,
+    "output_dir": "/home/yoo/HDH/logs/t06",
+    "rtol": 0.0001,
+    "atol": 0.0001
+  },
+  "environment": {
+    "python": "3.10.12 (main, Aug 31 2026, 10:18:17) [GCC 11.4.0]",
+    "platform": "Linux-6.18.33.2-microsoft-standard-WSL2-x86_64-with-glibc2.35",
+    "onnxruntime": "1.23.2",
+    "available_providers": [
+      "TensorrtExecutionProvider",
+      "CUDAExecutionProvider",
+      "CPUExecutionProvider"
+    ],
+    "packages": {
+      "coloredlogs": "15.0.1",
+      "flatbuffers": "25.12.19",
+      "humanfriendly": "10.0",
+      "ml_dtypes": "0.6.0",
+      "mpmath": "1.3.0",
+      "numpy": "2.2.6",
+      "nvidia-cublas-cu12": "12.9.2.10",
+      "nvidia-cuda-nvrtc-cu12": "12.9.86",
+      "nvidia-cuda-runtime-cu12": "12.9.79",
+      "nvidia-cudnn-cu12": "9.27.0.42",
+      "nvidia-cufft-cu12": "11.4.1.4",
+      "nvidia-curand-cu12": "10.3.10.19",
+      "nvidia-nvjitlink-cu12": "12.9.86",
+      "onnx": "1.23.2",
+      "onnxruntime-gpu": "1.23.2",
+      "packaging": "26.3",
+      "pillow": "12.3.0",
+      "pip": "26.2.1",
+      "protobuf": "7.36.2",
+      "setuptools": "59.6.0",
+      "sympy": "1.14.0",
+      "typing_extensions": "4.16.0"
+    }
+  },
+  "timing_scope": "image load + preprocessing + synchronous ONNX run + output validation; excludes prepare",
+  "profile_note": "operator event counts include warmup; profiling adds overhead",
+  "devices": {
+    "cpu": {
+      "models": {
+        "mobilenetv2": {
+          "runs": 10,
+          "output_shape": [
+            1,
+            1000
+          ],
+          "mean_ms": 13.305144899959487,
+          "p95_ms": 16.3866198000278
+        },
+        "resnet50": {
+          "runs": 10,
+          "output_shape": [
+            1,
+            1000
+          ],
+          "mean_ms": 50.0786097999935,
+          "p95_ms": 52.284651800073334
+        }
+      },
+      "prepare_s": 1.2624286400000528,
+      "session_providers": {
+        "mobilenetv2": [
+          "CPUExecutionProvider"
+        ],
+        "resnet50": [
+          "CPUExecutionProvider"
+        ]
+      },
+      "profile_paths": {
+        "mobilenetv2": "profiles/cpu_mobilenetv2_6e0c158c71e6_2026-10-18_10-34-54.json",
+        "resnet50": "profiles/cpu_resnet50_6e0c158c71e6_2026-10-18_10-34-54.json"
+      },
+      "profiles": {
+        "mobilenetv2": {
+          "provider_node_events": {
+            "CPUExecutionProvider": 915
+          },
+          "cuda_compute_events": {},
+          "cuda_compute_verified": false
+        },
+        "resnet50": {
+          "provider_node_events": {
+            "CPUExecutionProvider": 870
+          },
+          "cuda_compute_events": {},
+          "cuda_compute_verified": false
+        }
+      }
+    },
+    "gpu": {
+      "models": {},
+      "profile_paths": {}
+    }
+  },
+  "error": "RuntimeError: gpu prepare failed: /onnxruntime_src/onnxruntime/core/providers/cuda/cuda_execution_provider_info.cc:60 static onnxruntime::CUDAExecutionProviderInfo onnxruntime::CUDAExecutionProviderInfo::FromProviderOptions(const onnxruntime::ProviderOptions&) [ONNXRuntimeError] : 1 : FAIL : provider_options_utils.h:187 Parse Failed to parse provider option \"device_id\": CUDA failure 35: CUDA driver version is insufficient for CUDA runtime version ; GPU=-1 ; hostname=LAPTOP-RSP64G6G ; file=/onnxruntime_src/onnxruntime/core/providers/cuda/cuda_execution_provider_info.cc ; line=67 ; expr=cudaGetDeviceCount(&num_devices); \n"
+}
