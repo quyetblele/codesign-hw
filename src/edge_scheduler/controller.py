@@ -1,4 +1,4 @@
-"""Week 2 orchestration. Controller is the sole owner of Job lifecycle state."""
+"""Week 2 orchestration: single-owner Job lifecycle and graceful WorkerLoop exit."""
 from __future__ import annotations
 
 import queue
@@ -7,14 +7,21 @@ import time
 from typing import Any
 
 from .contracts import EventKind, JobEvent, WorkerMessage
+from .contract_validation import validate_job_request
 from .interfaces import Scheduler
 from .models import Device, Job, JobStatus
 from .queues import JobQueues
 
 
 class Controller:
+    """Controller owns Job state; workers only emit WorkerMessage.
+
+    request_shutdown() rejects new work but drains accepted jobs.
+    close() joins workers and closes backends *after* terminal reconciliation.
+    """
+
     def __init__(self, scheduler: Scheduler, backends: dict[Device, Any],
-                 monitor: Any = None, collector: Any = None):
+                 monitor: Any = None, collector: Any = None) -> None:
         if set(backends) != {Device.CPU, Device.GPU}:
             raise ValueError("one backend per CPU/GPU required")
         for device, backend in backends.items():
@@ -27,12 +34,19 @@ class Controller:
         self.queues = JobQueues()
         self.jobs: dict[str, Job] = {}
         self.messages: queue.Queue[WorkerMessage] = queue.Queue()
+        self.events: list[JobEvent] = []
+        self.collector_errors: list[Exception] = []
         self._workers: list[threading.Thread] = []
-        self._stop = threading.Event()
+        self._stop_accepting = threading.Event()
+        self._workers_stop = threading.Event()
         self._started = False
         self._closed = False
         self._lock = threading.RLock()
-        self.events: list[JobEvent] = []
+
+    @property
+    def accepting_jobs(self) -> bool:
+        with self._lock:
+            return self._started and not self._stop_accepting.is_set() and not self._closed
 
     def _emit(self, job: Job, kind: EventKind, timestamp: float,
               error: str | None = None) -> None:
@@ -40,54 +54,54 @@ class Controller:
                          timestamp_s=timestamp, device=job.assigned_device, error=error)
         self.events.append(event)
         if self.collector is not None:
-            self.collector.record(event)
+            try:
+                self.collector.record(event)
+            except Exception as exc:
+                # A collector failure must not cause a Job to be lost.
+                # We expose the error and fail close() after successful draining.
+                self.collector_errors.append(exc)
 
     def start(self) -> None:
         with self._lock:
-            if self._closed:
-                raise RuntimeError("controller has been closed")
+            if self._closed or self._stop_accepting.is_set():
+                raise RuntimeError("controller cannot start after shutdown")
             if self._started:
                 return
-            prepared = []
+            attempted = []
             try:
                 for backend in self.backends.values():
+                    attempted.append(backend)
                     backend.prepare()
-                    prepared.append(backend)
             except Exception:
-                for backend in prepared:
-                    backend.close()
+                for backend in reversed(attempted):
+                    try:
+                        backend.close()
+                    except Exception:
+                        pass
                 raise
             self._started = True
             for device in (Device.CPU, Device.GPU):
-                worker = threading.Thread(
-                    target=self._worker_loop, args=(device,),
-                    name=f"{device.value}-worker", daemon=False)
+                worker = threading.Thread(target=self._worker_loop, args=(device,),
+                                          name=f"{device.value}-worker", daemon=False)
                 worker.start()
                 self._workers.append(worker)
 
     def submit(self, job: Job) -> None:
         with self._lock:
-            if not self._started or self._stop.is_set() or self._closed:
+            if not self.accepting_jobs:
                 raise RuntimeError("controller not accepting jobs")
             if job.status is not JobStatus.CREATED:
                 raise ValueError("only CREATED jobs can be submitted")
+            validate_job_request(job)
             job.arrival_time = time.monotonic()
             self.queues.accept(job)
             self.jobs[job.job_id] = job
             self._emit(job, EventKind.ACCEPTED, job.arrival_time)
 
-    def _queued_snapshot(self) -> dict[Device, list[Job]]:
-        # Queue.mutex protects the underlying deque while copying; running jobs excluded.
-        result: dict[Device, list[Job]] = {}
-        for device, q in self.queues.device.items():
-            with q.mutex:
-                result[device] = list(q.queue)
-        return result
-
     def dispatch_pending(self) -> int:
         with self._lock:
-            if not self._started:
-                raise RuntimeError("controller not started")
+            if not self._started or self._closed:
+                raise RuntimeError("controller not running")
             count = 0
             while True:
                 try:
@@ -96,9 +110,14 @@ class Controller:
                     break
                 try:
                     snap = self.monitor.snapshot() if self.monitor is not None else None
-                    device = self.scheduler.choose_device(job, self._queued_snapshot(), snap)
+                    device = self.scheduler.choose_device(
+                        job, self.queues.queued_snapshot(), snap)
                     if device not in (Device.CPU, Device.GPU):
                         raise ValueError("scheduler returned invalid device")
+                    if snap is not None and device in snap.workers:
+                        state = snap.workers[device]
+                        if not state.available and state.estimated_remaining_s <= 0:
+                            raise RuntimeError(f"device {device.value} unavailable")
                     self.queues.dispatch(job, device)
                     self._emit(job, EventKind.DISPATCHED, job.dispatch_time)
                     count += 1
@@ -112,26 +131,28 @@ class Controller:
             return count
 
     def _worker_loop(self, device: Device) -> None:
-        q = self.queues.device[device]
+        device_queue = self.queues.device[device]
         backend = self.backends[device]
         while True:
             try:
-                job = q.get(timeout=0.05)
+                job = device_queue.get(timeout=0.05)
             except queue.Empty:
-                if self._stop.is_set():
+                if self._workers_stop.is_set():
                     return
                 continue
             try:
-                self.messages.put(WorkerMessage(EventKind.STARTED, job.job_id, device,
-                                                time.monotonic()))
+                self.messages.put(WorkerMessage(
+                    EventKind.STARTED, job.job_id, device, time.monotonic()))
                 output = backend.infer(job.model_id, job.input_ref)
-                self.messages.put(WorkerMessage(EventKind.COMPLETED, job.job_id, device,
-                                                time.monotonic(), output=output))
+                self.messages.put(WorkerMessage(
+                    EventKind.COMPLETED, job.job_id, device, time.monotonic(),
+                    output=output))
             except Exception as exc:
-                self.messages.put(WorkerMessage(EventKind.FAILED, job.job_id, device,
-                                                time.monotonic(), error=str(exc) or type(exc).__name__))
+                self.messages.put(WorkerMessage(
+                    EventKind.FAILED, job.job_id, device, time.monotonic(),
+                    error=str(exc) or type(exc).__name__))
             finally:
-                q.task_done()
+                device_queue.task_done()
 
     def handle_worker_message(self, message: WorkerMessage) -> None:
         with self._lock:
@@ -176,35 +197,62 @@ class Controller:
                 self.messages.task_done()
 
     def wait_all(self, timeout: float = 10.0) -> bool:
+        if timeout < 0:
+            raise ValueError("timeout must be nonnegative")
+        if not self._started:
+            raise RuntimeError("controller not started")
         deadline = time.monotonic() + timeout
-        while time.monotonic() < deadline:
+        while True:
             self.dispatch_pending()
             self.drain_events()
-            if self.queues.is_reconciled() and not self.messages.qsize() and self.queues.incoming.empty():
+            if (self.queues.is_reconciled()
+                    and self.queues.incoming.unfinished_tasks == 0
+                    and self.messages.unfinished_tasks == 0
+                    and all(q.unfinished_tasks == 0 for q in self.queues.device.values())):
                 return True
-            time.sleep(0.005)
-        self.drain_events()
-        return self.queues.is_reconciled()
+            if time.monotonic() >= deadline:
+                return False
+            time.sleep(min(0.005, max(0.0, deadline - time.monotonic())))
 
     def request_shutdown(self) -> None:
+        # Safe to call from producer threads: submit() and this operation use
+        # the same lock, so acceptance has a deterministic cutoff.
         with self._lock:
-            self._stop.set()
+            self._stop_accepting.set()
 
     def close(self, timeout: float = 10.0) -> None:
-        if self._closed:
-            return
-        complete = self.wait_all(timeout) if self._started else True
-        if not complete:
-            raise TimeoutError("unfinished jobs; workers retained to avoid losing results")
-        self.request_shutdown()
+        if timeout < 0:
+            raise ValueError("timeout must be nonnegative")
+        with self._lock:
+            if self._closed:
+                return
+            self._stop_accepting.set()
+        deadline = time.monotonic() + timeout
+        if self._started and not self.wait_all(timeout):
+            # Do NOT stop workers on timeout: caller can retry close().
+            raise TimeoutError("unfinished jobs; call close() again to finish draining")
+        self._workers_stop.set()
         for worker in self._workers:
-            worker.join(timeout=timeout)
-        if any(w.is_alive() for w in self._workers):
-            raise TimeoutError("worker did not stop")
+            worker.join(timeout=max(0.0, deadline - time.monotonic()))
+        if any(worker.is_alive() for worker in self._workers):
+            raise TimeoutError("workers did not stop; retry close()")
         self.drain_events()
+        cleanup_errors: list[Exception] = []
         for backend in self.backends.values():
-            backend.close()
+            try:
+                backend.close()
+            except Exception as exc:
+                cleanup_errors.append(exc)
         if self.collector is not None:
-            self.collector.flush()
-            self.collector.close()
-        self._closed = True
+            for action in (self.collector.flush, self.collector.close):
+                try:
+                    action()
+                except Exception as exc:
+                    cleanup_errors.append(exc)
+        with self._lock:
+            self._closed = True
+        if self.collector_errors or cleanup_errors:
+            raise RuntimeError(
+                f"event collection errors={len(self.collector_errors)}, "
+                f"cleanup errors={len(cleanup_errors)}"
+            ) from (cleanup_errors or self.collector_errors)[0]
