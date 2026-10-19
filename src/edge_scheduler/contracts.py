@@ -2,9 +2,12 @@
 from __future__ import annotations
 from dataclasses import dataclass
 from enum import Enum
-from typing import Any, Protocol, runtime_checkable
+from typing import Any, Protocol, TYPE_CHECKING, runtime_checkable
 from .models import Device, Job
 from .interfaces import ResourceSnapshot
+
+if TYPE_CHECKING:
+    from .monitoring_models import ResourceSample
 
 
 class EventKind(str, Enum):
@@ -80,6 +83,12 @@ class InferenceBackend(Protocol):
 @runtime_checkable
 class ResourceMonitor(Protocol):
     def snapshot(self) -> ResourceSnapshot: ...
+
+
+@runtime_checkable
+class ResourceSampleSink(Protocol):
+    """Resource stream; MetricsCollector.record still takes JobEvent."""
+    def record_resource(self, sample: ResourceSample) -> None: ...
 
 
 @runtime_checkable

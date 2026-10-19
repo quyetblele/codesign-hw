@@ -6,6 +6,7 @@ Trạng thái: ĐỀ XUẤT CẦN HAI NGƯỜI DUYỆT. Tệp này KHÔNG thay �
 Cập nhật checkout 2026-10-18: hợp đồng Python đã có trong `contracts.py` và
 backend T06 đã triển khai. Tài liệu này vẫn giữ vai trò thiết kế; các phần
 Queue/Scheduler/Controller mô tả bên dưới chưa có implementation trong checkout.
+T08 Resource Monitor và resource CSV sink đã triển khai; xem T08_report.md.
 
 ## 1. Nguyên tắc kiến trúc
 
@@ -41,9 +42,10 @@ flowchart TD
 - src/edge_scheduler/interfaces.py: WorkerState, ResourceSnapshot, Scheduler Protocol.
 - src/edge_scheduler/contracts.py: InferenceBackend, JobEvent, WorkerMessage và các protocol tích hợp.
 - src/edge_scheduler/cpu_backend.py, gpu_backend.py: backend T06; xem T06_report.md.
+- src/edge_scheduler/resource_monitor.py, system_probe.py, gpu_probe.py, resource_log.py: T08.
 
 `queues.py`, `schedulers.py`, `workload.py`, `shutdown.py`, Controller,
-WorkerLoop và implementation MetricsCollector/ResourceMonitor chưa có trong checkout này.
+WorkerLoop và implementation MetricsCollector chưa có trong checkout này.
 
 ## 4. Hợp đồng T04 cần đóng băng trước khi triển khai
 
@@ -183,7 +185,7 @@ Quy ước đo đề xuất: START ngay trước preprocess; FINISH sau khi ONNX
 | tests/test_contract.py / tests/test_integration.py | Chủ trì | Cùng nghiệm thu |
 
 `cpu_backend.py`, `gpu_backend.py`, `model_registry.py`, preprocessing và
-`JobEvent` đã có. `controller.py`, `worker_loop.py`, `resource_monitor.py`,
+`JobEvent` và `resource_monitor.py` đã có. `controller.py`, `worker_loop.py`,
 `metrics_collector.py`, `profiling.py` vẫn là kiến trúc dự kiến.
 
 ## 7. Checklist nghiệm thu trước khi code song song

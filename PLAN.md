@@ -1,6 +1,6 @@
 # Kế hoạch triển khai và đánh giá project CPU/GPU Edge AI
 
-Tài liệu này xác định cách xây dựng và đánh giá project. Giới thiệu tổng quan nằm trong [README.md](README.md). Kế hoạch chưa gắn ngày bắt đầu/hạn nộp. Cập nhật 2026-10-18: đã có backend T06 và bằng chứng chạy hai model trên CPU/CUDA trong [T06_report.md](T06_report.md); các tiêu chí pipeline/benchmark còn lại chưa được nghiệm thu.
+Tài liệu này xác định cách xây dựng và đánh giá project. Giới thiệu tổng quan nằm trong [README.md](README.md). Kế hoạch chưa gắn ngày bắt đầu/hạn nộp. Cập nhật 2026-10-18: đã có backend T06 và bằng chứng chạy hai model trên CPU/CUDA trong [T06_report.md](T06_report.md), cùng Resource Monitor/log T08 trong [T08_report.md](T08_report.md); các tiêu chí pipeline/benchmark còn lại chưa được nghiệm thu.
 
 ## 1. Scope
 

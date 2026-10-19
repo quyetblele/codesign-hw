@@ -20,7 +20,8 @@ Hệ thống dự kiến tiếp nhận nhiều AI inference jobs, mỗi job có 
 ## System Architecture
 
 Kiến trúc dưới đây là thiết kế toàn hệ thống. Hiện đã triển khai contract T04 và
-backend suy luận CPU/GPU T06; queue, controller và scheduler chưa có trong checkout này.
+backend suy luận CPU/GPU T06 và Resource Monitor T08; queue, controller và
+scheduler chưa có trong checkout này.
 
 ```mermaid
 flowchart TD
@@ -109,6 +110,11 @@ Phiên bản đầu không bao gồm train model mới, viết CUDA kernel, GPU 
 | `models/`, `inputs/` | Hai model ONNX và ảnh mẫu |
 | `logs/t06/<run_id>/` | Summary, CSV, output NumPy và trace theo từng lượt |
 | `T06_report.md` | Kết quả T06 và hướng dẫn bàn giao cho T07 |
+| `src/edge_scheduler/system_probe.py`, `gpu_probe.py` | Probe psutil và NVML của T08 |
+| `src/edge_scheduler/monitoring_models.py`, `resource_monitor.py` | ResourceSample bất biến, WorkerRegistry, sampler và snapshot cache |
+| `src/edge_scheduler/resource_log.py` | Writer CSV bất đồng bộ, queue có giới hạn và bộ đếm dropped samples |
+| `scripts/T08_monitor_test.py`, `tests/test_t08_*.py` | Harness kiểm tra độc lập, cùng T06 và unit/integration tests |
+| `logs/t08/<run_id>/`, `T08_report.md` | Log, config và kết quả nghiệm thu monitor |
 | `PLAN.md` | Requirements, kế hoạch triển khai và đánh giá |
 
 ## Setup
@@ -180,13 +186,98 @@ Root mặc định lấy từ vị trí package; có thể truyền `root=...` k
 
 Lệnh `python run.py --scheduler ...` của pipeline vẫn là kế hoạch; chưa có `run.py`.
 
+## Resource Monitor T08
+
+Đã cài và khóa `psutil==7.2.2`, `nvidia-ml-py==13.615.71` trong requirements.
+NVML binding được import bằng `pynvml`; không cần PyTorch hoặc TensorFlow.
+
+```bash
+# Đọc tài nguyên độc lập: mặc định 200 ms/mẫu, 10 giây.
+.venv/bin/python scripts/T08_monitor_test.py --duration 10 --interval 0.2
+
+# Chạy cả CPU/GPU backend, yêu cầu đọc được VRAM; utilization vẫn là metric tùy khả năng.
+.venv/bin/python scripts/T08_monitor_test.py --workload both --runs 100 --require-gpu-metrics
+
+# Ba cặp bật/tắt monitor, giữ nguyên session, luân phiên thứ tự chạy.
+.venv/bin/python scripts/T08_monitor_test.py --workload both --runs 100 \
+  --require-gpu-metrics --overhead-repeats 3
+
+# Chỉ kiểm tra T08 có GPU, hoặc dùng T06_TEST_GPU=1 để yêu cầu GPU cho cả T06/T08.
+T08_TEST_GPU=1 .venv/bin/python -m unittest discover -s tests -p 'test_t08_*.py' -v
+```
+
+`--no-gpu` tắt telemetry GPU, không tắt GPU inference nếu đã yêu cầu workload GPU.
+`--gpu-index` là NVML index; `--device-id` là CUDA ordinal. Có thể truyền
+`--gpu-uuid` để ánh xạ rõ GPU, bắt buộc với workload GPU nếu đã đặt
+`CUDA_VISIBLE_DEVICES` và bật telemetry. UUID/name thực tế được ghi vào metadata.
+
+Mỗi run có `config.json`, `resources.csv`, `monitor_summary.json`, `summary.json`;
+đo overhead bổ sung thư mục `overhead/<iteration>/`. Các log lưu CPU%, RAM
+available/total/usage%, process RSS/CPU%, VRAM total/used/free và GPU utilization.
+Missing metrics dùng ô CSV rỗng và `errors_json`, không giả thành 0. Một metric
+NVML không hỗ trợ không làm mất metric khác hoặc đánh dấu GPU backend chết.
+
+CPU/RAM là phạm vi OS/WSL nhìn thấy. RSS là toàn process; VRAM là toàn GPU được
+chọn, có thể gồm ứng dụng khác. Trường `ram_free_mb` hiện có chứa RAM available;
+tất cả trường `_mb` dùng MiB. Process CPU% có thể lớn hơn 100 khi dùng nhiều core.
+
+T08 không đo từng job: mẫu 200 ms không ghi lại mọi biến động của job 10 ms.
+`observed_max` chỉ là đỉnh quan sát trong log. `timestamp_s`/snapshot.timestamp
+là lúc bắt đầu đọc mẫu để truy vấn chậm không làm dữ liệu cũ trông như mới;
+log có thêm sample duration và thời điểm đọc trạng thái chương trình.
+
+Tích hợp với T07/T13, dùng `PYTHONPATH=src`:
+
+```python
+from edge_scheduler.monitoring_models import WorkerRegistry
+from edge_scheduler.resource_log import ResourceCSVLogger
+from edge_scheduler.resource_monitor import ResourceMonitor
+
+registry = WorkerRegistry()  # T07 gọi set_ready/set_running/set_unavailable.
+logger = ResourceCSVLogger("logs/my_run/resources.csv")  # Không ghi đè file cũ.
+monitor = ResourceMonitor(worker_state_provider=registry.snapshot, sink=logger)
+try:
+    monitor.start()
+    if not monitor.wait_for_sample(5):
+        raise RuntimeError(monitor.diagnostics)
+    sample = monitor.read_sample()  # Có stale, tuổi dữ liệu và lỗi từng metric.
+    snapshot = monitor.snapshot()  # Giữ nguyên ResourceSnapshot T04 cho Scheduler.
+    # Controller truyền snapshot + queued_jobs cho Scheduler.choose_device(...).
+finally:
+    try:
+        monitor.close()
+    finally:
+        logger.close()  # Drain/flush sau khi sampler ngừng phát mẫu.
+```
+
+`snapshot()` không đo phần cứng hoặc ghi file; nó đọc cache và callback trạng
+thái. Callback worker/queue/phase phải nhanh, an toàn thread và không làm I/O.
+`queue_lengths_provider` tùy chọn nhận mapping tên queue → số job; khi thiếu
+nguồn, log ghi `not_configured`, không tạo số 0 giả. Độ dài queue phục vụ log;
+Scheduler vẫn nhận danh sách queued_jobs trực tiếp từ T05.
+
+Monitor có `start()`/`close()` idempotent, có thể start lại khi thread đã dừng.
+Sink do caller sở hữu; khi restart cần sink còn mở hoặc sink mới. Trước mẫu đầu,
+sequence=0, metric=None và stale=True. Mặc định stale sau 1 giây; Scheduler cần
+kiểm tra timestamp và Controller vẫn kiểm tra worker trước dispatch. Xem
+`diagnostics` để phát hiện sampler/writer lỗi; không suy ra worker health từ utilization.
+
+`WorkerState` bổ sung hai trường mặc định: `running_started_s` và
+`estimated_remaining_known`. Busy vẫn có thể available; ước lượng khi đang
+chạy mặc định chưa biết, T11/T13 phải xét flag trước khi dùng remaining time.
+`memory_free_mb` trong snapshot là bộ nhớ khả dụng của thiết bị, không phải bộ
+nhớ được quy riêng cho worker. `ResourceSampleSink.record_resource()` là luồng
+log riêng; `MetricsCollector.record(JobEvent)` không đổi.
+
 ## Current Status
 
 Đã có T02/T03, hợp đồng T04 và backend T06. MobileNetV2 và ResNet-50 đã chạy
 thực tế trên CPU và CUDA, có trace xác nhận compute và so sánh output. Xem
-[T06_report.md](T06_report.md) để chạy lại và đọc kết quả. Queue/controller,
-WorkerLoop, bốn scheduler, monitor/collector và benchmark toàn hệ thống chưa
-được triển khai trong checkout này. T06 không thay cho nghiệm thu T07/T14/T15.
+[T06_report.md](T06_report.md) để chạy lại và đọc kết quả. Resource Monitor T08
+đã có lấy mẫu nền, snapshot, resource log và kiểm chứng cùng T06; xem
+[T08_report.md](T08_report.md). Queue/controller, WorkerLoop, bốn scheduler,
+collector và benchmark toàn hệ thống chưa được triển khai trong checkout này.
+Harness T08 không thay cho nghiệm thu T07/T14/T15.
 
 Kế hoạch kỹ thuật nằm trong [PLAN.md](PLAN.md); tiến độ hằng ngày được quản lý theo quy ước trên shared Google Sheets project tracker.
 

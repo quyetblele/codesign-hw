@@ -3,12 +3,12 @@ from .models import Device, Job, JobStatus
 from .interfaces import ResourceSnapshot, WorkerState, Scheduler
 from .contracts import (
     EventKind, JobEvent, WorkerMessage, InferenceBackend,
-    ResourceMonitor, MetricsCollector, ControllerPort,
+    ResourceMonitor, ResourceSampleSink, MetricsCollector, ControllerPort,
 )
 
 __all__ = [
     "Device", "Job", "JobStatus", "ResourceSnapshot", "WorkerState",
     "Scheduler", "EventKind", "JobEvent", "WorkerMessage",
-    "InferenceBackend", "ResourceMonitor", "MetricsCollector",
+    "InferenceBackend", "ResourceMonitor", "ResourceSampleSink", "MetricsCollector",
     "ControllerPort",
 ]

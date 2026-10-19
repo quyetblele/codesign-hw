@@ -1,7 +1,8 @@
 # T04 – Integration Contract v1 (implementation review)
 Status: T04 IMPLEMENTED AS CONTRACT; A/B REVIEW PENDING. Update 2026-10-18:
 T06 CPUBackend/GPUBackend are implemented and verified; see T06_report.md.
-Controller, WorkerLoop, Monitor and Collector remain outside this implementation.
+T08 Resource Monitor is now implemented; see T08_report.md. Controller,
+WorkerLoop and MetricsCollector remain outside this implementation.
 
 ## 1. Components and ownership
 | Component | Owner | Code/contract | Main purpose |
@@ -29,6 +30,8 @@ methods and handle state updates after dispatch. The Backend does not mutate Job
 - Scheduler: choose_device(job, queued_jobs, snapshot=None) -> Device.
 - InferenceBackend: device property; prepare() -> None; infer(model_id, input_ref) -> numpy.ndarray; close() -> None.
 - ResourceMonitor: snapshot() -> ResourceSnapshot.
+- T08 implementation additionally exposes start/close, read_sample, diagnostics.
+- ResourceSampleSink.record_resource(ResourceSample) is separate from JobEvent logging.
 - MetricsCollector: record(JobEvent), flush(), close().
 - ControllerPort: submit(Job), handle_worker_message(WorkerMessage), request_shutdown().
 - JobEvent: EventKind ACCEPTED / DISPATCHED / STARTED / COMPLETED / FAILED; id, model_id, timestamp_s, optional device/top1/error.
@@ -62,6 +65,16 @@ A should build T07 Controller + WorkerLoop using ControllerPort/WorkerMessage.
 T06 CPUBackend/GPUBackend now implement InferenceBackend without changing its
 signatures. T08 ResourceMonitor and T10 MetricsCollector still use the contracts.
 A/B must agree on API before treating v1 as frozen.
+
+T08 now supplies system_probe.py, gpu_probe.py, resource_monitor.py and an
+asynchronous resource_log.py sink. T07 passes quick thread-safe worker/queue
+state callbacks; monitor never reads backend sessions or changes Job state.
+WorkerState appends running_started_s=None and estimated_remaining_known=False,
+preserving old positional arguments (covered by a T08 compatibility test).
+Idle estimates are known zero; running estimates stay unknown until T11 supplies
+them. available means ready/healthy, including a busy worker with a queue.
+Missing NVML telemetry is not a backend health failure. Snapshot timestamp is
+the conservative hardware sample start; stale policy remains with Controller/T13.
 
 Further items outside T04 contract implementation:
 - JobQueues thread-safe queued_jobs snapshot and consumer methods (T05)

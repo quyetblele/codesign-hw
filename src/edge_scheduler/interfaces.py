@@ -13,6 +13,9 @@ class WorkerState:
     running_model_id: str | None = None
     estimated_remaining_s: float = 0.0
     memory_free_mb: float | None = None
+    # T08 additions: legacy 0.0 alone does not imply a known runtime estimate.
+    running_started_s: float | None = None
+    estimated_remaining_known: bool = False
 
 
 @dataclass(frozen=True, slots=True)

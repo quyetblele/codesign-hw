@@ -1,0 +1,6 @@
+{
+  "status": "failed",
+  "run_directory": "/home/yoo/HDH/logs/t08/20261018T081923Z_809dd24f",
+  "overhead_pairs": [],
+  "error": "RuntimeError: GPU memory telemetry required but unavailable; see monitor_summary.json"
+}

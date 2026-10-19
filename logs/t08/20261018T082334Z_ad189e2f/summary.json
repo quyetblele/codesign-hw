@@ -1,0 +1,162 @@
+{
+  "status": "passed",
+  "run_directory": "/home/yoo/HDH/logs/t08/20261018T082334Z_ad189e2f",
+  "overhead_pairs": [
+    {
+      "iteration": 0,
+      "order": [
+        "baseline",
+        "monitored"
+      ],
+      "baseline": {
+        "completed_jobs": 400,
+        "elapsed_s": 6.891622904000087
+      },
+      "monitored": {
+        "completed_jobs": 400,
+        "elapsed_s": 6.464582416000212
+      },
+      "relative_elapsed_change_pct": -6.196515595071361
+    },
+    {
+      "iteration": 1,
+      "order": [
+        "monitored",
+        "baseline"
+      ],
+      "monitored": {
+        "completed_jobs": 400,
+        "elapsed_s": 6.205462369999623
+      },
+      "baseline": {
+        "completed_jobs": 400,
+        "elapsed_s": 6.355124906999663
+      },
+      "relative_elapsed_change_pct": -2.354989700284238
+    },
+    {
+      "iteration": 2,
+      "order": [
+        "baseline",
+        "monitored"
+      ],
+      "baseline": {
+        "completed_jobs": 400,
+        "elapsed_s": 6.408568780999758
+      },
+      "monitored": {
+        "completed_jobs": 400,
+        "elapsed_s": 6.65059892599993
+      },
+      "relative_elapsed_change_pct": 3.776664545096975
+    }
+  ],
+  "workload": {
+    "completed_jobs": 400,
+    "elapsed_s": 6.700272825999946
+  },
+  "monitor": {
+    "samples": 44,
+    "metrics": {
+      "cpu_load_pct": {
+        "valid_samples": 44,
+        "unavailable_samples": 0,
+        "mean": 19.279545454545456,
+        "observed_max": 59.2,
+        "errors": {}
+      },
+      "ram_total_mb": {
+        "valid_samples": 44,
+        "unavailable_samples": 0,
+        "mean": 7604.640625,
+        "observed_max": 7604.640625,
+        "errors": {}
+      },
+      "ram_free_mb": {
+        "valid_samples": 44,
+        "unavailable_samples": 0,
+        "mean": 5190.772816051136,
+        "observed_max": 5926.60546875,
+        "errors": {}
+      },
+      "ram_used_pct": {
+        "valid_samples": 44,
+        "unavailable_samples": 0,
+        "mean": 31.75,
+        "observed_max": 32.9,
+        "errors": {}
+      },
+      "process_rss_mb": {
+        "valid_samples": 44,
+        "unavailable_samples": 0,
+        "mean": 967.5764382102273,
+        "observed_max": 1070.46484375,
+        "errors": {}
+      },
+      "process_cpu_pct": {
+        "valid_samples": 44,
+        "unavailable_samples": 0,
+        "mean": 211.5431818181818,
+        "observed_max": 760.1,
+        "errors": {}
+      },
+      "gpu_memory_total_mb": {
+        "valid_samples": 44,
+        "unavailable_samples": 0,
+        "mean": 4096.0,
+        "observed_max": 4096.0,
+        "errors": {}
+      },
+      "gpu_memory_used_mb": {
+        "valid_samples": 44,
+        "unavailable_samples": 0,
+        "mean": 833.2816051136364,
+        "observed_max": 887.78125,
+        "errors": {}
+      },
+      "gpu_memory_free_mb": {
+        "valid_samples": 44,
+        "unavailable_samples": 0,
+        "mean": 3262.7183948863635,
+        "observed_max": 3511.06640625,
+        "errors": {}
+      },
+      "gpu_utilization_pct": {
+        "valid_samples": 44,
+        "unavailable_samples": 0,
+        "mean": 19.136363636363637,
+        "observed_max": 47.0,
+        "errors": {}
+      }
+    },
+    "max_sample_duration_s": 1.095724372999939,
+    "logger": {
+      "written_samples": 44,
+      "dropped_samples": 0,
+      "error": null,
+      "closed": true,
+      "running": false
+    },
+    "monitor": {
+      "running": false,
+      "sampler_error": null,
+      "sink_error": null,
+      "sequence": 44
+    },
+    "system_metadata": {
+      "platform": "Linux-6.18.33.2-microsoft-standard-WSL2-x86_64-with-glibc2.35",
+      "logical_cpus": 12,
+      "pid": 18287,
+      "memory_unit": "MiB (bytes / 1024**2)",
+      "scope": "Linux/WSL guest"
+    },
+    "gpu_metadata": {
+      "nvml_index": 0,
+      "requested_uuid": null,
+      "name": "NVIDIA GeForce GTX 1650",
+      "uuid": "GPU-6befd361-4ca0-7d6d-3432-8ea3bbca9130"
+    },
+    "cleanup_errors": []
+  },
+  "median_relative_elapsed_change_pct": -2.354989700284238
+}
