@@ -7,7 +7,7 @@ from .models import Device, Job
 from .interfaces import ResourceSnapshot
 
 if TYPE_CHECKING:
-    from .monitoring_models import ResourceSample
+    from ..monitoring.monitoring_models import ResourceSample
 
 
 class EventKind(str, Enum):

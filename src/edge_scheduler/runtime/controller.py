@@ -6,10 +6,10 @@ import threading
 import time
 from typing import Any
 
-from .contracts import EventKind, JobEvent, WorkerMessage
-from .contract_validation import validate_job_request
-from .interfaces import Scheduler
-from .models import Device, Job, JobStatus
+from ..core.contracts import EventKind, JobEvent, WorkerMessage
+from ..core.contract_validation import validate_job_request
+from ..core.interfaces import Scheduler
+from ..core.models import Device, Job, JobStatus
 from .queues import JobQueues
 
 
@@ -47,6 +47,15 @@ class Controller:
     def accepting_jobs(self) -> bool:
         with self._lock:
             return self._started and not self._stop_accepting.is_set() and not self._closed
+
+    @property
+    def diagnostics(self) -> dict:
+        with self._lock:
+            return {"started": self._started, "closed": self._closed,
+                    "accepting_jobs": self.accepting_jobs,
+                    "running_workers": [worker.name for worker in self._workers
+                                        if worker.is_alive()],
+                    "collector_errors": [str(exc) for exc in self.collector_errors]}
 
     def _emit(self, job: Job, kind: EventKind, timestamp: float,
               error: str | None = None) -> None:

@@ -11,9 +11,9 @@ from uuid import uuid4
 import numpy as np
 import onnxruntime as ort
 
-from .contract_validation import validate_backend_output
+from ..core.contract_validation import validate_backend_output
 from .model_registry import INPUT_SHAPE, MODEL_REGISTRY, PROJECT_ROOT, repository_file
-from .models import Device
+from ..core.models import Device
 from .preprocess import preprocess_image
 
 

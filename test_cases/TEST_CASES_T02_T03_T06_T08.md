@@ -139,7 +139,7 @@ Tất cả 6 ca dưới đây **PASS trong lượt full acceptance ngày 18/10/2
 | T03-UT05 | `test_repository_path_validation` | File hợp lệ; sau đó path rỗng, khoảng trắng, absolute, `../`, `None`, file thiếu, thư mục | Resolve file hợp lệ; input sai raise `ValueError`; file thiếu/thư mục raise `FileNotFoundError` |
 | T03-UT06 | `test_symlink_cannot_escape_root` | Symlink trong root trỏ tới file ngoài root | Raise `ValueError`, không cho truy cập file ngoài root |
 
-Implementation dùng chung hiện ở `src/edge_scheduler/preprocess.py`;
+Implementation dùng chung hiện ở `src/edge_scheduler/inference/preprocess.py`;
 `scripts/preprocess.py` giữ compatibility import.
 
 ## 4. T06 — Backend CPU/GPU

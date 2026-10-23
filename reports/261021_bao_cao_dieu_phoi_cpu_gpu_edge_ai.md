@@ -45,7 +45,7 @@ Edge AI là bối cảnh mục tiêu vì tài nguyên tính toán và bộ nhớ
 |---|---|---|
 | Tài liệu | `README.md`, `PLAN.md`, các báo cáo T02/T03/T04/T06/T08, `WEEK2_IMPLEMENTATION_REPORT.md` | Phạm vi, hợp đồng, kế hoạch và bằng chứng từng phần |
 | Dữ liệu, model | `models/`, `inputs/test.jpg` | Hai model ONNX và ảnh đầu vào mẫu |
-| Hợp đồng dữ liệu | `src/edge_scheduler/models.py`, `interfaces.py`, `contracts.py`, `contract_validation.py` | Job, trạng thái, snapshot, sự kiện và API giữa các thành phần |
+| Hợp đồng dữ liệu | `src/edge_scheduler/core/models.py`, `interfaces.py`, `contracts.py`, `contract_validation.py` | Job, trạng thái, snapshot, sự kiện và API giữa các thành phần |
 | Điều phối | `queues.py`, `controller.py`, `schedulers.py`, `shutdown.py` | Hàng đợi, WorkerLoop, chuyển trạng thái, chọn thiết bị và hỗ trợ dừng |
 | Suy luận | `model_registry.py`, `preprocess.py`, `onnx_backend.py`, `cpu_backend.py`, `gpu_backend.py` | Nạp model, warm-up, chuẩn hóa ảnh, chạy CPU/CUDA, kiểm tra output |
 | Giám sát | `monitoring_models.py`, `system_probe.py`, `gpu_probe.py`, `resource_monitor.py`, `resource_log.py` | Đọc CPU/RAM/VRAM, cache snapshot và ghi CSV nền |

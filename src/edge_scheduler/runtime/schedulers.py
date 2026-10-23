@@ -3,8 +3,8 @@ from __future__ import annotations
 from dataclasses import dataclass
 from typing import Mapping, Sequence
 
-from .interfaces import ResourceSnapshot
-from .models import Device, Job
+from ..core.interfaces import ResourceSnapshot
+from ..core.models import Device, Job
 
 
 class CpuOnlyScheduler:

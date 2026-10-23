@@ -9,12 +9,12 @@ chưa được nghiệm thu bởi báo cáo này.
 
 | File | Trách nhiệm |
 |---|---|
-| `src/edge_scheduler/model_registry.py` | Hai model ID, input/output shape, resolve file trong root |
-| `src/edge_scheduler/preprocess.py` | Tiền xử lý T03 dùng chung |
-| `src/edge_scheduler/onnx_backend.py` | Session lifecycle, warm-up, validation, chạy ONNX |
-| `src/edge_scheduler/cpu_backend.py` | `CPUBackend`, cố định `Device.CPU` |
-| `src/edge_scheduler/gpu_backend.py` | `GPUBackend`, cố định `Device.GPU` |
-| `src/edge_scheduler/verification.py` | Đọc operator trace, xác nhận compute CUDA |
+| `src/edge_scheduler/inference/model_registry.py` | Hai model ID, input/output shape, resolve file trong root |
+| `src/edge_scheduler/inference/preprocess.py` | Tiền xử lý T03 dùng chung |
+| `src/edge_scheduler/inference/onnx_backend.py` | Session lifecycle, warm-up, validation, chạy ONNX |
+| `src/edge_scheduler/inference/cpu_backend.py` | `CPUBackend`, cố định `Device.CPU` |
+| `src/edge_scheduler/inference/gpu_backend.py` | `GPUBackend`, cố định `Device.GPU` |
+| `src/edge_scheduler/inference/verification.py` | Đọc operator trace, xác nhận compute CUDA |
 | `scripts/T06_worker_test.py` | CLI chạy thật, so CPU/GPU, lưu artifact mỗi lượt |
 | `tests/test_t06_preprocess.py` | Chuẩn hóa ảnh, center crop, RGB conversion, path containment |
 | `tests/test_t06_backend_unit.py` | Session reuse, lifecycle, lỗi input/model/provider, cleanup, fallback |

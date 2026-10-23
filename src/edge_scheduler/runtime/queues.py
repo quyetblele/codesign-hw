@@ -5,7 +5,7 @@ from queue import Queue
 from threading import Lock
 from typing import Dict
 
-from .models import Device, Job, JobStatus
+from ..core.models import Device, Job, JobStatus
 
 
 class JobQueues:
@@ -55,6 +55,11 @@ class JobQueues:
             with q.mutex:
                 result[device] = tuple(q.queue)
         return result
+
+    def queue_lengths(self) -> dict[str, int]:
+        """Observational counts, not an atomic snapshot with worker state."""
+        return {"incoming": self.incoming.qsize(),
+                **{device.value: q.qsize() for device, q in self.device.items()}}
 
     def record_terminal(self, job: Job) -> None:
         with self._lock:

@@ -80,13 +80,13 @@ README/PLAN và một số báo cáo cũ còn ghi queue/controller/scheduler ch�
 
 ### 4.1. CPU-only vẫn phụ thuộc khởi tạo GPU nếu dùng hai backend thật
 
-[controller.py](../src/edge_scheduler/controller.py) yêu cầu map backend có cả CPU và GPU; `start()` gọi `prepare()` cho cả hai rồi mới tạo worker. Vì vậy, chọn `CpuOnlyScheduler` chưa tạo ra chế độ chạy được trên máy chỉ có CPU với cấu hình toàn backend thật. Nếu GPU prepare lỗi, toàn controller start thất bại.
+[controller.py](../src/edge_scheduler/runtime/controller.py) yêu cầu map backend có cả CPU và GPU; `start()` gọi `prepare()` cho cả hai rồi mới tạo worker. Vì vậy, chọn `CpuOnlyScheduler` chưa tạo ra chế độ chạy được trên máy chỉ có CPU với cấu hình toàn backend thật. Nếu GPU prepare lỗi, toàn controller start thất bại.
 
 Điều này cũng ảnh hưởng so sánh RAM/VRAM: CPU-only hiện chỉ mô tả nơi job thực thi, không có nghĩa GPU không nạp model. Đây là giới hạn tích hợp cần công khai hoặc xử lý trước benchmark.
 
 ### 4.2. Monitor và controller chưa tự đồng bộ worker state
 
-[monitoring_models.py](../src/edge_scheduler/monitoring_models.py) có WorkerRegistry với `set_ready`, `set_running`, `set_unavailable`. [controller.py](../src/edge_scheduler/controller.py) chỉ gọi `monitor.snapshot()`, chưa cập nhật registry hoặc tự start/close monitor.
+[monitoring_models.py](../src/edge_scheduler/monitoring/monitoring_models.py) có WorkerRegistry với `set_ready`, `set_running`, `set_unavailable`. [controller.py](../src/edge_scheduler/runtime/controller.py) chỉ gọi `monitor.snapshot()`, chưa cập nhật registry hoặc tự start/close monitor.
 
 Nếu gắn registry mới mà không có adapter cập nhật ready, registry vẫn báo worker unavailable và job có thể bị từ chối ở dispatch. Nếu không cấu hình worker callback, snapshot thiếu worker states; controller không tự dựng lại trạng thái sức khỏe thiết bị từ các worker đang chạy.
 
@@ -94,7 +94,7 @@ Queue length callback cũng chưa được nối trong một entrypoint pipeline
 
 ### 4.3. Resource-aware chưa kiểm soát đủ điều kiện tài nguyên
 
-[schedulers.py](../src/edge_scheduler/schedulers.py) tính:
+[schedulers.py](../src/edge_scheduler/runtime/schedulers.py) tính:
 
 ```text
 finish_delay = remaining_time + tổng service time trong queue + service time job mới
@@ -179,7 +179,7 @@ Không đưa ra phần trăm hoàn thành vì các task có khối lượng khá
 
 - [PLAN.md](../PLAN.md): scope, T01–T17, benchmark và acceptance criteria.
 - [README.md](../README.md), [WEEK2_IMPLEMENTATION_REPORT.md](../WEEK2_IMPLEMENTATION_REPORT.md): mô tả và phạm vi bàn giao; tiến độ trong README có phần đã cũ.
-- [controller.py](../src/edge_scheduler/controller.py), [queues.py](../src/edge_scheduler/queues.py), [schedulers.py](../src/edge_scheduler/schedulers.py), [contracts.py](../src/edge_scheduler/contracts.py): implementation điều phối và contract.
-- [resource_monitor.py](../src/edge_scheduler/resource_monitor.py), [monitoring_models.py](../src/edge_scheduler/monitoring_models.py): snapshot, callbacks và worker registry.
+- [controller.py](../src/edge_scheduler/runtime/controller.py), [queues.py](../src/edge_scheduler/runtime/queues.py), [schedulers.py](../src/edge_scheduler/runtime/schedulers.py), [contracts.py](../src/edge_scheduler/core/contracts.py): implementation điều phối và contract.
+- [resource_monitor.py](../src/edge_scheduler/monitoring/resource_monitor.py), [monitoring_models.py](../src/edge_scheduler/monitoring/monitoring_models.py): snapshot, callbacks và worker registry.
 - [tests/](../tests/), [scripts/](../scripts/): các testcase/harness đã kiểm tra.
 - [T06_report.md](../T06_report.md), [T08_report.md](../T08_report.md): log nghiệm thu lịch sử, khác với lượt suite mới ngày 22/10.

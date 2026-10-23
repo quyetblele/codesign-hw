@@ -8,11 +8,11 @@ và MetricsCollector toàn hệ thống vẫn thuộc T05/T07/T10.
 
 | File | Trách nhiệm |
 |---|---|
-| `src/edge_scheduler/monitoring_models.py` | ProbeReading, ResourceSample bất biến và WorkerRegistry |
-| `src/edge_scheduler/system_probe.py` | psutil: CPU/RAM/process, prime CPU counter trong sampler thread |
-| `src/edge_scheduler/gpu_probe.py` | NVML: VRAM/utilization, UUID/name và lỗi từng nhóm metric |
-| `src/edge_scheduler/resource_monitor.py` | Lấy mẫu nền, cache, stale, ghép callback trạng thái, T04 snapshot |
-| `src/edge_scheduler/resource_log.py` | ResourceSampleSink ghi CSV bằng thread riêng và queue có giới hạn |
+| `src/edge_scheduler/monitoring/monitoring_models.py` | ProbeReading, ResourceSample bất biến và WorkerRegistry |
+| `src/edge_scheduler/monitoring/system_probe.py` | psutil: CPU/RAM/process, prime CPU counter trong sampler thread |
+| `src/edge_scheduler/monitoring/gpu_probe.py` | NVML: VRAM/utilization, UUID/name và lỗi từng nhóm metric |
+| `src/edge_scheduler/monitoring/resource_monitor.py` | Lấy mẫu nền, cache, stale, ghép callback trạng thái, T04 snapshot |
+| `src/edge_scheduler/monitoring/resource_log.py` | ResourceSampleSink ghi CSV bằng thread riêng và queue có giới hạn |
 | `scripts/T08_monitor_test.py` | Theo dõi idle/T06, log theo run, đo overhead theo cặp |
 | `tests/test_t08_*.py` | Probe, lifecycle, concurrency, logging, compatibility và phần cứng thật |
 

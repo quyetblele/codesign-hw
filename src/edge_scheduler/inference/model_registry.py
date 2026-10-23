@@ -6,7 +6,8 @@ from pathlib import Path
 from types import MappingProxyType
 
 
-PROJECT_ROOT = Path(__file__).resolve().parents[2]
+# This module lives at <project>/src/edge_scheduler/inference/model_registry.py.
+PROJECT_ROOT = Path(__file__).resolve().parents[3]
 INPUT_SHAPE = (1, 3, 224, 224)
 OUTPUT_SHAPE = (1, 1000)
 

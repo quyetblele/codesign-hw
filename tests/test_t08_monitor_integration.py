@@ -4,8 +4,8 @@ import sys
 import unittest
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
-from edge_scheduler.gpu_probe import GPUProbe
-from edge_scheduler.resource_monitor import ResourceMonitor
+from edge_scheduler.monitoring.gpu_probe import GPUProbe
+from edge_scheduler.monitoring.resource_monitor import ResourceMonitor
 
 
 class MonitorIntegrationTest(unittest.TestCase):

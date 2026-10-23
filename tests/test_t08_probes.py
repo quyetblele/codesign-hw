@@ -7,9 +7,9 @@ from unittest.mock import MagicMock
 import psutil
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
-from edge_scheduler.gpu_probe import GPUProbe
-from edge_scheduler.monitoring_models import MIB
-from edge_scheduler.system_probe import SystemProbe
+from edge_scheduler.monitoring.gpu_probe import GPUProbe
+from edge_scheduler.monitoring.monitoring_models import MIB
+from edge_scheduler.monitoring.system_probe import SystemProbe
 
 
 class SystemProbeTest(unittest.TestCase):

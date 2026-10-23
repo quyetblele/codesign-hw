@@ -6,8 +6,8 @@ from threading import Lock
 from types import MappingProxyType
 from typing import Mapping
 
-from .interfaces import ResourceSnapshot, WorkerState
-from .models import Device
+from ..core.interfaces import ResourceSnapshot, WorkerState
+from ..core.models import Device
 
 MIB = 1024 ** 2
 SYSTEM_METRICS = (

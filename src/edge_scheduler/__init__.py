@@ -1,7 +1,7 @@
 """T04 public data and interface contracts. No implementation side effects."""
-from .models import Device, Job, JobStatus
-from .interfaces import ResourceSnapshot, WorkerState, Scheduler
-from .contracts import (
+from .core.models import Device, Job, JobStatus
+from .core.interfaces import ResourceSnapshot, WorkerState, Scheduler
+from .core.contracts import (
     EventKind, JobEvent, WorkerMessage, InferenceBackend,
     ResourceMonitor, ResourceSampleSink, MetricsCollector, ControllerPort,
 )

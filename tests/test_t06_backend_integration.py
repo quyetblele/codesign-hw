@@ -9,10 +9,10 @@ import unittest
 import numpy as np
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
-from edge_scheduler.cpu_backend import CPUBackend
-from edge_scheduler.gpu_backend import GPUBackend
-from edge_scheduler.model_registry import MODEL_REGISTRY
-from edge_scheduler.verification import summarize_profile
+from edge_scheduler.inference.cpu_backend import CPUBackend
+from edge_scheduler.inference.gpu_backend import GPUBackend
+from edge_scheduler.inference.model_registry import MODEL_REGISTRY
+from edge_scheduler.inference.verification import summarize_profile
 
 
 class CPUIntegrationTest(unittest.TestCase):
@@ -39,6 +39,24 @@ class CPUIntegrationTest(unittest.TestCase):
         with self.assertRaises(FileNotFoundError):
             self.backend.infer("resnet50", "inputs/does-not-exist.jpg")
         self.backend.infer("resnet50", "inputs/test.jpg")
+
+    def test_default_assets_are_resolved_from_another_working_directory(self):
+        expected_root = Path(__file__).resolve().parents[1]
+        with tempfile.TemporaryDirectory() as directory:
+            previous = Path.cwd()
+            try:
+                os.chdir(directory)
+                backend = CPUBackend(warmup_runs=1)
+                self.addCleanup(backend.close)
+                self.assertEqual(backend.root, expected_root)
+                backend.prepare()
+                for model in MODEL_REGISTRY:
+                    with self.subTest(model=model):
+                        output = backend.infer(model, "inputs/test.jpg")
+                        self.assertEqual(output.shape, (1, 1000))
+                        self.assertTrue(np.isfinite(output).all())
+            finally:
+                os.chdir(previous)
 
 
 @unittest.skipUnless(os.environ.get("T06_TEST_GPU") == "1",

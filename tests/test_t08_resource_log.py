@@ -9,8 +9,8 @@ from unittest.mock import patch
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
 from edge_scheduler import ResourceSampleSink
-from edge_scheduler.monitoring_models import METRICS, ResourceSample, WorkerRegistry
-from edge_scheduler.resource_log import ResourceCSVLogger
+from edge_scheduler.monitoring.monitoring_models import METRICS, ResourceSample, WorkerRegistry
+from edge_scheduler.monitoring.resource_log import ResourceCSVLogger
 
 
 class LogTest(unittest.TestCase):

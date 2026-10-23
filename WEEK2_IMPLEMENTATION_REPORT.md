@@ -14,7 +14,7 @@ B owns the actual ONNX CPU/GPU InferenceBackend and monitoring/collector impleme
 The original interface contract was preserved; B's code was not edited.
 
 ## Deliverables (implemented)
-- `src/edge_scheduler/models.py`, `interfaces.py`, `contracts.py`: original shared interface contract kept unchanged.
+- `src/edge_scheduler/core/models.py`, `interfaces.py`, `contracts.py`: original shared interface contract kept unchanged.
 - `queues.py`: reuse of old JobQueues enhanced with atomic duplicate guarding, scheduled-job guard,
   terminal reconciliation, and `queued_snapshot()` API that encapsulates Queue internals.
 - `schedulers.py`: CPU-only, GPU-only, Round Robin and Resource-aware (profile-based) selection.

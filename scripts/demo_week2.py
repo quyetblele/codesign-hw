@@ -1,7 +1,7 @@
 """Run: PYTHONPATH=src python3 scripts/demo_week2.py"""
-from edge_scheduler.controller import Controller
-from edge_scheduler.models import Device, Job
-from edge_scheduler.schedulers import RoundRobinScheduler
+from edge_scheduler.runtime.controller import Controller
+from edge_scheduler.core.models import Device, Job
+from edge_scheduler.runtime.schedulers import RoundRobinScheduler
 
 class FakeBackend:
     def __init__(self, device): self.device = device

@@ -7,8 +7,8 @@ from unittest.mock import MagicMock
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
 from edge_scheduler import Device, ResourceMonitor as MonitorProtocol, WorkerState
-from edge_scheduler.monitoring_models import GPU_METRICS, SYSTEM_METRICS, ProbeReading, WorkerRegistry
-from edge_scheduler.resource_monitor import ResourceMonitor
+from edge_scheduler.monitoring.monitoring_models import GPU_METRICS, SYSTEM_METRICS, ProbeReading, WorkerRegistry
+from edge_scheduler.monitoring.resource_monitor import ResourceMonitor
 
 
 class FakeProbe:

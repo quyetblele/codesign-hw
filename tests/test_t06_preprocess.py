@@ -7,8 +7,8 @@ import numpy as np
 from PIL import Image, UnidentifiedImageError
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
-from edge_scheduler.preprocess import MEAN, STD, preprocess_image
-from edge_scheduler.model_registry import repository_file
+from edge_scheduler.inference.preprocess import MEAN, STD, preprocess_image
+from edge_scheduler.inference.model_registry import repository_file
 
 
 class PreprocessTest(unittest.TestCase):

@@ -1,5 +1,5 @@
 """CPU implementation of the T04 InferenceBackend protocol."""
-from .models import Device
+from ..core.models import Device
 from .onnx_backend import OnnxBackend
 
 

@@ -1,9 +1,9 @@
 import time
 import unittest
 from threading import Thread
-from edge_scheduler.controller import Controller
-from edge_scheduler.models import Device, Job, JobStatus
-from edge_scheduler.schedulers import RoundRobinScheduler, CpuOnlyScheduler, GpuOnlyScheduler
+from edge_scheduler.runtime.controller import Controller
+from edge_scheduler.core.models import Device, Job, JobStatus
+from edge_scheduler.runtime.schedulers import RoundRobinScheduler, CpuOnlyScheduler, GpuOnlyScheduler
 
 class FakeBackend:
     def __init__(self, device, delay=0):
@@ -67,7 +67,7 @@ class Week2Tests(unittest.TestCase):
         with self.assertRaises(RuntimeError): c.submit(Job('late','mobilenetv2','x'))
 
     def test_wrong_message_rejected(self):
-        from edge_scheduler.contracts import WorkerMessage, EventKind
+        from edge_scheduler.core.contracts import WorkerMessage, EventKind
         c,*_ = create(policy=CpuOnlyScheduler(), delay=.02)
         j=Job('one','mobilenetv2','x')
         c.submit(j); c.dispatch_pending()

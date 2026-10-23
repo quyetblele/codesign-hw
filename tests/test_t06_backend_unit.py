@@ -12,10 +12,10 @@ from PIL import Image
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
 from edge_scheduler import Device, InferenceBackend
-from edge_scheduler.cpu_backend import CPUBackend
-from edge_scheduler.gpu_backend import GPUBackend
-from edge_scheduler.model_registry import MODEL_REGISTRY
-from edge_scheduler.verification import summarize_profile
+from edge_scheduler.inference.cpu_backend import CPUBackend
+from edge_scheduler.inference.gpu_backend import GPUBackend
+from edge_scheduler.inference.model_registry import MODEL_REGISTRY
+from edge_scheduler.inference.verification import summarize_profile
 
 
 class BackendUnitTest(unittest.TestCase):
@@ -36,7 +36,7 @@ class BackendUnitTest(unittest.TestCase):
         self.preload = self.enter_patch("preload_dlls")
 
     def enter_patch(self, name, **kwargs):
-        patcher = patch(f"edge_scheduler.onnx_backend.ort.{name}", **kwargs)
+        patcher = patch(f"edge_scheduler.inference.onnx_backend.ort.{name}", **kwargs)
         mocked = patcher.start()
         self.addCleanup(patcher.stop)
         return mocked

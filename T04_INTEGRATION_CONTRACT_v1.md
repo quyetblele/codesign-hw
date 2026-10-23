@@ -38,11 +38,11 @@ flowchart TD
 
 ## 3. Mã đã tồn tại (đã kiểm tra)
 
-- src/edge_scheduler/models.py: Job, JobStatus, Device và mark_waiting, mark_scheduled, mark_running, mark_completed, mark_failed.
-- src/edge_scheduler/interfaces.py: WorkerState, ResourceSnapshot, Scheduler Protocol.
-- src/edge_scheduler/contracts.py: InferenceBackend, JobEvent, WorkerMessage và các protocol tích hợp.
-- src/edge_scheduler/cpu_backend.py, gpu_backend.py: backend T06; xem T06_report.md.
-- src/edge_scheduler/resource_monitor.py, system_probe.py, gpu_probe.py, resource_log.py: T08.
+- src/edge_scheduler/core/models.py: Job, JobStatus, Device và mark_waiting, mark_scheduled, mark_running, mark_completed, mark_failed.
+- src/edge_scheduler/core/interfaces.py: WorkerState, ResourceSnapshot, Scheduler Protocol.
+- src/edge_scheduler/core/contracts.py: InferenceBackend, JobEvent, WorkerMessage và các protocol tích hợp.
+- src/edge_scheduler/inference/cpu_backend.py, gpu_backend.py: backend T06; xem T06_report.md.
+- src/edge_scheduler/monitoring/resource_monitor.py, system_probe.py, gpu_probe.py, resource_log.py: T08.
 
 `queues.py`, `schedulers.py`, `workload.py`, `shutdown.py`, Controller,
 WorkerLoop và implementation MetricsCollector chưa có trong checkout này.

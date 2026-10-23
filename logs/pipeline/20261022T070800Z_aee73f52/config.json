@@ -1,0 +1,41 @@
+{
+  "scheduler": "round-robin",
+  "jobs": 20,
+  "models": [
+    "mobilenetv2",
+    "resnet50"
+  ],
+  "input": "inputs/test.jpg",
+  "root": "/home/yoo/HDH",
+  "output_dir": "/home/yoo/HDH/logs/pipeline",
+  "warmup": 5,
+  "threads": 2,
+  "monitor_interval": 0.2,
+  "max_sample_age": 1.0,
+  "timeout": 60.0,
+  "shutdown_timeout": 60.0,
+  "device_id": 0,
+  "gpu_index": 0,
+  "gpu_uuid": null,
+  "no_gpu_telemetry": false,
+  "require_gpu_metrics": true,
+  "profile": true,
+  "run_id": "20261022T070800Z_aee73f52",
+  "workload": "finite batch, alternating selected models",
+  "prepared_devices": [
+    "cpu",
+    "gpu"
+  ],
+  "clock": "time.monotonic",
+  "memory_unit": "MiB",
+  "resource_scope": "OS-visible CPU/RAM; whole-process RSS; whole selected GPU",
+  "timing_scope": "job timestamps exclude prepare/warmup; execution includes preprocessing, transfer and validation",
+  "python": "3.10.12 (main, Aug 31 2026, 10:18:17) [GCC 11.4.0]",
+  "platform": "Linux-6.18.33.2-microsoft-standard-WSL2-x86_64-with-glibc2.35",
+  "packages": {
+    "numpy": "2.2.6",
+    "onnxruntime-gpu": "1.23.2",
+    "psutil": "7.2.2",
+    "nvidia-ml-py": "13.615.71"
+  }
+}

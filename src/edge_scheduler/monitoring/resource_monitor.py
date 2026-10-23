@@ -7,10 +7,10 @@ from threading import Event, Lock, Thread
 import time
 from typing import Callable, Mapping
 
-from .contracts import ResourceSampleSink
+from ..core.contracts import ResourceSampleSink
 from .gpu_probe import GPUProbe
-from .interfaces import ResourceSnapshot, WorkerState
-from .models import Device
+from ..core.interfaces import ResourceSnapshot, WorkerState
+from ..core.models import Device
 from .monitoring_models import GPU_METRICS, METRICS, SYSTEM_METRICS, ProbeReading, ResourceSample
 from .system_probe import SystemProbe
 

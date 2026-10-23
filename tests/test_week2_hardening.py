@@ -3,12 +3,12 @@ import threading
 import time
 import unittest
 
-from edge_scheduler.contracts import EventKind, WorkerMessage
-from edge_scheduler.controller import Controller
-from edge_scheduler.interfaces import ResourceSnapshot, WorkerState
-from edge_scheduler.models import Device, Job, JobStatus
-from edge_scheduler.queues import JobQueues
-from edge_scheduler.schedulers import (
+from edge_scheduler.core.contracts import EventKind, WorkerMessage
+from edge_scheduler.runtime.controller import Controller
+from edge_scheduler.core.interfaces import ResourceSnapshot, WorkerState
+from edge_scheduler.core.models import Device, Job, JobStatus
+from edge_scheduler.runtime.queues import JobQueues
+from edge_scheduler.runtime.schedulers import (
     RoundRobinScheduler, CpuOnlyScheduler,
     ResourceAwareScheduler, ServiceTimeProfile,
 )

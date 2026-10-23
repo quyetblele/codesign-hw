@@ -21,10 +21,10 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
 import numpy as np
 import onnxruntime as ort
 
-from edge_scheduler.cpu_backend import CPUBackend
-from edge_scheduler.gpu_backend import GPUBackend
-from edge_scheduler.model_registry import MODEL_REGISTRY, PROJECT_ROOT
-from edge_scheduler.verification import summarize_profile
+from edge_scheduler.inference.cpu_backend import CPUBackend
+from edge_scheduler.inference.gpu_backend import GPUBackend
+from edge_scheduler.inference.model_registry import MODEL_REGISTRY, PROJECT_ROOT
+from edge_scheduler.inference.verification import summarize_profile
 
 
 def positive_integer(value: str) -> int:

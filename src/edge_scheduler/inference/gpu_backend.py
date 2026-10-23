@@ -1,5 +1,5 @@
 """CUDA implementation; initialization/execution fallback is rejected."""
-from .models import Device
+from ..core.models import Device
 from .onnx_backend import OnnxBackend
 
 

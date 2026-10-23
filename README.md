@@ -19,9 +19,11 @@ Hệ thống dự kiến tiếp nhận nhiều AI inference jobs, mỗi job có 
 
 ## System Architecture
 
-Kiến trúc dưới đây là thiết kế toàn hệ thống. Hiện đã triển khai contract T04 và
-backend suy luận CPU/GPU T06 và Resource Monitor T08; queue, controller và
-scheduler chưa có trong checkout này.
+Kiến trúc dưới đây là thiết kế toàn hệ thống. Đã có contract T04, backend suy
+luận CPU/GPU T06, Resource Monitor T08 và queue/controller/scheduler của tuần 2.
+Entry point `edge_scheduler.main` ghép controller, backend thật và monitor để
+chạy một batch hữu hạn với CPU-only, GPU-only hoặc Round Robin. Collector ghi
+sự kiện liên tục, replay workload và benchmark Resource-aware vẫn cần bổ sung.
 
 ```mermaid
 flowchart TD
@@ -97,22 +99,41 @@ Phiên bản đầu không bao gồm train model mới, viết CUDA kernel, GPU 
 
 ## Repository Structure
 
+Mã nguồn được chia thành bốn package theo trách nhiệm:
+
+```text
+src/edge_scheduler/
+├── __init__.py       # Public exports của Job và các contract chung
+├── main.py           # CLI chạy pipeline thật và quản lý vòng đời lượt chạy
+├── core/            # Models, interfaces, contracts và validation
+├── runtime/         # Controller, queues, schedulers và shutdown
+├── inference/       # ONNX backends, model registry, preprocessing, verification
+└── monitoring/      # System/GPU probes, resource samples, monitor và CSV logger
+```
+
+Import implementation qua package tương ứng, ví dụ
+`from edge_scheduler.runtime.controller import Controller`.
+Các public exports như `from edge_scheduler import Job, Device` vẫn dùng được.
+
 | File | Vai trò |
 |---|---|
-| `src/edge_scheduler/models.py`, `interfaces.py`, `contracts.py` | Job và hợp đồng giao tiếp T04 |
-| `src/edge_scheduler/model_registry.py` | Hai model chuẩn và resolve đường dẫn từ project root |
-| `src/edge_scheduler/preprocess.py` | Tiền xử lý dùng chung cho CPU/GPU |
-| `src/edge_scheduler/onnx_backend.py` | Quản lý session, warm-up, suy luận, đóng tài nguyên |
-| `src/edge_scheduler/cpu_backend.py`, `gpu_backend.py` | Hai backend T06 |
-| `src/edge_scheduler/verification.py` | Đọc trace để xác nhận phép tính CUDA |
+| `src/edge_scheduler/main.py` | Entry point chạy batch qua controller, backend thật và monitor |
+| `src/edge_scheduler/core/models.py`, `interfaces.py`, `contracts.py` | Job và hợp đồng giao tiếp T04 |
+| `src/edge_scheduler/runtime/controller.py`, `queues.py`, `schedulers.py`, `shutdown.py` | Queue, WorkerLoop, điều phối và vòng đời thực thi |
+| `src/edge_scheduler/runtime/backend_adapter.py`, `run_results.py` | Cập nhật worker registry, xuất job CSV và thống kê cuối lượt |
+| `src/edge_scheduler/inference/model_registry.py` | Hai model chuẩn và resolve đường dẫn từ project root |
+| `src/edge_scheduler/inference/preprocess.py` | Tiền xử lý dùng chung cho CPU/GPU |
+| `src/edge_scheduler/inference/onnx_backend.py` | Quản lý session, warm-up, suy luận, đóng tài nguyên |
+| `src/edge_scheduler/inference/cpu_backend.py`, `gpu_backend.py` | Hai backend T06 |
+| `src/edge_scheduler/inference/verification.py` | Đọc trace để xác nhận phép tính CUDA |
 | `scripts/T06_worker_test.py` | Chạy backend thật và lưu bằng chứng nghiệm thu |
 | `tests/test_t06_*.py` | Unit test và integration test CPU/GPU |
 | `models/`, `inputs/` | Hai model ONNX và ảnh mẫu |
 | `logs/t06/<run_id>/` | Summary, CSV, output NumPy và trace theo từng lượt |
 | `T06_report.md` | Kết quả T06 và hướng dẫn bàn giao cho T07 |
-| `src/edge_scheduler/system_probe.py`, `gpu_probe.py` | Probe psutil và NVML của T08 |
-| `src/edge_scheduler/monitoring_models.py`, `resource_monitor.py` | ResourceSample bất biến, WorkerRegistry, sampler và snapshot cache |
-| `src/edge_scheduler/resource_log.py` | Writer CSV bất đồng bộ, queue có giới hạn và bộ đếm dropped samples |
+| `src/edge_scheduler/monitoring/system_probe.py`, `gpu_probe.py` | Probe psutil và NVML của T08 |
+| `src/edge_scheduler/monitoring/monitoring_models.py`, `resource_monitor.py` | ResourceSample bất biến, WorkerRegistry, sampler và snapshot cache |
+| `src/edge_scheduler/monitoring/resource_log.py` | Writer CSV bất đồng bộ, queue có giới hạn và bộ đếm dropped samples |
 | `scripts/T08_monitor_test.py`, `tests/test_t08_*.py` | Harness kiểm tra độc lập, cùng T06 và unit/integration tests |
 | `logs/t08/<run_id>/`, `T08_report.md` | Log, config và kết quả nghiệm thu monitor |
 | `PLAN.md` | Requirements, kế hoạch triển khai và đánh giá |
@@ -134,6 +155,55 @@ site packages. Có thể cấu hình `LD_LIBRARY_PATH` theo T02 nếu môi trư�
 Không thay NVIDIA driver hoặc các phiên bản CUDA chỉ dựa trên số CUDA hiển thị bởi `nvidia-smi`.
 
 ## Running
+
+Chạy pipeline tích hợp, từ project root:
+
+```bash
+PYTHONPATH=src .venv/bin/python -m edge_scheduler.main \
+  --scheduler round-robin --jobs 20 --models mobilenetv2 resnet50 \
+  --input inputs/test.jpg --monitor-interval 0.2 \
+  --output-dir logs/pipeline
+
+# Lượt xác nhận CUDA compute và yêu cầu đọc được VRAM thật.
+PYTHONPATH=src .venv/bin/python -m edge_scheduler.main \
+  --scheduler round-robin --jobs 20 --profile --require-gpu-metrics
+
+PYTHONPATH=src .venv/bin/python -m edge_scheduler.main --help
+```
+
+`--jobs` là tổng job trong một batch; model được chọn luân phiên từ `--models`.
+Các policy hỗ trợ là `cpu-only`, `gpu-only`, `round-robin`. Controller hiện
+prepare **cả CPU và GPU** ở mọi policy, vì vậy CPU-only vẫn yêu cầu GPU khởi
+tạo được và vẫn có thể chiếm VRAM. `--no-gpu-telemetry` chỉ tắt NVML, không tắt
+GPU inference hoặc cho phép fallback. Nếu có `CUDA_VISIBLE_DEVICES`, cần chỉ
+rõ `--gpu-uuid` cho NVML hoặc tắt GPU telemetry.
+
+Mỗi lượt tạo `logs/pipeline/<run_id>/` với:
+
+- `config.json`: tham số, model, thiết bị được prepare, phiên bản môi trường và phạm vi đo.
+- `jobs.csv`: thiết bị, trạng thái, timestamps monotonic theo giây, waiting/execution/latency, top-1 và lỗi của mỗi accepted job.
+- `resources.csv`: CPU/RAM/process/VRAM, worker/queue state, phase và lỗi từng metric.
+- `summary.json`: accepted/completed/failed, job chưa kết thúc, đối soát, phân bố thiết bị, mean/P50/P95/P99 theo ms, throughput và diagnostics sau cleanup.
+- `profiles/` nếu bật `--profile`: trace của hai model/device; GPU phải có compute CUDA. Trace gồm warm-up và có overhead, kể cả GPU warm-up ở policy CPU-only.
+
+Job metrics loại thời gian prepare/warm-up, chỉ tổng hợp phân vị trên job thành
+công. Throughput lấy số job thành công chia thời gian từ arrival đầu tới terminal
+cuối, kể cả terminal failed. Resource summary gồm mọi phase, dùng trung bình
+cộng theo mẫu và `observed_max`, không phải peak tuyệt đối. Batch nhỏ chưa đủ
+để diễn giải P99 như một kết quả benchmark ổn định.
+
+Exit code: 0 khi toàn bộ job thành công, đối soát và cleanup/log đều đạt; 1 khi
+lỗi hoặc có job failed; 2 khi tham số CLI sai; 130 khi Ctrl+C. Ctrl+C ngừng nhận
+job và drain các job đã nhận. `--timeout` giới hạn lần chờ workload;
+`--shutdown-timeout` giới hạn **mỗi lần thử drain**, không phải hard timeout của
+process. Khi drain timeout, main ghi checkpoint job chưa hoàn thành vào
+`summary.json` rồi tiếp tục thử đóng; không đóng session đang infer. Native call
+bị treo có thể khiến cleanup tiếp tục chờ, do controller dùng worker thread.
+
+Đây là pipeline demo tích hợp và thống kê cuối lượt, chưa phải generator/replay
+low/medium/high/burst hoặc benchmark bốn scheduler. Resource-aware chưa được
+bật trong CLI. `runtime/run_results.py` chưa thay thế MetricsCollector ghi sự
+kiện liên tục và chưa đo scheduler overhead.
 
 Chạy T06 độc lập, không cần queue/controller:
 
@@ -162,13 +232,24 @@ Kiểm thử:
 .venv/bin/python -m unittest discover -s tests -v
 
 # Nghiệm thu có GPU: CUDA phải chạy được; không skip nếu khởi tạo GPU lỗi.
-T06_TEST_GPU=1 .venv/bin/python -m unittest discover -s tests -v
+T06_TEST_GPU=1 T08_TEST_GPU=1 .venv/bin/python -m unittest discover -s tests -v
 ```
+
+Sau refactor package ngày 22/10/2026, suite có GPU thật đạt **84/84 tests**, không
+skip. Lượt mặc định đạt 82 tests và skip 2 ca GPU thật. Có regression test nạp
+cả hai model và ảnh mẫu bằng root mặc định khi current working directory nằm
+ngoài project; demo và các CLI T03/T06/T08 cũng đã được chạy từ thư mục ngoài.
+
+Sau khi bổ sung entry point pipeline, suite ngày 22/10/2026 đạt **99/99 tests**
+với CUDA/NVML thật, không skip. Lượt mặc định đạt 96 tests và skip 3 ca GPU.
+Test tích hợp mới chạy cả ba policy qua controller + backend ONNX thật + monitor,
+kiểm tra phân bố job, đối soát, CUDA trace và cleanup. Các ca bổ sung còn kiểm
+tra adapter, công thức metrics, lỗi startup/input/log, Ctrl+C và timeout/retry.
 
 Dùng trong T07 với `PYTHONPATH=src`:
 
 ```python
-from edge_scheduler.cpu_backend import CPUBackend
+from edge_scheduler.inference.cpu_backend import CPUBackend
 
 backend = CPUBackend()
 try:
@@ -184,7 +265,8 @@ là no-op; `close()` gọi lặp được và có thể `prepare()` lại. Backe
 `input_ref` phải là đường dẫn tương đối nằm trong project root, kể cả sau khi resolve symlink.
 Root mặc định lấy từ vị trí package; có thể truyền `root=...` khi khởi tạo.
 
-Lệnh `python run.py --scheduler ...` của pipeline vẫn là kế hoạch; chưa có `run.py`.
+Entry point pipeline là `python -m edge_scheduler.main` với `PYTHONPATH=src`
+như trên; không dùng lệnh `python run.py --scheduler ...` trong kế hoạch cũ.
 
 ## Resource Monitor T08
 
@@ -229,9 +311,9 @@ log có thêm sample duration và thời điểm đọc trạng thái chương t
 Tích hợp với T07/T13, dùng `PYTHONPATH=src`:
 
 ```python
-from edge_scheduler.monitoring_models import WorkerRegistry
-from edge_scheduler.resource_log import ResourceCSVLogger
-from edge_scheduler.resource_monitor import ResourceMonitor
+from edge_scheduler.monitoring.monitoring_models import WorkerRegistry
+from edge_scheduler.monitoring.resource_log import ResourceCSVLogger
+from edge_scheduler.monitoring.resource_monitor import ResourceMonitor
 
 registry = WorkerRegistry()  # T07 gọi set_ready/set_running/set_unavailable.
 logger = ResourceCSVLogger("logs/my_run/resources.csv")  # Không ghi đè file cũ.
@@ -275,9 +357,14 @@ log riêng; `MetricsCollector.record(JobEvent)` không đổi.
 thực tế trên CPU và CUDA, có trace xác nhận compute và so sánh output. Xem
 [T06_report.md](T06_report.md) để chạy lại và đọc kết quả. Resource Monitor T08
 đã có lấy mẫu nền, snapshot, resource log và kiểm chứng cùng T06; xem
-[T08_report.md](T08_report.md). Queue/controller, WorkerLoop, bốn scheduler,
-collector và benchmark toàn hệ thống chưa được triển khai trong checkout này.
-Harness T08 không thay cho nghiệm thu T07/T14/T15.
+[T08_report.md](T08_report.md). Queue/controller, WorkerLoop và bốn scheduler
+đã có mã cùng kiểm thử giả lập tuần 2 trong `src/edge_scheduler/runtime/`; xem
+[WEEK2_IMPLEMENTATION_REPORT.md](WEEK2_IMPLEMENTATION_REPORT.md).
+`edge_scheduler.main` đã có kiểm thử tích hợp backend thật và monitor cho
+CPU-only/GPU-only/Round Robin, kèm output và shutdown. Resource-aware vẫn cần
+profile và kiểm tra tài nguyên đầy đủ. Collector ghi sự kiện liên tục,
+generator/replay và benchmark so sánh đầy đủ vẫn chưa được triển khai.
+Harness T08 không thay cho benchmark T15.
 
 Kế hoạch kỹ thuật nằm trong [PLAN.md](PLAN.md); tiến độ hằng ngày được quản lý theo quy ước trên shared Google Sheets project tracker.
 

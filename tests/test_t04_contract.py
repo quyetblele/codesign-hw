@@ -9,7 +9,7 @@ from edge_scheduler import (
     Job, JobStatus, Device, Scheduler, EventKind,
     JobEvent, WorkerMessage, InferenceBackend,
 )
-from edge_scheduler.contract_validation import (
+from edge_scheduler.core.contract_validation import (
     validate_job_request, validate_backend, validate_backend_output,
 )
 
