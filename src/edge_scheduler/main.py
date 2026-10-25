@@ -31,6 +31,9 @@ from .runtime.backend_adapter import MonitoredBackend
 from .runtime.controller import Controller
 from .runtime.run_results import summarize_jobs, summarize_resources, write_job_csv, write_json
 from .runtime.schedulers import CpuOnlyScheduler, GpuOnlyScheduler, RoundRobinScheduler
+from .workload.generator import generate_workload
+from .workload.manifest import WorkloadManifest
+from .workload.replay import replay_workload, write_replay_csv, summarize_replay
 
 
 class Phase:
@@ -74,7 +77,13 @@ def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--scheduler", choices=("cpu-only", "gpu-only", "round-robin"),
                         default="round-robin")
-    parser.add_argument("--jobs", type=_positive_integer, default=20, help="total jobs in one batch")
+    parser.add_argument("--jobs", type=_positive_integer, default=20, help="total jobs in one workload")
+    parser.add_argument("--workload-pattern", choices=("batch", "low", "medium", "high", "burst"), default="batch")
+    parser.add_argument("--seed", type=int, default=0)
+    parser.add_argument("--manifest", type=Path, default=None, help="replay an existing workload.json")
+    parser.add_argument("--rate", type=_positive_seconds, default=None, help="Poisson arrival rate (jobs/second)")
+    parser.add_argument("--burst-size", type=_positive_integer, default=5)
+    parser.add_argument("--burst-gap", type=_positive_seconds, default=0.25)
     parser.add_argument("--models", nargs="+", choices=tuple(MODEL_REGISTRY), default=list(MODEL_REGISTRY))
     parser.add_argument("--input", default="inputs/test.jpg", help="image path relative to project root")
     parser.add_argument("--root", type=Path, default=PROJECT_ROOT)
@@ -111,7 +120,7 @@ def create_run_directory(args) -> Path:
     directory = args.output_dir / run_id
     directory.mkdir(parents=True, exist_ok=False)
     config = {key: str(value) if isinstance(value, Path) else value for key, value in vars(args).items()}
-    config.update(run_id=run_id, workload="finite batch, alternating selected models",
+    config.update(run_id=run_id, workload="versioned manifest, deadline-based replay",
                   prepared_devices=[device.value for device in Device], clock="time.monotonic",
                   memory_unit="MiB", resource_scope="OS-visible CPU/RAM; whole-process RSS; whole selected GPU",
                   timing_scope="job timestamps exclude prepare/warmup; execution includes preprocessing, transfer and validation",
@@ -152,6 +161,13 @@ def create_jobs(args) -> list[Job]:
     return [Job(f"job-{index + 1:06d}", args.models[index % len(args.models)], args.input)
             for index in range(args.jobs)]
 
+def create_workload(args) -> WorkloadManifest:
+    if args.manifest is not None:
+        return WorkloadManifest.load(args.manifest)
+    return generate_workload(count=args.jobs, models=tuple(args.models), input_ref=args.input,
+                             pattern=args.workload_pattern, seed=args.seed, rate_jobs_s=args.rate,
+                             burst_size=args.burst_size, burst_gap_s=args.burst_gap)
+
 
 def _error(exc: BaseException) -> str:
     return f"{type(exc).__name__}: {exc}"
@@ -173,7 +189,12 @@ def run_pipeline(args, directory: Path) -> dict:
     report = {"status": "running", "run_directory": str(directory),
               "requested_jobs": args.jobs, "errors": [], "interrupted": False}
     pipeline = None
+    replay_records = []
     try:
+        manifest = create_workload(args)
+        manifest.save(directory / "workload.json")
+        report["requested_jobs"] = len(manifest.items)
+        report["manifest_sha256"] = manifest.sha256
         pipeline = build_pipeline(args, directory)
         pipeline.phase.set("prepare")
         pipeline.monitor.start()
@@ -191,8 +212,10 @@ def run_pipeline(args, directory: Path) -> dict:
             if sample.values["gpu_memory_total_mb"] is None:
                 raise RuntimeError(f"VRAM telemetry required: {sample.errors}")
         pipeline.phase.set("workload")
-        for job in create_jobs(args):
-            pipeline.controller.submit(job)
+        replay_workload(manifest, pipeline.controller.submit,
+                        lambda: (pipeline.controller.dispatch_pending(), pipeline.controller.drain_events()),
+                        on_record=replay_records.append)
+        report["replay"] = summarize_replay(replay_records)
         if not pipeline.controller.wait_all(args.timeout):
             raise TimeoutError("workload timeout; draining accepted jobs before releasing resources")
     except KeyboardInterrupt:
@@ -201,6 +224,8 @@ def run_pipeline(args, directory: Path) -> dict:
     except Exception as exc:
         report["errors"].append(_error(exc))
     finally:
+        write_replay_csv(directory / "replay.csv", replay_records)
+        report["replay"] = summarize_replay(replay_records)
         if pipeline is not None:
             pipeline.phase.set("drain")
             pipeline.controller.request_shutdown()
@@ -262,7 +287,7 @@ def run_pipeline(args, directory: Path) -> dict:
         stats = report["jobs"]
         if not stats["reconciled"] or stats["failed_jobs"]:
             report["errors"].append("jobs failed or terminal reconciliation failed")
-        if not report["interrupted"] and stats["accepted_jobs"] != args.jobs:
+        if not report["interrupted"] and stats["accepted_jobs"] != report["requested_jobs"]:
             report["errors"].append("not all requested jobs were accepted")
         report["status"] = "interrupted" if report["interrupted"] else "failed" if report["errors"] else "passed"
         write_json(directory / "summary.json", report)
