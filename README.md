@@ -22,8 +22,9 @@ Hệ thống dự kiến tiếp nhận nhiều AI inference jobs, mỗi job có 
 Kiến trúc dưới đây là thiết kế toàn hệ thống. Đã có contract T04, backend suy
 luận CPU/GPU T06, Resource Monitor T08 và queue/controller/scheduler của tuần 2.
 Entry point `edge_scheduler.main` ghép controller, backend thật và monitor để
-chạy một batch hữu hạn với CPU-only, GPU-only hoặc Round Robin. Collector ghi
-sự kiện liên tục, replay workload và benchmark Resource-aware vẫn cần bổ sung.
+chạy một batch hữu hạn với CPU-only, GPU-only hoặc Round Robin. T10 có collector
+sự kiện và bảng terminal; T11 có profiling độc lập. Replay workload và benchmark
+Resource-aware vẫn cần bổ sung.
 
 ```mermaid
 flowchart TD
@@ -156,18 +157,41 @@ Không thay NVIDIA driver hoặc các phiên bản CUDA chỉ dựa trên số C
 
 ## Running
 
-Chạy pipeline tích hợp, từ project root:
+Chạy từ project root. Makefile tự dùng `.venv/bin/python` và đặt `PYTHONPATH`.
+Mỗi câu lệnh trên một dòng:
 
 ```bash
-PYTHONPATH=src .venv/bin/python -m edge_scheduler.main \
-  --scheduler round-robin --jobs 20 --models mobilenetv2 resnet50 \
-  --input inputs/test.jpg --monitor-interval 0.2 \
-  --output-dir logs/pipeline
+make run
+make run POLICY=gpu-only JOBS=1000 WINDOW=5 UPDATE=0.5
+make profile
+make profile DEVICE=cpu RUNS=100 REPEATS=3
+make report
+make report RUN=logs/pipeline/20261022T070800Z_aee73f52
+make report RUN=logs/profiling/<run_id>
+make help
+```
 
-# Lượt xác nhận CUDA compute và yêu cầu đọc được VRAM thật.
-PYTHONPATH=src .venv/bin/python -m edge_scheduler.main \
-  --scheduler round-robin --jobs 20 --profile --require-gpu-metrics
+`make run` mặc định Round Robin, 1000 jobs, Recent 5 giây và cập nhật 1 giây.
+`WINDOW` là cửa sổ các job thành công **kết thúc** trong khoảng vừa qua;
+`UPDATE` chỉ là chu kỳ vẽ lại bảng, không thay chu kỳ lấy mẫu phần cứng 200 ms.
+Throughput Recent chia cho độ dài cửa sổ, hoặc thời gian từ arrival đầu nếu
+chưa đủ cửa sổ. P50/P95 hiển thị kèm số mẫu, thiếu dữ liệu là `—`.
+Summary cuối lượt luôn tính trên toàn workload. Terminal thật cập nhật bảng
+tại chỗ; khi redirect sang file, hiển thị các dòng log thường không có ANSI.
 
+`make report` chọn lượt pipeline/profiling được tạo gần nhất qua `latest.json`,
+kể cả lượt failed (trạng thái được ghi rõ). `RUN` chỉ định chính xác thư mục;
+đường dẫn sai hoặc thiếu artifact báo lỗi, không fallback sang lượt khác.
+Loại report đọc từ `config.json.run_type`, không suy từ tên thư mục; vẫn hỗ
+trợ config pipeline lịch sử. Kết quả là `<run_id>/report/report.md` và PNG trong
+`report/figures/`; không chạy lại inference. Lượt đang chạy có thể chưa đủ
+artifact để tạo report hoàn chỉnh. Có thể đổi tên/di chuyển thư mục rồi dùng RUN.
+
+Tham số CLI bổ sung truyền qua `ARGS`, ví dụ:
+
+```bash
+make run JOBS=20 ARGS="--profile --require-gpu-metrics"
+make profile RUNS=5 REPEATS=1 ARGS="--verify-cuda --require-gpu-metrics"
 PYTHONPATH=src .venv/bin/python -m edge_scheduler.main --help
 ```
 
@@ -181,10 +205,21 @@ rõ `--gpu-uuid` cho NVML hoặc tắt GPU telemetry.
 Mỗi lượt tạo `logs/pipeline/<run_id>/` với:
 
 - `config.json`: tham số, model, thiết bị được prepare, phiên bản môi trường và phạm vi đo.
-- `jobs.csv`: thiết bị, trạng thái, timestamps monotonic theo giây, waiting/execution/latency, top-1 và lỗi của mỗi accepted job.
+- `events.jsonl`: mỗi dòng một JobEvent, ghi liên tục bằng writer thread riêng.
+- `jobs.csv`: ghi khi job terminal; thiết bị, trạng thái, timestamps monotonic theo giây, waiting/execution/latency, scheduler overhead, top-1 và lỗi. Job chưa terminal khi timeout nằm trong summary checkpoint, chưa có dòng CSV kết thúc.
 - `resources.csv`: CPU/RAM/process/VRAM, worker/queue state, phase và lỗi từng metric.
 - `summary.json`: accepted/completed/failed, job chưa kết thúc, đối soát, phân bố thiết bị, mean/P50/P95/P99 theo ms, throughput và diagnostics sau cleanup.
 - `profiles/` nếu bật `--profile`: trace của hai model/device; GPU phải có compute CUDA. Trace gồm warm-up và có overhead, kể cả GPU warm-up ở policy CPU-only.
+
+T10 collector nhận `record/flush/close`; writer có queue giới hạn, không ghi đĩa
+trong controller/worker. Queue đầy hoặc writer lỗi được công khai và làm lượt
+chạy thất bại; job đã nhận vẫn được drain. Summary đối chiếu collector với
+controller. Scheduler overhead đo snapshot + chọn thiết bị + enqueue, loại chi
+phí ghi sự kiện; không đồng nhất với dispatch waiting time.
+
+Run ID có dạng `YYYYMMDDTHHMMSSZ_<8 ký tự UUID>`, thời gian UTC lúc tạo thư mục
+trước prepare/warm-up. Ví dụ `20261022T070800Z_aee73f52` là 22/10/2026 07:08 UTC,
+tức 14:08 UTC+7. Mỗi lượt dùng thư mục mới, không ghi đè lượt cũ.
 
 Job metrics loại thời gian prepare/warm-up, chỉ tổng hợp phân vị trên job thành
 công. Throughput lấy số job thành công chia thời gian từ arrival đầu tới terminal
@@ -202,8 +237,44 @@ bị treo có thể khiến cleanup tiếp tục chờ, do controller dùng work
 
 Đây là pipeline demo tích hợp và thống kê cuối lượt, chưa phải generator/replay
 low/medium/high/burst hoặc benchmark bốn scheduler. Resource-aware chưa được
-bật trong CLI. `runtime/run_results.py` chưa thay thế MetricsCollector ghi sự
-kiện liên tục và chưa đo scheduler overhead.
+bật trong CLI. T10 đã có collector sự kiện, thống kê và scheduler overhead.
+
+### T11: model/device profiling
+
+`make profile` mặc định hai model × CPU/GPU × 3 lượt, 100 inference/cặp/lượt,
+5 warm-up, 2 ORT intra-op threads. Mỗi cặp/mỗi lượt chạy trong **process mới**,
+chỉ nạp một model. Đổi thứ tự cặp giữa các lượt. Dùng `DEVICE=cpu` khi không
+có GPU; yêu cầu GPU lỗi sẽ báo failed, không chuyển inference sang CPU.
+
+```text
+logs/profiling/<run_id>/
+├── config.json
+├── measurements.csv       # Từng inference: model, device, repeat, timestamps, ms
+├── resources.csv          # Mẫu tài nguyên, model/device/repeat và phase
+├── profile_summary.csv    # Bảng tổng hợp để mở bằng Excel/LibreOffice
+├── profile.json           # Profile cho scheduler nạp
+├── summary.json           # Trạng thái, lỗi và chi tiết các trial
+└── trials/                # Log gốc, config, PID/thiết bị của từng process
+```
+
+Đo baseline trước load, ready sau load/warm-up; báo cáo median baseline/ready/
+delta qua các lượt thành công, observed maximum trong phase inference. RSS là
+toàn process, VRAM là toàn GPU; delta có dấu và có thể chịu ảnh hưởng ứng dụng
+khác. Dữ liệu thiếu giữ trống, nguyên nhân nằm trong resource log/trial summary.
+Sampling có thể bỏ lỡ đỉnh ngắn, không coi observed maximum là peak tuyệt đối.
+Thời gian inference gồm đọc ảnh, preprocess, transfer khi cần, ONNX run đồng bộ
+và validation; loại prepare/warm-up, đợi sampler và ghi file.
+
+Mặc định tắt ORT trace để đo thời gian. `--verify-cuda` bật trace để nghiệm thu
+compute, có overhead; profile có trace không được dùng làm calibration.
+`ServiceTimeProfile.from_file(path)` nạp `profile.json`, từ chối lượt failed,
+profile incomplete, NaN/Infinity và timings có trace. Nó chưa tự bật Resource-aware
+hoặc cung cấp remaining-time/memory policy T13. Profile bộ nhớ độc lập phải xét
+session đã nạp khi dùng trong pipeline, tránh cộng lại bộ nhớ thường trú.
+
+`logs/pipeline/latest.json`, `logs/profiling/latest.json` và `logs/latest.json`
+lưu đường dẫn/trạng thái lượt gần nhất. Output tùy chỉnh qua `ARGS="--output-dir ..."`
+có pointer trong thư mục riêng; chọn lượt đó bằng `RUN=...`.
 
 Chạy T06 độc lập, không cần queue/controller:
 
@@ -245,6 +316,12 @@ với CUDA/NVML thật, không skip. Lượt mặc định đạt 96 tests và s
 Test tích hợp mới chạy cả ba policy qua controller + backend ONNX thật + monitor,
 kiểm tra phân bố job, đối soát, CUDA trace và cleanup. Các ca bổ sung còn kiểm
 tra adapter, công thức metrics, lỗi startup/input/log, Ctrl+C và timeout/retry.
+
+Sau khi bổ sung T10/T11 ngày 29/10/2026, suite đạt **113/113 tests với CUDA/NVML
+thật, không skip**. Có thêm kiểm thử streaming collector, Recent window,
+writer/queue lỗi, profiling CPU thật trong process độc lập, profile loader và
+report cho lượt chỉ định/đổi tên thư mục. Nghiệm thu lệnh Make và artifact mẫu
+được ghi trong [báo cáo T10/T11](reports/261029_t10_t11_implementation.md).
 
 Dùng trong T07 với `PYTHONPATH=src`:
 
@@ -301,7 +378,14 @@ NVML không hỗ trợ không làm mất metric khác hoặc đánh dấu GPU ba
 
 CPU/RAM là phạm vi OS/WSL nhìn thấy. RSS là toàn process; VRAM là toàn GPU được
 chọn, có thể gồm ứng dụng khác. Trường `ram_free_mb` hiện có chứa RAM available;
-tất cả trường `_mb` dùng MiB. Process CPU% có thể lớn hơn 100 khi dùng nhiều core.
+tất cả trường `_mb` của lượt mới dùng **MB = bytes / 1.000.000**;
+**1000 MB = 1 GB = 1.000.000.000 bytes**. Process CPU% có thể lớn hơn 100 khi dùng nhiều core.
+
+Lượt mới ghi `memory_unit="MB"`, schema version 2 trong config/metadata;
+profiling và pipeline summary cũng ghi đơn vị. Log lịch sử vẫn giữ MiB
+(bytes / 1.048.576). `make report` đọc đơn vị từ config để ghi đúng nhãn,
+không đổi số hoặc gán nhầm MB cho dữ liệu cũ; config lịch sử không ghi đơn vị
+được hiểu là MiB. Khi so sánh các lượt khác đơn vị phải quy đổi trước.
 
 T08 không đo từng job: mẫu 200 ms không ghi lại mọi biến động của job 10 ms.
 `observed_max` chỉ là đỉnh quan sát trong log. `timestamp_s`/snapshot.timestamp
@@ -362,8 +446,10 @@ thực tế trên CPU và CUDA, có trace xác nhận compute và so sánh outpu
 [WEEK2_IMPLEMENTATION_REPORT.md](WEEK2_IMPLEMENTATION_REPORT.md).
 `edge_scheduler.main` đã có kiểm thử tích hợp backend thật và monitor cho
 CPU-only/GPU-only/Round Robin, kèm output và shutdown. Resource-aware vẫn cần
-profile và kiểm tra tài nguyên đầy đủ. Collector ghi sự kiện liên tục,
-generator/replay và benchmark so sánh đầy đủ vẫn chưa được triển khai.
+profile nối vào quyết định và kiểm tra tài nguyên đầy đủ. T10 đã có collector
+ghi sự kiện, live display, scheduler overhead và report PNG/Markdown. T11 đã có
+profiling độc lập, CSV/JSON và profile loader. Generator/replay và benchmark
+so sánh đầy đủ vẫn chưa được triển khai.
 Harness T08 không thay cho benchmark T15.
 
 Kế hoạch kỹ thuật nằm trong [PLAN.md](PLAN.md); tiến độ hằng ngày được quản lý theo quy ước trên shared Google Sheets project tracker.

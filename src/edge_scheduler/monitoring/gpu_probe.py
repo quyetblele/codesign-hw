@@ -3,7 +3,7 @@ from __future__ import annotations
 
 import math
 
-from .monitoring_models import GPU_METRICS, MIB, ProbeReading
+from .monitoring_models import GPU_METRICS, MB, ProbeReading
 
 
 class GPUProbe:
@@ -35,7 +35,8 @@ class GPUProbe:
     def start(self) -> None:
         if self._initialized:
             return
-        self.metadata = {"nvml_index": self.index, "requested_uuid": self.uuid}
+        self.metadata = {"nvml_index": self.index, "requested_uuid": self.uuid,
+                         "memory_unit": "MB (bytes / 1000000)"}
         if not self.enabled:
             self._unavailable = "disabled"
             return
@@ -68,9 +69,9 @@ class GPUProbe:
             if not (memory.total > 0 and 0 <= memory.free <= memory.total
                     and 0 <= memory.used <= memory.total):
                 raise ValueError("invalid GPU memory metrics")
-            values.update(gpu_memory_total_mb=memory.total / MIB,
-                          gpu_memory_used_mb=memory.used / MIB,
-                          gpu_memory_free_mb=memory.free / MIB)
+            values.update(gpu_memory_total_mb=memory.total / MB,
+                          gpu_memory_used_mb=memory.used / MB,
+                          gpu_memory_free_mb=memory.free / MB)
         except Exception as exc:
             for key in GPU_METRICS[:-1]:
                 errors[key] = self._reason(exc)

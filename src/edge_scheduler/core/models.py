@@ -35,6 +35,7 @@ class Job:
     status: JobStatus = JobStatus.CREATED
     result: Any = None
     error: Optional[str] = None
+    scheduler_overhead_s: Optional[float] = None
 
     def mark_waiting(self) -> None:
         self.status = JobStatus.WAITING

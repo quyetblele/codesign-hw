@@ -1,0 +1,48 @@
+{
+  "device": "gpu",
+  "models": [
+    "mobilenetv2",
+    "resnet50"
+  ],
+  "runs": 20,
+  "repeats": 2,
+  "warmup": 1,
+  "threads": 2,
+  "interval": 0.2,
+  "trial_timeout": 300,
+  "device_id": 0,
+  "gpu_index": 0,
+  "gpu_uuid": null,
+  "no_gpu_telemetry": false,
+  "require_gpu_metrics": true,
+  "verify_cuda": false,
+  "root": "/home/yoo/HDH",
+  "input": "inputs/test.jpg",
+  "output_dir": "/home/yoo/HDH/logs/profiling",
+  "worker_config": null,
+  "run_type": "profiling",
+  "schema_version": 1,
+  "started_at": "2026-10-29T03:50:02.396425+00:00",
+  "devices": [
+    "cpu",
+    "gpu"
+  ],
+  "timing_scope": "image load + preprocessing + synchronous ONNX run + validation; excludes prepare/warmup, sampling waits and file I/O",
+  "memory_scope": "one model/device per fresh process; RSS whole process; VRAM whole GPU; baseline deltas are signed estimates; maxima are sampled observations, not absolute peaks",
+  "memory_unit": "MiB",
+  "clock": "time.monotonic",
+  "python": "3.10.12 (main, Aug 31 2026, 10:18:17) [GCC 11.4.0]",
+  "platform": "Linux-6.18.33.2-microsoft-standard-WSL2-x86_64-with-glibc2.35",
+  "cpu": "x86_64",
+  "logical_cpus": 12,
+  "batch_size": 1,
+  "packages": {
+    "numpy": "2.2.6",
+    "onnxruntime-gpu": "1.23.2",
+    "psutil": "7.2.2",
+    "nvidia-ml-py": "13.615.71"
+  },
+  "run_id": "20261029T035002Z_5305ba8b",
+  "model_id": "resnet50",
+  "repeat": 2
+}

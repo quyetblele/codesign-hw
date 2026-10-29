@@ -1,6 +1,9 @@
 from __future__ import annotations
 
 from dataclasses import dataclass
+import json
+import math
+from pathlib import Path
 from typing import Mapping, Sequence
 
 from ..core.interfaces import ResourceSnapshot
@@ -31,6 +34,26 @@ class RoundRobinScheduler:
 class ServiceTimeProfile:
     seconds: Mapping[tuple[str, Device], float]
 
+    @classmethod
+    def from_file(cls, path: str | Path) -> ServiceTimeProfile:
+        data = json.loads(Path(path).read_text(encoding="utf-8"))
+        if data.get("run_type") != "profiling" or data.get("status") != "passed":
+            raise ValueError("requires a successful profiling run")
+        if data.get("trace_enabled"):
+            raise ValueError("traced timings are for verification, not calibration")
+        entries = {}
+        for row in data["profiles"]:
+            key = (row["model_id"], Device(row["device"]))
+            if key in entries or row.get("status") != "passed":
+                raise ValueError("duplicate or incomplete profile")
+            entries[key] = row["mean_service_s"]
+        if not entries:
+            raise ValueError("empty service-time profile")
+        profile = cls(entries)
+        for model, device in entries:
+            profile.estimate(model, device)
+        return profile
+
     def estimate(self, model_id: str, device: Device) -> float:
         try:
             value = float(self.seconds[(model_id, device)])
@@ -38,8 +61,8 @@ class ServiceTimeProfile:
             raise KeyError(
                 f"missing service-time profile for {model_id}/{device.value}"
             ) from exc
-        if value <= 0:
-            raise ValueError("service time must be > 0")
+        if not math.isfinite(value) or value <= 0:
+            raise ValueError("service time must be finite and > 0")
         return value
 
 

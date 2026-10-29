@@ -7,7 +7,7 @@ import platform
 
 import psutil
 
-from .monitoring_models import MIB, SYSTEM_METRICS, ProbeReading
+from .monitoring_models import MB, SYSTEM_METRICS, ProbeReading
 
 
 def error_reason(exc: Exception) -> str:
@@ -30,7 +30,7 @@ class SystemProbe:
         self._cpu_primed = self._process_primed = False
         self.metadata = {
             "platform": platform.platform(), "logical_cpus": self.api.cpu_count(),
-            "pid": os.getpid(), "memory_unit": "MiB (bytes / 1024**2)",
+            "pid": os.getpid(), "memory_unit": "MB (bytes / 1000000)",
             "scope": "Linux/WSL guest" if "microsoft" in platform.release().lower() else "OS visible resources",
         }
         try:
@@ -64,8 +64,8 @@ class SystemProbe:
             if not (memory.total > 0 and 0 <= memory.available <= memory.total
                     and math.isfinite(memory.percent) and 0 <= memory.percent <= 100):
                 raise ValueError("invalid RAM metrics")
-            values.update(ram_total_mb=memory.total / MIB,
-                          ram_free_mb=memory.available / MIB, ram_used_pct=float(memory.percent))
+            values.update(ram_total_mb=memory.total / MB,
+                          ram_free_mb=memory.available / MB, ram_used_pct=float(memory.percent))
         except Exception as exc:
             for key in ("ram_total_mb", "ram_free_mb", "ram_used_pct"):
                 errors[key] = error_reason(exc)
@@ -75,7 +75,7 @@ class SystemProbe:
             rss = self._process.memory_info().rss
             if rss < 0:
                 raise ValueError("negative RSS")
-            values["process_rss_mb"] = rss / MIB
+            values["process_rss_mb"] = rss / MB
         except Exception as exc:
             errors["process_rss_mb"] = error_reason(exc)
         try:

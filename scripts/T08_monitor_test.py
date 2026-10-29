@@ -25,7 +25,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
 from edge_scheduler.monitoring.gpu_probe import GPUProbe
 from edge_scheduler.inference.model_registry import MODEL_REGISTRY, PROJECT_ROOT
 from edge_scheduler.core.models import Device
-from edge_scheduler.monitoring.monitoring_models import METRICS, WorkerRegistry
+from edge_scheduler.monitoring.monitoring_models import MEMORY_UNIT, METRICS, WorkerRegistry
 from edge_scheduler.monitoring.resource_log import ResourceCSVLogger
 from edge_scheduler.monitoring.resource_monitor import ResourceMonitor
 
@@ -160,7 +160,7 @@ def main():
         datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ") + "_" + uuid4().hex[:8])
     directory.mkdir(parents=True, exist_ok=False)
     config = {key: str(value) if isinstance(value, Path) else value for key, value in vars(args).items()}
-    config.update(memory_unit="MiB", clock="time.monotonic", rss_scope="entire application process",
+    config.update(memory_unit=MEMORY_UNIT, schema_version=2, clock="time.monotonic", rss_scope="entire application process",
                   gpu_scope="whole selected GPU, including other applications",
                   packages=dict(sorted((d.metadata["Name"], d.version) for d in distributions())))
     (directory / "config.json").write_text(json.dumps(config, indent=2) + "\n")

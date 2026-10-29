@@ -66,7 +66,7 @@ class MainPipelineTest(unittest.TestCase):
                 "--no-gpu-telemetry", "--output-dir", str(self.directory),
                 *arguments,
             ])
-        directory = next(self.directory.iterdir())
+        directory = next(path for path in self.directory.iterdir() if path.is_dir())
         report = json.loads((directory / "summary.json").read_text())
         return code, directory, report
 
@@ -243,7 +243,7 @@ class RealPipelineIntegrationTest(unittest.TestCase):
                         code = app.main(["--scheduler", policy, "--jobs", "4", "--warmup", "1",
                                          "--monitor-interval", "0.05", "--require-gpu-metrics",
                                          "--profile", "--output-dir", str(output)])
-                    directory = next(output.iterdir())
+                    directory = next(path for path in output.iterdir() if path.is_dir())
                     report = json.loads((directory / "summary.json").read_text())
                     self.assertEqual(code, 0, report)
                     self.assertEqual(report["jobs"]["completed_jobs"], 4)
