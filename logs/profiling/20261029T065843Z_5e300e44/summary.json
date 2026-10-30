@@ -1,0 +1,1734 @@
+{
+  "schema_version": 2,
+  "run_type": "profiling",
+  "run_id": "20261029T065843Z_5e300e44",
+  "memory_unit": "MB",
+  "status": "passed",
+  "errors": [],
+  "profiles": [
+    {
+      "model_id": "mobilenetv2",
+      "device": "cpu",
+      "samples": 300,
+      "repeats": 3,
+      "status": "passed",
+      "mean_ms": 10.39513209004023,
+      "p50_ms": 10.32351150024624,
+      "p95_ms": 11.324940051690646,
+      "p99_ms": 12.427704040164826,
+      "repeat_mean_std_ms": 0.05675470905533317,
+      "mean_service_s": 0.01039513209004023,
+      "baseline_process_rss_mb": 49.385472,
+      "ready_process_rss_mb": 107.39712,
+      "delta_process_rss_mb": 57.982976,
+      "baseline_gpu_memory_used_mb": null,
+      "ready_gpu_memory_used_mb": null,
+      "delta_gpu_memory_used_mb": null,
+      "observed_max_process_rss_mb": 108.879872,
+      "observed_max_gpu_memory_used_mb": null
+    },
+    {
+      "model_id": "mobilenetv2",
+      "device": "gpu",
+      "samples": 300,
+      "repeats": 3,
+      "status": "passed",
+      "mean_ms": 7.508467730003758,
+      "p50_ms": 7.015619000412698,
+      "p95_ms": 15.375506049986143,
+      "p99_ms": 16.171680659899717,
+      "repeat_mean_std_ms": 0.5589329621773839,
+      "mean_service_s": 0.007508467730003758,
+      "baseline_process_rss_mb": 76.599296,
+      "ready_process_rss_mb": 714.715136,
+      "delta_process_rss_mb": 638.09536,
+      "baseline_gpu_memory_used_mb": 818.552832,
+      "ready_gpu_memory_used_mb": 939.937792,
+      "delta_gpu_memory_used_mb": 111.6119040000001,
+      "observed_max_process_rss_mb": 812.490752,
+      "observed_max_gpu_memory_used_mb": 959.524864
+    },
+    {
+      "model_id": "resnet50",
+      "device": "cpu",
+      "samples": 300,
+      "repeats": 3,
+      "status": "passed",
+      "mean_ms": 43.11642989672691,
+      "p50_ms": 42.73630100033188,
+      "p95_ms": 46.58273350132731,
+      "p99_ms": 50.309530130307394,
+      "repeat_mean_std_ms": 0.29363362209537586,
+      "mean_service_s": 0.04311642989672691,
+      "baseline_process_rss_mb": 49.455104,
+      "ready_process_rss_mb": 391.94624,
+      "delta_process_rss_mb": 342.573056,
+      "baseline_gpu_memory_used_mb": null,
+      "ready_gpu_memory_used_mb": null,
+      "delta_gpu_memory_used_mb": null,
+      "observed_max_process_rss_mb": 396.034048,
+      "observed_max_gpu_memory_used_mb": null
+    },
+    {
+      "model_id": "resnet50",
+      "device": "gpu",
+      "samples": 300,
+      "repeats": 3,
+      "status": "passed",
+      "mean_ms": 12.358893089998068,
+      "p50_ms": 11.822905999906652,
+      "p95_ms": 14.718130950132036,
+      "p99_ms": 16.241840280436005,
+      "repeat_mean_std_ms": 0.09513224052749905,
+      "mean_service_s": 0.012358893089998067,
+      "baseline_process_rss_mb": 76.55424,
+      "ready_process_rss_mb": 824.655872,
+      "delta_process_rss_mb": 748.158976,
+      "baseline_gpu_memory_used_mb": 818.487296,
+      "ready_gpu_memory_used_mb": 1160.654848,
+      "delta_gpu_memory_used_mb": 336.53145599999993,
+      "observed_max_process_rss_mb": 832.151552,
+      "observed_max_gpu_memory_used_mb": 1160.720384
+    }
+  ],
+  "trials": [
+    {
+      "model_id": "mobilenetv2",
+      "device": "cpu",
+      "repeat": 1,
+      "status": "passed",
+      "errors": [],
+      "memory_unit": "MB",
+      "baseline_process_rss_mb": 49.414144,
+      "baseline_gpu_memory_used_mb": null,
+      "prepare_s": 0.10005823800020153,
+      "session_providers": {
+        "mobilenetv2": [
+          "CPUExecutionProvider"
+        ]
+      },
+      "ready_process_rss_mb": 107.39712,
+      "delta_process_rss_mb": 57.982976,
+      "ready_gpu_memory_used_mb": null,
+      "delta_gpu_memory_used_mb": null,
+      "monitor": {
+        "running": false,
+        "sampler_error": null,
+        "sink_error": null,
+        "sequence": 9
+      },
+      "logger": {
+        "written_samples": 9,
+        "dropped_samples": 0,
+        "error": null,
+        "closed": true,
+        "running": false
+      },
+      "resource_metadata": {
+        "system": {
+          "platform": "Linux-6.18.33.2-microsoft-standard-WSL2-x86_64-with-glibc2.35",
+          "logical_cpus": 12,
+          "pid": 70108,
+          "memory_unit": "MB (bytes / 1000000)",
+          "scope": "Linux/WSL guest"
+        },
+        "gpu": {
+          "nvml_index": 0,
+          "requested_uuid": null,
+          "memory_unit": "MB (bytes / 1000000)"
+        }
+      },
+      "resources": {
+        "samples": 9,
+        "metrics": {
+          "cpu_load_pct": {
+            "valid_samples": 9,
+            "unavailable_samples": 0,
+            "mean": 9.455555555555556,
+            "observed_max": 14.5,
+            "errors": {}
+          },
+          "ram_total_mb": {
+            "valid_samples": 9,
+            "unavailable_samples": 0,
+            "mean": 7974.047744,
+            "observed_max": 7974.047744,
+            "errors": {}
+          },
+          "ram_free_mb": {
+            "valid_samples": 9,
+            "unavailable_samples": 0,
+            "mean": 6200.618097777778,
+            "observed_max": 6241.308672,
+            "errors": {}
+          },
+          "ram_used_pct": {
+            "valid_samples": 9,
+            "unavailable_samples": 0,
+            "mean": 22.244444444444444,
+            "observed_max": 22.4,
+            "errors": {}
+          },
+          "process_rss_mb": {
+            "valid_samples": 9,
+            "unavailable_samples": 0,
+            "mean": 95.33485511111111,
+            "observed_max": 108.6464,
+            "errors": {}
+          },
+          "process_cpu_pct": {
+            "valid_samples": 9,
+            "unavailable_samples": 0,
+            "mean": 105.51111111111112,
+            "observed_max": 169.6,
+            "errors": {}
+          },
+          "gpu_memory_total_mb": {
+            "valid_samples": 0,
+            "unavailable_samples": 9,
+            "mean": null,
+            "observed_max": null,
+            "errors": {
+              "disabled": 9
+            }
+          },
+          "gpu_memory_used_mb": {
+            "valid_samples": 0,
+            "unavailable_samples": 9,
+            "mean": null,
+            "observed_max": null,
+            "errors": {
+              "disabled": 9
+            }
+          },
+          "gpu_memory_free_mb": {
+            "valid_samples": 0,
+            "unavailable_samples": 9,
+            "mean": null,
+            "observed_max": null,
+            "errors": {
+              "disabled": 9
+            }
+          },
+          "gpu_utilization_pct": {
+            "valid_samples": 0,
+            "unavailable_samples": 9,
+            "mean": null,
+            "observed_max": null,
+            "errors": {
+              "disabled": 9
+            }
+          }
+        },
+        "stale_samples": 0,
+        "phases": {
+          "baseline": 2,
+          "ready": 1,
+          "inference": 6
+        },
+        "max_sample_duration_s": 0.001352467999822693,
+        "scope": "all phases; arithmetic sample means; maxima are observed, not absolute peaks"
+      }
+    },
+    {
+      "model_id": "mobilenetv2",
+      "device": "cpu",
+      "repeat": 2,
+      "status": "passed",
+      "errors": [],
+      "memory_unit": "MB",
+      "baseline_process_rss_mb": 49.360896,
+      "baseline_gpu_memory_used_mb": null,
+      "prepare_s": 0.0813993190004112,
+      "session_providers": {
+        "mobilenetv2": [
+          "CPUExecutionProvider"
+        ]
+      },
+      "ready_process_rss_mb": 107.278336,
+      "delta_process_rss_mb": 57.91744,
+      "ready_gpu_memory_used_mb": null,
+      "delta_gpu_memory_used_mb": null,
+      "monitor": {
+        "running": false,
+        "sampler_error": null,
+        "sink_error": null,
+        "sequence": 9
+      },
+      "logger": {
+        "written_samples": 9,
+        "dropped_samples": 0,
+        "error": null,
+        "closed": true,
+        "running": false
+      },
+      "resource_metadata": {
+        "system": {
+          "platform": "Linux-6.18.33.2-microsoft-standard-WSL2-x86_64-with-glibc2.35",
+          "logical_cpus": 12,
+          "pid": 70427,
+          "memory_unit": "MB (bytes / 1000000)",
+          "scope": "Linux/WSL guest"
+        },
+        "gpu": {
+          "nvml_index": 0,
+          "requested_uuid": null,
+          "memory_unit": "MB (bytes / 1000000)"
+        }
+      },
+      "resources": {
+        "samples": 9,
+        "metrics": {
+          "cpu_load_pct": {
+            "valid_samples": 9,
+            "unavailable_samples": 0,
+            "mean": 9.644444444444444,
+            "observed_max": 19.2,
+            "errors": {}
+          },
+          "ram_total_mb": {
+            "valid_samples": 9,
+            "unavailable_samples": 0,
+            "mean": 7974.047744,
+            "observed_max": 7974.047744,
+            "errors": {}
+          },
+          "ram_free_mb": {
+            "valid_samples": 9,
+            "unavailable_samples": 0,
+            "mean": 6153.3620906666665,
+            "observed_max": 6193.790976,
+            "errors": {}
+          },
+          "ram_used_pct": {
+            "valid_samples": 9,
+            "unavailable_samples": 0,
+            "mean": 22.844444444444445,
+            "observed_max": 23.0,
+            "errors": {}
+          },
+          "process_rss_mb": {
+            "valid_samples": 9,
+            "unavailable_samples": 0,
+            "mean": 95.23063466666666,
+            "observed_max": 108.527616,
+            "errors": {}
+          },
+          "process_cpu_pct": {
+            "valid_samples": 9,
+            "unavailable_samples": 0,
+            "mean": 101.65555555555555,
+            "observed_max": 165.1,
+            "errors": {}
+          },
+          "gpu_memory_total_mb": {
+            "valid_samples": 0,
+            "unavailable_samples": 9,
+            "mean": null,
+            "observed_max": null,
+            "errors": {
+              "disabled": 9
+            }
+          },
+          "gpu_memory_used_mb": {
+            "valid_samples": 0,
+            "unavailable_samples": 9,
+            "mean": null,
+            "observed_max": null,
+            "errors": {
+              "disabled": 9
+            }
+          },
+          "gpu_memory_free_mb": {
+            "valid_samples": 0,
+            "unavailable_samples": 9,
+            "mean": null,
+            "observed_max": null,
+            "errors": {
+              "disabled": 9
+            }
+          },
+          "gpu_utilization_pct": {
+            "valid_samples": 0,
+            "unavailable_samples": 9,
+            "mean": null,
+            "observed_max": null,
+            "errors": {
+              "disabled": 9
+            }
+          }
+        },
+        "stale_samples": 0,
+        "phases": {
+          "baseline": 2,
+          "ready": 1,
+          "inference": 6
+        },
+        "max_sample_duration_s": 0.0010608550001052208,
+        "scope": "all phases; arithmetic sample means; maxima are observed, not absolute peaks"
+      }
+    },
+    {
+      "model_id": "mobilenetv2",
+      "device": "cpu",
+      "repeat": 3,
+      "status": "passed",
+      "errors": [],
+      "memory_unit": "MB",
+      "baseline_process_rss_mb": 49.385472,
+      "baseline_gpu_memory_used_mb": null,
+      "prepare_s": 0.0854608970003028,
+      "session_providers": {
+        "mobilenetv2": [
+          "CPUExecutionProvider"
+        ]
+      },
+      "ready_process_rss_mb": 107.630592,
+      "delta_process_rss_mb": 58.24511999999999,
+      "ready_gpu_memory_used_mb": null,
+      "delta_gpu_memory_used_mb": null,
+      "monitor": {
+        "running": false,
+        "sampler_error": null,
+        "sink_error": null,
+        "sequence": 9
+      },
+      "logger": {
+        "written_samples": 9,
+        "dropped_samples": 0,
+        "error": null,
+        "closed": true,
+        "running": false
+      },
+      "resource_metadata": {
+        "system": {
+          "platform": "Linux-6.18.33.2-microsoft-standard-WSL2-x86_64-with-glibc2.35",
+          "logical_cpus": 12,
+          "pid": 70471,
+          "memory_unit": "MB (bytes / 1000000)",
+          "scope": "Linux/WSL guest"
+        },
+        "gpu": {
+          "nvml_index": 0,
+          "requested_uuid": null,
+          "memory_unit": "MB (bytes / 1000000)"
+        }
+      },
+      "resources": {
+        "samples": 9,
+        "metrics": {
+          "cpu_load_pct": {
+            "valid_samples": 9,
+            "unavailable_samples": 0,
+            "mean": 8.722222222222221,
+            "observed_max": 16.5,
+            "errors": {}
+          },
+          "ram_total_mb": {
+            "valid_samples": 9,
+            "unavailable_samples": 0,
+            "mean": 7974.047744,
+            "observed_max": 7974.047744,
+            "errors": {}
+          },
+          "ram_free_mb": {
+            "valid_samples": 9,
+            "unavailable_samples": 0,
+            "mean": 6154.433422222222,
+            "observed_max": 6196.191232,
+            "errors": {}
+          },
+          "ram_used_pct": {
+            "valid_samples": 9,
+            "unavailable_samples": 0,
+            "mean": 22.844444444444445,
+            "observed_max": 23.0,
+            "errors": {}
+          },
+          "process_rss_mb": {
+            "valid_samples": 9,
+            "unavailable_samples": 0,
+            "mean": 95.5109831111111,
+            "observed_max": 108.879872,
+            "errors": {}
+          },
+          "process_cpu_pct": {
+            "valid_samples": 9,
+            "unavailable_samples": 0,
+            "mean": 101.66666666666667,
+            "observed_max": 165.2,
+            "errors": {}
+          },
+          "gpu_memory_total_mb": {
+            "valid_samples": 0,
+            "unavailable_samples": 9,
+            "mean": null,
+            "observed_max": null,
+            "errors": {
+              "disabled": 9
+            }
+          },
+          "gpu_memory_used_mb": {
+            "valid_samples": 0,
+            "unavailable_samples": 9,
+            "mean": null,
+            "observed_max": null,
+            "errors": {
+              "disabled": 9
+            }
+          },
+          "gpu_memory_free_mb": {
+            "valid_samples": 0,
+            "unavailable_samples": 9,
+            "mean": null,
+            "observed_max": null,
+            "errors": {
+              "disabled": 9
+            }
+          },
+          "gpu_utilization_pct": {
+            "valid_samples": 0,
+            "unavailable_samples": 9,
+            "mean": null,
+            "observed_max": null,
+            "errors": {
+              "disabled": 9
+            }
+          }
+        },
+        "stale_samples": 0,
+        "phases": {
+          "baseline": 2,
+          "ready": 1,
+          "inference": 6
+        },
+        "max_sample_duration_s": 0.0006506709996756399,
+        "scope": "all phases; arithmetic sample means; maxima are observed, not absolute peaks"
+      }
+    },
+    {
+      "model_id": "mobilenetv2",
+      "device": "gpu",
+      "repeat": 1,
+      "status": "passed",
+      "errors": [],
+      "memory_unit": "MB",
+      "baseline_process_rss_mb": 76.521472,
+      "baseline_gpu_memory_used_mb": 828.325888,
+      "prepare_s": 0.9406303020004998,
+      "session_providers": {
+        "mobilenetv2": [
+          "CUDAExecutionProvider",
+          "CPUExecutionProvider"
+        ]
+      },
+      "ready_process_rss_mb": 713.539584,
+      "delta_process_rss_mb": 637.018112,
+      "ready_gpu_memory_used_mb": 939.937792,
+      "delta_gpu_memory_used_mb": 111.61190399999998,
+      "monitor": {
+        "running": false,
+        "sampler_error": null,
+        "sink_error": null,
+        "sequence": 9
+      },
+      "logger": {
+        "written_samples": 9,
+        "dropped_samples": 0,
+        "error": null,
+        "closed": true,
+        "running": false
+      },
+      "resource_metadata": {
+        "system": {
+          "platform": "Linux-6.18.33.2-microsoft-standard-WSL2-x86_64-with-glibc2.35",
+          "logical_cpus": 12,
+          "pid": 70149,
+          "memory_unit": "MB (bytes / 1000000)",
+          "scope": "Linux/WSL guest"
+        },
+        "gpu": {
+          "nvml_index": 0,
+          "requested_uuid": null,
+          "memory_unit": "MB (bytes / 1000000)",
+          "name": "NVIDIA GeForce GTX 1650",
+          "uuid": "GPU-6befd361-4ca0-7d6d-3432-8ea3bbca9130"
+        }
+      },
+      "resources": {
+        "samples": 9,
+        "metrics": {
+          "cpu_load_pct": {
+            "valid_samples": 9,
+            "unavailable_samples": 0,
+            "mean": 6.411111111111111,
+            "observed_max": 8.7,
+            "errors": {}
+          },
+          "ram_total_mb": {
+            "valid_samples": 9,
+            "unavailable_samples": 0,
+            "mean": 7974.047744,
+            "observed_max": 7974.047744,
+            "errors": {}
+          },
+          "ram_free_mb": {
+            "valid_samples": 9,
+            "unavailable_samples": 0,
+            "mean": 5898.652330666667,
+            "observed_max": 6199.627776,
+            "errors": {}
+          },
+          "ram_used_pct": {
+            "valid_samples": 9,
+            "unavailable_samples": 0,
+            "mean": 26.044444444444444,
+            "observed_max": 27.6,
+            "errors": {}
+          },
+          "process_rss_mb": {
+            "valid_samples": 9,
+            "unavailable_samples": 0,
+            "mean": 538.3950791111112,
+            "observed_max": 717.594624,
+            "errors": {}
+          },
+          "process_cpu_pct": {
+            "valid_samples": 9,
+            "unavailable_samples": 0,
+            "mean": 74.92222222222222,
+            "observed_max": 110.4,
+            "errors": {}
+          },
+          "gpu_memory_total_mb": {
+            "valid_samples": 9,
+            "unavailable_samples": 0,
+            "mean": 4294.967296,
+            "observed_max": 4294.967296,
+            "errors": {}
+          },
+          "gpu_memory_used_mb": {
+            "valid_samples": 9,
+            "unavailable_samples": 0,
+            "mean": 911.843783111111,
+            "observed_max": 939.937792,
+            "errors": {}
+          },
+          "gpu_memory_free_mb": {
+            "valid_samples": 9,
+            "unavailable_samples": 0,
+            "mean": 3383.1235128888893,
+            "observed_max": 3466.641408,
+            "errors": {}
+          },
+          "gpu_utilization_pct": {
+            "valid_samples": 9,
+            "unavailable_samples": 0,
+            "mean": 6.111111111111111,
+            "observed_max": 17.0,
+            "errors": {}
+          }
+        },
+        "stale_samples": 0,
+        "phases": {
+          "baseline": 2,
+          "prepare_warmup": 2,
+          "ready": 1,
+          "inference": 4
+        },
+        "max_sample_duration_s": 0.005680845999449957,
+        "scope": "all phases; arithmetic sample means; maxima are observed, not absolute peaks"
+      }
+    },
+    {
+      "model_id": "mobilenetv2",
+      "device": "gpu",
+      "repeat": 2,
+      "status": "passed",
+      "errors": [],
+      "memory_unit": "MB",
+      "baseline_process_rss_mb": 76.599296,
+      "baseline_gpu_memory_used_mb": 818.552832,
+      "prepare_s": 0.7240397770001437,
+      "session_providers": {
+        "mobilenetv2": [
+          "CUDAExecutionProvider",
+          "CPUExecutionProvider"
+        ]
+      },
+      "ready_process_rss_mb": 808.452096,
+      "delta_process_rss_mb": 731.8528,
+      "ready_gpu_memory_used_mb": 959.524864,
+      "delta_gpu_memory_used_mb": 140.972032,
+      "monitor": {
+        "running": false,
+        "sampler_error": null,
+        "sink_error": null,
+        "sequence": 10
+      },
+      "logger": {
+        "written_samples": 10,
+        "dropped_samples": 0,
+        "error": null,
+        "closed": true,
+        "running": false
+      },
+      "resource_metadata": {
+        "system": {
+          "platform": "Linux-6.18.33.2-microsoft-standard-WSL2-x86_64-with-glibc2.35",
+          "logical_cpus": 12,
+          "pid": 70395,
+          "memory_unit": "MB (bytes / 1000000)",
+          "scope": "Linux/WSL guest"
+        },
+        "gpu": {
+          "nvml_index": 0,
+          "requested_uuid": null,
+          "memory_unit": "MB (bytes / 1000000)",
+          "name": "NVIDIA GeForce GTX 1650",
+          "uuid": "GPU-6befd361-4ca0-7d6d-3432-8ea3bbca9130"
+        }
+      },
+      "resources": {
+        "samples": 10,
+        "metrics": {
+          "cpu_load_pct": {
+            "valid_samples": 10,
+            "unavailable_samples": 0,
+            "mean": 7.7,
+            "observed_max": 18.7,
+            "errors": {}
+          },
+          "ram_total_mb": {
+            "valid_samples": 10,
+            "unavailable_samples": 0,
+            "mean": 7974.047744,
+            "observed_max": 7974.047744,
+            "errors": {}
+          },
+          "ram_free_mb": {
+            "valid_samples": 10,
+            "unavailable_samples": 0,
+            "mean": 5843.7095424,
+            "observed_max": 6193.516544,
+            "errors": {}
+          },
+          "ram_used_pct": {
+            "valid_samples": 10,
+            "unavailable_samples": 0,
+            "mean": 26.71,
+            "observed_max": 28.8,
+            "errors": {}
+          },
+          "process_rss_mb": {
+            "valid_samples": 10,
+            "unavailable_samples": 0,
+            "mean": 590.6948096,
+            "observed_max": 812.490752,
+            "errors": {}
+          },
+          "process_cpu_pct": {
+            "valid_samples": 10,
+            "unavailable_samples": 0,
+            "mean": 74.28,
+            "observed_max": 110.2,
+            "errors": {}
+          },
+          "gpu_memory_total_mb": {
+            "valid_samples": 10,
+            "unavailable_samples": 0,
+            "mean": 4294.967296,
+            "observed_max": 4294.967296,
+            "errors": {}
+          },
+          "gpu_memory_used_mb": {
+            "valid_samples": 10,
+            "unavailable_samples": 0,
+            "mean": 920.1762304,
+            "observed_max": 959.524864,
+            "errors": {}
+          },
+          "gpu_memory_free_mb": {
+            "valid_samples": 10,
+            "unavailable_samples": 0,
+            "mean": 3374.7910656,
+            "observed_max": 3476.414464,
+            "errors": {}
+          },
+          "gpu_utilization_pct": {
+            "valid_samples": 10,
+            "unavailable_samples": 0,
+            "mean": 6.2,
+            "observed_max": 21.0,
+            "errors": {}
+          }
+        },
+        "stale_samples": 0,
+        "phases": {
+          "baseline": 2,
+          "prepare_warmup": 3,
+          "ready": 1,
+          "inference": 4
+        },
+        "max_sample_duration_s": 0.005503021000549779,
+        "scope": "all phases; arithmetic sample means; maxima are observed, not absolute peaks"
+      }
+    },
+    {
+      "model_id": "mobilenetv2",
+      "device": "gpu",
+      "repeat": 3,
+      "status": "passed",
+      "errors": [],
+      "memory_unit": "MB",
+      "baseline_process_rss_mb": 76.619776,
+      "baseline_gpu_memory_used_mb": 818.42176,
+      "prepare_s": 0.8784685139999056,
+      "session_providers": {
+        "mobilenetv2": [
+          "CUDAExecutionProvider",
+          "CPUExecutionProvider"
+        ]
+      },
+      "ready_process_rss_mb": 714.715136,
+      "delta_process_rss_mb": 638.09536,
+      "ready_gpu_memory_used_mb": 930.033664,
+      "delta_gpu_memory_used_mb": 111.6119040000001,
+      "monitor": {
+        "running": false,
+        "sampler_error": null,
+        "sink_error": null,
+        "sequence": 10
+      },
+      "logger": {
+        "written_samples": 10,
+        "dropped_samples": 0,
+        "error": null,
+        "closed": true,
+        "running": false
+      },
+      "resource_metadata": {
+        "system": {
+          "platform": "Linux-6.18.33.2-microsoft-standard-WSL2-x86_64-with-glibc2.35",
+          "logical_cpus": 12,
+          "pid": 70495,
+          "memory_unit": "MB (bytes / 1000000)",
+          "scope": "Linux/WSL guest"
+        },
+        "gpu": {
+          "nvml_index": 0,
+          "requested_uuid": null,
+          "memory_unit": "MB (bytes / 1000000)",
+          "name": "NVIDIA GeForce GTX 1650",
+          "uuid": "GPU-6befd361-4ca0-7d6d-3432-8ea3bbca9130"
+        }
+      },
+      "resources": {
+        "samples": 10,
+        "metrics": {
+          "cpu_load_pct": {
+            "valid_samples": 10,
+            "unavailable_samples": 0,
+            "mean": 7.340000000000001,
+            "observed_max": 13.3,
+            "errors": {}
+          },
+          "ram_total_mb": {
+            "valid_samples": 10,
+            "unavailable_samples": 0,
+            "mean": 7974.047744,
+            "observed_max": 7974.047744,
+            "errors": {}
+          },
+          "ram_free_mb": {
+            "valid_samples": 10,
+            "unavailable_samples": 0,
+            "mean": 5867.4958336,
+            "observed_max": 6181.810176,
+            "errors": {}
+          },
+          "ram_used_pct": {
+            "valid_samples": 10,
+            "unavailable_samples": 0,
+            "mean": 26.419999999999998,
+            "observed_max": 27.9,
+            "errors": {}
+          },
+          "process_rss_mb": {
+            "valid_samples": 10,
+            "unavailable_samples": 0,
+            "mean": 555.845632,
+            "observed_max": 718.757888,
+            "errors": {}
+          },
+          "process_cpu_pct": {
+            "valid_samples": 10,
+            "unavailable_samples": 0,
+            "mean": 75.33,
+            "observed_max": 113.8,
+            "errors": {}
+          },
+          "gpu_memory_total_mb": {
+            "valid_samples": 10,
+            "unavailable_samples": 0,
+            "mean": 4294.967296,
+            "observed_max": 4294.967296,
+            "errors": {}
+          },
+          "gpu_memory_used_mb": {
+            "valid_samples": 10,
+            "unavailable_samples": 0,
+            "mean": 905.8238464,
+            "observed_max": 930.033664,
+            "errors": {}
+          },
+          "gpu_memory_free_mb": {
+            "valid_samples": 10,
+            "unavailable_samples": 0,
+            "mean": 3389.1434496,
+            "observed_max": 3476.545536,
+            "errors": {}
+          },
+          "gpu_utilization_pct": {
+            "valid_samples": 10,
+            "unavailable_samples": 0,
+            "mean": 4.3,
+            "observed_max": 8.0,
+            "errors": {}
+          }
+        },
+        "stale_samples": 0,
+        "phases": {
+          "baseline": 2,
+          "prepare_warmup": 2,
+          "ready": 1,
+          "inference": 5
+        },
+        "max_sample_duration_s": 0.005540988000575453,
+        "scope": "all phases; arithmetic sample means; maxima are observed, not absolute peaks"
+      }
+    },
+    {
+      "model_id": "resnet50",
+      "device": "cpu",
+      "repeat": 1,
+      "status": "passed",
+      "errors": [],
+      "memory_unit": "MB",
+      "baseline_process_rss_mb": 49.475584,
+      "baseline_gpu_memory_used_mb": null,
+      "prepare_s": 0.5968770330000552,
+      "session_providers": {
+        "resnet50": [
+          "CPUExecutionProvider"
+        ]
+      },
+      "ready_process_rss_mb": 377.757696,
+      "delta_process_rss_mb": 328.282112,
+      "ready_gpu_memory_used_mb": null,
+      "delta_gpu_memory_used_mb": null,
+      "monitor": {
+        "running": false,
+        "sampler_error": null,
+        "sink_error": null,
+        "sequence": 27
+      },
+      "logger": {
+        "written_samples": 27,
+        "dropped_samples": 0,
+        "error": null,
+        "closed": true,
+        "running": false
+      },
+      "resource_metadata": {
+        "system": {
+          "platform": "Linux-6.18.33.2-microsoft-standard-WSL2-x86_64-with-glibc2.35",
+          "logical_cpus": 12,
+          "pid": 70183,
+          "memory_unit": "MB (bytes / 1000000)",
+          "scope": "Linux/WSL guest"
+        },
+        "gpu": {
+          "nvml_index": 0,
+          "requested_uuid": null,
+          "memory_unit": "MB (bytes / 1000000)"
+        }
+      },
+      "resources": {
+        "samples": 27,
+        "metrics": {
+          "cpu_load_pct": {
+            "valid_samples": 27,
+            "unavailable_samples": 0,
+            "mean": 14.71111111111111,
+            "observed_max": 23.7,
+            "errors": {}
+          },
+          "ram_total_mb": {
+            "valid_samples": 27,
+            "unavailable_samples": 0,
+            "mean": 7974.047744,
+            "observed_max": 7974.047744,
+            "errors": {}
+          },
+          "ram_free_mb": {
+            "valid_samples": 27,
+            "unavailable_samples": 0,
+            "mean": 5909.960628148147,
+            "observed_max": 6216.470528,
+            "errors": {}
+          },
+          "ram_used_pct": {
+            "valid_samples": 27,
+            "unavailable_samples": 0,
+            "mean": 25.885185185185183,
+            "observed_max": 26.2,
+            "errors": {}
+          },
+          "process_rss_mb": {
+            "valid_samples": 27,
+            "unavailable_samples": 0,
+            "mean": 354.3319134814815,
+            "observed_max": 379.404288,
+            "errors": {}
+          },
+          "process_cpu_pct": {
+            "valid_samples": 27,
+            "unavailable_samples": 0,
+            "mean": 175.05185185185184,
+            "observed_max": 209.2,
+            "errors": {}
+          },
+          "gpu_memory_total_mb": {
+            "valid_samples": 0,
+            "unavailable_samples": 27,
+            "mean": null,
+            "observed_max": null,
+            "errors": {
+              "disabled": 27
+            }
+          },
+          "gpu_memory_used_mb": {
+            "valid_samples": 0,
+            "unavailable_samples": 27,
+            "mean": null,
+            "observed_max": null,
+            "errors": {
+              "disabled": 27
+            }
+          },
+          "gpu_memory_free_mb": {
+            "valid_samples": 0,
+            "unavailable_samples": 27,
+            "mean": null,
+            "observed_max": null,
+            "errors": {
+              "disabled": 27
+            }
+          },
+          "gpu_utilization_pct": {
+            "valid_samples": 0,
+            "unavailable_samples": 27,
+            "mean": null,
+            "observed_max": null,
+            "errors": {
+              "disabled": 27
+            }
+          }
+        },
+        "stale_samples": 0,
+        "phases": {
+          "baseline": 2,
+          "prepare_warmup": 2,
+          "ready": 1,
+          "inference": 22
+        },
+        "max_sample_duration_s": 0.0008233710013882956,
+        "scope": "all phases; arithmetic sample means; maxima are observed, not absolute peaks"
+      }
+    },
+    {
+      "model_id": "resnet50",
+      "device": "cpu",
+      "repeat": 2,
+      "status": "passed",
+      "errors": [],
+      "memory_unit": "MB",
+      "baseline_process_rss_mb": 49.455104,
+      "baseline_gpu_memory_used_mb": null,
+      "prepare_s": 0.6487908489998517,
+      "session_providers": {
+        "resnet50": [
+          "CPUExecutionProvider"
+        ]
+      },
+      "ready_process_rss_mb": 394.358784,
+      "delta_process_rss_mb": 344.90368,
+      "ready_gpu_memory_used_mb": null,
+      "delta_gpu_memory_used_mb": null,
+      "monitor": {
+        "running": false,
+        "sampler_error": null,
+        "sink_error": null,
+        "sequence": 26
+      },
+      "logger": {
+        "written_samples": 26,
+        "dropped_samples": 0,
+        "error": null,
+        "closed": true,
+        "running": false
+      },
+      "resource_metadata": {
+        "system": {
+          "platform": "Linux-6.18.33.2-microsoft-standard-WSL2-x86_64-with-glibc2.35",
+          "logical_cpus": 12,
+          "pid": 70332,
+          "memory_unit": "MB (bytes / 1000000)",
+          "scope": "Linux/WSL guest"
+        },
+        "gpu": {
+          "nvml_index": 0,
+          "requested_uuid": null,
+          "memory_unit": "MB (bytes / 1000000)"
+        }
+      },
+      "resources": {
+        "samples": 26,
+        "metrics": {
+          "cpu_load_pct": {
+            "valid_samples": 26,
+            "unavailable_samples": 0,
+            "mean": 15.149999999999999,
+            "observed_max": 20.5,
+            "errors": {}
+          },
+          "ram_total_mb": {
+            "valid_samples": 26,
+            "unavailable_samples": 0,
+            "mean": 7974.047744,
+            "observed_max": 7974.047744,
+            "errors": {}
+          },
+          "ram_free_mb": {
+            "valid_samples": 26,
+            "unavailable_samples": 0,
+            "mean": 5900.352118153846,
+            "observed_max": 6204.731392,
+            "errors": {}
+          },
+          "ram_used_pct": {
+            "valid_samples": 26,
+            "unavailable_samples": 0,
+            "mean": 25.98846153846154,
+            "observed_max": 26.4,
+            "errors": {}
+          },
+          "process_rss_mb": {
+            "valid_samples": 26,
+            "unavailable_samples": 0,
+            "mean": 368.8010043076923,
+            "observed_max": 396.034048,
+            "errors": {}
+          },
+          "process_cpu_pct": {
+            "valid_samples": 26,
+            "unavailable_samples": 0,
+            "mean": 178.98076923076923,
+            "observed_max": 214.2,
+            "errors": {}
+          },
+          "gpu_memory_total_mb": {
+            "valid_samples": 0,
+            "unavailable_samples": 26,
+            "mean": null,
+            "observed_max": null,
+            "errors": {
+              "disabled": 26
+            }
+          },
+          "gpu_memory_used_mb": {
+            "valid_samples": 0,
+            "unavailable_samples": 26,
+            "mean": null,
+            "observed_max": null,
+            "errors": {
+              "disabled": 26
+            }
+          },
+          "gpu_memory_free_mb": {
+            "valid_samples": 0,
+            "unavailable_samples": 26,
+            "mean": null,
+            "observed_max": null,
+            "errors": {
+              "disabled": 26
+            }
+          },
+          "gpu_utilization_pct": {
+            "valid_samples": 0,
+            "unavailable_samples": 26,
+            "mean": null,
+            "observed_max": null,
+            "errors": {
+              "disabled": 26
+            }
+          }
+        },
+        "stale_samples": 0,
+        "phases": {
+          "baseline": 2,
+          "prepare_warmup": 1,
+          "ready": 1,
+          "inference": 22
+        },
+        "max_sample_duration_s": 0.0009558669989928603,
+        "scope": "all phases; arithmetic sample means; maxima are observed, not absolute peaks"
+      }
+    },
+    {
+      "model_id": "resnet50",
+      "device": "cpu",
+      "repeat": 3,
+      "status": "passed",
+      "errors": [],
+      "memory_unit": "MB",
+      "baseline_process_rss_mb": 49.373184,
+      "baseline_gpu_memory_used_mb": null,
+      "prepare_s": 0.611278239000967,
+      "session_providers": {
+        "resnet50": [
+          "CPUExecutionProvider"
+        ]
+      },
+      "ready_process_rss_mb": 391.94624,
+      "delta_process_rss_mb": 342.573056,
+      "ready_gpu_memory_used_mb": null,
+      "delta_gpu_memory_used_mb": null,
+      "monitor": {
+        "running": false,
+        "sampler_error": null,
+        "sink_error": null,
+        "sequence": 26
+      },
+      "logger": {
+        "written_samples": 26,
+        "dropped_samples": 0,
+        "error": null,
+        "closed": true,
+        "running": false
+      },
+      "resource_metadata": {
+        "system": {
+          "platform": "Linux-6.18.33.2-microsoft-standard-WSL2-x86_64-with-glibc2.35",
+          "logical_cpus": 12,
+          "pid": 70545,
+          "memory_unit": "MB (bytes / 1000000)",
+          "scope": "Linux/WSL guest"
+        },
+        "gpu": {
+          "nvml_index": 0,
+          "requested_uuid": null,
+          "memory_unit": "MB (bytes / 1000000)"
+        }
+      },
+      "resources": {
+        "samples": 26,
+        "metrics": {
+          "cpu_load_pct": {
+            "valid_samples": 26,
+            "unavailable_samples": 0,
+            "mean": 15.399999999999999,
+            "observed_max": 28.0,
+            "errors": {}
+          },
+          "ram_total_mb": {
+            "valid_samples": 26,
+            "unavailable_samples": 0,
+            "mean": 7974.047744,
+            "observed_max": 7974.047744,
+            "errors": {}
+          },
+          "ram_free_mb": {
+            "valid_samples": 26,
+            "unavailable_samples": 0,
+            "mean": 5894.192679384616,
+            "observed_max": 6199.5008,
+            "errors": {}
+          },
+          "ram_used_pct": {
+            "valid_samples": 26,
+            "unavailable_samples": 0,
+            "mean": 26.088461538461537,
+            "observed_max": 26.5,
+            "errors": {}
+          },
+          "process_rss_mb": {
+            "valid_samples": 26,
+            "unavailable_samples": 0,
+            "mean": 366.55797169230766,
+            "observed_max": 393.592832,
+            "errors": {}
+          },
+          "process_cpu_pct": {
+            "valid_samples": 26,
+            "unavailable_samples": 0,
+            "mean": 182.53846153846155,
+            "observed_max": 209.7,
+            "errors": {}
+          },
+          "gpu_memory_total_mb": {
+            "valid_samples": 0,
+            "unavailable_samples": 26,
+            "mean": null,
+            "observed_max": null,
+            "errors": {
+              "disabled": 26
+            }
+          },
+          "gpu_memory_used_mb": {
+            "valid_samples": 0,
+            "unavailable_samples": 26,
+            "mean": null,
+            "observed_max": null,
+            "errors": {
+              "disabled": 26
+            }
+          },
+          "gpu_memory_free_mb": {
+            "valid_samples": 0,
+            "unavailable_samples": 26,
+            "mean": null,
+            "observed_max": null,
+            "errors": {
+              "disabled": 26
+            }
+          },
+          "gpu_utilization_pct": {
+            "valid_samples": 0,
+            "unavailable_samples": 26,
+            "mean": null,
+            "observed_max": null,
+            "errors": {
+              "disabled": 26
+            }
+          }
+        },
+        "stale_samples": 0,
+        "phases": {
+          "baseline": 2,
+          "prepare_warmup": 1,
+          "ready": 1,
+          "inference": 22
+        },
+        "max_sample_duration_s": 0.0013054020000708988,
+        "scope": "all phases; arithmetic sample means; maxima are observed, not absolute peaks"
+      }
+    },
+    {
+      "model_id": "resnet50",
+      "device": "gpu",
+      "repeat": 1,
+      "status": "passed",
+      "errors": [],
+      "memory_unit": "MB",
+      "baseline_process_rss_mb": 76.496896,
+      "baseline_gpu_memory_used_mb": 824.188928,
+      "prepare_s": 1.1258516259986209,
+      "session_providers": {
+        "resnet50": [
+          "CUDAExecutionProvider",
+          "CPUExecutionProvider"
+        ]
+      },
+      "ready_process_rss_mb": 824.655872,
+      "delta_process_rss_mb": 748.158976,
+      "ready_gpu_memory_used_mb": 1160.720384,
+      "delta_gpu_memory_used_mb": 336.53145599999993,
+      "monitor": {
+        "running": false,
+        "sampler_error": null,
+        "sink_error": null,
+        "sequence": 12
+      },
+      "logger": {
+        "written_samples": 12,
+        "dropped_samples": 0,
+        "error": null,
+        "closed": true,
+        "running": false
+      },
+      "resource_metadata": {
+        "system": {
+          "platform": "Linux-6.18.33.2-microsoft-standard-WSL2-x86_64-with-glibc2.35",
+          "logical_cpus": 12,
+          "pid": 70233,
+          "memory_unit": "MB (bytes / 1000000)",
+          "scope": "Linux/WSL guest"
+        },
+        "gpu": {
+          "nvml_index": 0,
+          "requested_uuid": null,
+          "memory_unit": "MB (bytes / 1000000)",
+          "name": "NVIDIA GeForce GTX 1650",
+          "uuid": "GPU-6befd361-4ca0-7d6d-3432-8ea3bbca9130"
+        }
+      },
+      "resources": {
+        "samples": 12,
+        "metrics": {
+          "cpu_load_pct": {
+            "valid_samples": 12,
+            "unavailable_samples": 0,
+            "mean": 7.516666666666667,
+            "observed_max": 13.2,
+            "errors": {}
+          },
+          "ram_total_mb": {
+            "valid_samples": 12,
+            "unavailable_samples": 0,
+            "mean": 7974.047744,
+            "observed_max": 7974.047744,
+            "errors": {}
+          },
+          "ram_free_mb": {
+            "valid_samples": 12,
+            "unavailable_samples": 0,
+            "mean": 5763.904853333333,
+            "observed_max": 6181.511168,
+            "errors": {}
+          },
+          "ram_used_pct": {
+            "valid_samples": 12,
+            "unavailable_samples": 0,
+            "mean": 27.708333333333332,
+            "observed_max": 29.1,
+            "errors": {}
+          },
+          "process_rss_mb": {
+            "valid_samples": 12,
+            "unavailable_samples": 0,
+            "mean": 674.7634346666667,
+            "observed_max": 828.70272,
+            "errors": {}
+          },
+          "process_cpu_pct": {
+            "valid_samples": 12,
+            "unavailable_samples": 0,
+            "mean": 81.33333333333333,
+            "observed_max": 110.7,
+            "errors": {}
+          },
+          "gpu_memory_total_mb": {
+            "valid_samples": 12,
+            "unavailable_samples": 0,
+            "mean": 4294.967296,
+            "observed_max": 4294.967296,
+            "errors": {}
+          },
+          "gpu_memory_used_mb": {
+            "valid_samples": 12,
+            "unavailable_samples": 0,
+            "mean": 1081.8689706666667,
+            "observed_max": 1160.720384,
+            "errors": {}
+          },
+          "gpu_memory_free_mb": {
+            "valid_samples": 12,
+            "unavailable_samples": 0,
+            "mean": 3213.098325333333,
+            "observed_max": 3470.778368,
+            "errors": {}
+          },
+          "gpu_utilization_pct": {
+            "valid_samples": 12,
+            "unavailable_samples": 0,
+            "mean": 21.833333333333332,
+            "observed_max": 60.0,
+            "errors": {}
+          }
+        },
+        "stale_samples": 0,
+        "phases": {
+          "baseline": 2,
+          "prepare_warmup": 2,
+          "ready": 1,
+          "inference": 7
+        },
+        "max_sample_duration_s": 0.5430549760003487,
+        "scope": "all phases; arithmetic sample means; maxima are observed, not absolute peaks"
+      }
+    },
+    {
+      "model_id": "resnet50",
+      "device": "gpu",
+      "repeat": 2,
+      "status": "passed",
+      "errors": [],
+      "memory_unit": "MB",
+      "baseline_process_rss_mb": 76.57472,
+      "baseline_gpu_memory_used_mb": 818.42176,
+      "prepare_s": 0.803095631999895,
+      "session_providers": {
+        "resnet50": [
+          "CUDAExecutionProvider",
+          "CPUExecutionProvider"
+        ]
+      },
+      "ready_process_rss_mb": 726.585344,
+      "delta_process_rss_mb": 650.010624,
+      "ready_gpu_memory_used_mb": 1028.599808,
+      "delta_gpu_memory_used_mb": 210.178048,
+      "monitor": {
+        "running": false,
+        "sampler_error": null,
+        "sink_error": null,
+        "sequence": 12
+      },
+      "logger": {
+        "written_samples": 12,
+        "dropped_samples": 0,
+        "error": null,
+        "closed": true,
+        "running": false
+      },
+      "resource_metadata": {
+        "system": {
+          "platform": "Linux-6.18.33.2-microsoft-standard-WSL2-x86_64-with-glibc2.35",
+          "logical_cpus": 12,
+          "pid": 70289,
+          "memory_unit": "MB (bytes / 1000000)",
+          "scope": "Linux/WSL guest"
+        },
+        "gpu": {
+          "nvml_index": 0,
+          "requested_uuid": null,
+          "memory_unit": "MB (bytes / 1000000)",
+          "name": "NVIDIA GeForce GTX 1650",
+          "uuid": "GPU-6befd361-4ca0-7d6d-3432-8ea3bbca9130"
+        }
+      },
+      "resources": {
+        "samples": 12,
+        "metrics": {
+          "cpu_load_pct": {
+            "valid_samples": 12,
+            "unavailable_samples": 0,
+            "mean": 7.116666666666667,
+            "observed_max": 10.0,
+            "errors": {}
+          },
+          "ram_total_mb": {
+            "valid_samples": 12,
+            "unavailable_samples": 0,
+            "mean": 7974.047744,
+            "observed_max": 7974.047744,
+            "errors": {}
+          },
+          "ram_free_mb": {
+            "valid_samples": 12,
+            "unavailable_samples": 0,
+            "mean": 5834.776576,
+            "observed_max": 6192.467968,
+            "errors": {}
+          },
+          "ram_used_pct": {
+            "valid_samples": 12,
+            "unavailable_samples": 0,
+            "mean": 26.816666666666666,
+            "observed_max": 27.8,
+            "errors": {}
+          },
+          "process_rss_mb": {
+            "valid_samples": 12,
+            "unavailable_samples": 0,
+            "mean": 608.3072000000001,
+            "observed_max": 730.615808,
+            "errors": {}
+          },
+          "process_cpu_pct": {
+            "valid_samples": 12,
+            "unavailable_samples": 0,
+            "mean": 78.05,
+            "observed_max": 110.3,
+            "errors": {}
+          },
+          "gpu_memory_total_mb": {
+            "valid_samples": 12,
+            "unavailable_samples": 0,
+            "mean": 4294.967296,
+            "observed_max": 4294.967296,
+            "errors": {}
+          },
+          "gpu_memory_used_mb": {
+            "valid_samples": 12,
+            "unavailable_samples": 0,
+            "mean": 992.69632,
+            "observed_max": 1028.599808,
+            "errors": {}
+          },
+          "gpu_memory_free_mb": {
+            "valid_samples": 12,
+            "unavailable_samples": 0,
+            "mean": 3302.270976,
+            "observed_max": 3476.545536,
+            "errors": {}
+          },
+          "gpu_utilization_pct": {
+            "valid_samples": 12,
+            "unavailable_samples": 0,
+            "mean": 22.833333333333332,
+            "observed_max": 64.0,
+            "errors": {}
+          }
+        },
+        "stale_samples": 0,
+        "phases": {
+          "baseline": 2,
+          "prepare_warmup": 2,
+          "ready": 1,
+          "inference": 7
+        },
+        "max_sample_duration_s": 0.006240056000024197,
+        "scope": "all phases; arithmetic sample means; maxima are observed, not absolute peaks"
+      }
+    },
+    {
+      "model_id": "resnet50",
+      "device": "gpu",
+      "repeat": 3,
+      "status": "passed",
+      "errors": [],
+      "memory_unit": "MB",
+      "baseline_process_rss_mb": 76.55424,
+      "baseline_gpu_memory_used_mb": 818.487296,
+      "prepare_s": 1.100242177999462,
+      "session_providers": {
+        "resnet50": [
+          "CUDAExecutionProvider",
+          "CPUExecutionProvider"
+        ]
+      },
+      "ready_process_rss_mb": 828.100608,
+      "delta_process_rss_mb": 751.546368,
+      "ready_gpu_memory_used_mb": 1160.654848,
+      "delta_gpu_memory_used_mb": 342.1675519999999,
+      "monitor": {
+        "running": false,
+        "sampler_error": null,
+        "sink_error": null,
+        "sequence": 12
+      },
+      "logger": {
+        "written_samples": 12,
+        "dropped_samples": 0,
+        "error": null,
+        "closed": true,
+        "running": false
+      },
+      "resource_metadata": {
+        "system": {
+          "platform": "Linux-6.18.33.2-microsoft-standard-WSL2-x86_64-with-glibc2.35",
+          "logical_cpus": 12,
+          "pid": 70601,
+          "memory_unit": "MB (bytes / 1000000)",
+          "scope": "Linux/WSL guest"
+        },
+        "gpu": {
+          "nvml_index": 0,
+          "requested_uuid": null,
+          "memory_unit": "MB (bytes / 1000000)",
+          "name": "NVIDIA GeForce GTX 1650",
+          "uuid": "GPU-6befd361-4ca0-7d6d-3432-8ea3bbca9130"
+        }
+      },
+      "resources": {
+        "samples": 12,
+        "metrics": {
+          "cpu_load_pct": {
+            "valid_samples": 12,
+            "unavailable_samples": 0,
+            "mean": 7.133333333333333,
+            "observed_max": 10.7,
+            "errors": {}
+          },
+          "ram_total_mb": {
+            "valid_samples": 12,
+            "unavailable_samples": 0,
+            "mean": 7974.047744,
+            "observed_max": 7974.047744,
+            "errors": {}
+          },
+          "ram_free_mb": {
+            "valid_samples": 12,
+            "unavailable_samples": 0,
+            "mean": 5742.143829333333,
+            "observed_max": 6179.459072,
+            "errors": {}
+          },
+          "ram_used_pct": {
+            "valid_samples": 12,
+            "unavailable_samples": 0,
+            "mean": 27.991666666666664,
+            "observed_max": 29.4,
+            "errors": {}
+          },
+          "process_rss_mb": {
+            "valid_samples": 12,
+            "unavailable_samples": 0,
+            "mean": 679.4584746666667,
+            "observed_max": 832.151552,
+            "errors": {}
+          },
+          "process_cpu_pct": {
+            "valid_samples": 12,
+            "unavailable_samples": 0,
+            "mean": 81.5,
+            "observed_max": 115.0,
+            "errors": {}
+          },
+          "gpu_memory_total_mb": {
+            "valid_samples": 12,
+            "unavailable_samples": 0,
+            "mean": 4294.967296,
+            "observed_max": 4294.967296,
+            "errors": {}
+          },
+          "gpu_memory_used_mb": {
+            "valid_samples": 12,
+            "unavailable_samples": 0,
+            "mean": 1080.3944106666665,
+            "observed_max": 1160.654848,
+            "errors": {}
+          },
+          "gpu_memory_free_mb": {
+            "valid_samples": 12,
+            "unavailable_samples": 0,
+            "mean": 3214.5728853333335,
+            "observed_max": 3476.48,
+            "errors": {}
+          },
+          "gpu_utilization_pct": {
+            "valid_samples": 12,
+            "unavailable_samples": 0,
+            "mean": 20.833333333333332,
+            "observed_max": 46.0,
+            "errors": {}
+          }
+        },
+        "stale_samples": 0,
+        "phases": {
+          "baseline": 2,
+          "prepare_warmup": 2,
+          "ready": 1,
+          "inference": 7
+        },
+        "max_sample_duration_s": 0.5382487020015105,
+        "scope": "all phases; arithmetic sample means; maxima are observed, not absolute peaks"
+      }
+    }
+  ],
+  "timing_scope": "image load + preprocessing + synchronous ONNX run + validation; excludes prepare/warmup, sampling waits and file I/O",
+  "memory_scope": "one model/device per fresh process; RSS whole process; VRAM whole GPU; baseline deltas are signed estimates; maxima are sampled observations, not absolute peaks",
+  "trace_enabled": false
+}

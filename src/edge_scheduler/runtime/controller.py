@@ -60,7 +60,11 @@ class Controller:
     def _emit(self, job: Job, kind: EventKind, timestamp: float,
               error: str | None = None) -> None:
         event = JobEvent(kind=kind, job_id=job.job_id, model_id=job.model_id,
-                         timestamp_s=timestamp, device=job.assigned_device, error=error)
+                         timestamp_s=timestamp, device=job.assigned_device, error=error,
+                         input_ref=job.input_ref,
+                         top1_class=int(job.result[0].argmax())
+                         if kind is EventKind.COMPLETED and hasattr(job.result, "shape") else None,
+                         scheduler_overhead_s=job.scheduler_overhead_s)
         self.events.append(event)
         if self.collector is not None:
             try:
@@ -117,6 +121,7 @@ class Controller:
                     job = self.queues.incoming.get_nowait()
                 except queue.Empty:
                     break
+                decision_started = time.monotonic()
                 try:
                     snap = self.monitor.snapshot() if self.monitor is not None else None
                     device = self.scheduler.choose_device(
@@ -128,9 +133,11 @@ class Controller:
                         if not state.available and state.estimated_remaining_s <= 0:
                             raise RuntimeError(f"device {device.value} unavailable")
                     self.queues.dispatch(job, device)
+                    job.scheduler_overhead_s = time.monotonic() - decision_started
                     self._emit(job, EventKind.DISPATCHED, job.dispatch_time)
                     count += 1
                 except Exception as exc:
+                    job.scheduler_overhead_s = time.monotonic() - decision_started
                     if not job.terminal:
                         job.mark_failed(f"dispatch: {exc}")
                         self.queues.record_terminal(job)

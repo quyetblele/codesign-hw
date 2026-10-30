@@ -1,6 +1,10 @@
 from __future__ import annotations
 
-from dataclasses import dataclass
+from dataclasses import dataclass, field
+import time
+import json
+import math
+from pathlib import Path
 from typing import Mapping, Sequence
 
 from ..core.interfaces import ResourceSnapshot
@@ -31,6 +35,26 @@ class RoundRobinScheduler:
 class ServiceTimeProfile:
     seconds: Mapping[tuple[str, Device], float]
 
+    @classmethod
+    def from_file(cls, path: str | Path) -> ServiceTimeProfile:
+        data = json.loads(Path(path).read_text(encoding="utf-8"))
+        if data.get("run_type") != "profiling" or data.get("status") != "passed":
+            raise ValueError("requires a successful profiling run")
+        if data.get("trace_enabled"):
+            raise ValueError("traced timings are for verification, not calibration")
+        entries = {}
+        for row in data["profiles"]:
+            key = (row["model_id"], Device(row["device"]))
+            if key in entries or row.get("status") != "passed":
+                raise ValueError("duplicate or incomplete profile")
+            entries[key] = row["mean_service_s"]
+        if not entries:
+            raise ValueError("empty service-time profile")
+        profile = cls(entries)
+        for model, device in entries:
+            profile.estimate(model, device)
+        return profile
+
     def estimate(self, model_id: str, device: Device) -> float:
         try:
             value = float(self.seconds[(model_id, device)])
@@ -38,8 +62,8 @@ class ServiceTimeProfile:
             raise KeyError(
                 f"missing service-time profile for {model_id}/{device.value}"
             ) from exc
-        if value <= 0:
-            raise ValueError("service time must be > 0")
+        if not math.isfinite(value) or value <= 0:
+            raise ValueError("service time must be finite and > 0")
         return value
 
 
@@ -50,9 +74,12 @@ class ResourceAwareScheduler:
         self,
         profile: ServiceTimeProfile,
         tie_breaker: Device = Device.CPU,
+        max_snapshot_age_s: float = 1.0,
     ) -> None:
         self.profile = profile
         self.tie_breaker = tie_breaker
+        self.max_snapshot_age_s = max_snapshot_age_s
+        self.decisions: list[dict] = []
 
     def estimated_finish_delay(
         self,
@@ -65,9 +92,16 @@ class ResourceAwareScheduler:
         if snapshot is not None:
             worker = snapshot.workers.get(device)
             if worker is not None:
-                if not worker.available and worker.estimated_remaining_s <= 0:
+                if not worker.available:
                     return float("inf")
-                remaining = max(0.0, worker.estimated_remaining_s)
+                if worker.running_model_id is not None:
+                    if worker.estimated_remaining_known:
+                        remaining = max(0.0, worker.estimated_remaining_s)
+                    elif worker.running_started_s is not None:
+                        elapsed = max(0.0, time.monotonic() - worker.running_started_s)
+                        remaining = max(0.0, self.profile.estimate(worker.running_model_id, device) - elapsed)
+                    else:
+                        remaining = self.profile.estimate(worker.running_model_id, device)
 
         queued = sum(
             self.profile.estimate(q.model_id, device)
@@ -82,12 +116,21 @@ class ResourceAwareScheduler:
         queued_jobs: Mapping[Device, Sequence[Job]],
         snapshot: ResourceSnapshot | None = None,
     ) -> Device:
+        if snapshot is not None and (not math.isfinite(snapshot.timestamp) or
+            time.monotonic() - snapshot.timestamp > self.max_snapshot_age_s):
+            snapshot = None
         cpu = self.estimated_finish_delay(
             Device.CPU, job, queued_jobs, snapshot
         )
         gpu = self.estimated_finish_delay(
             Device.GPU, job, queued_jobs, snapshot
         )
-        if cpu == gpu:
-            return self.tie_breaker
-        return Device.CPU if cpu < gpu else Device.GPU
+        if not math.isfinite(cpu) and not math.isfinite(gpu):
+            raise RuntimeError("no eligible device for scheduling")
+        chosen = self.tie_breaker if cpu == gpu else Device.CPU if cpu < gpu else Device.GPU
+        self.decisions.append({"job_id": job.job_id, "model_id": job.model_id,
+                               "cpu_eta_s": cpu if math.isfinite(cpu) else None,
+                               "gpu_eta_s": gpu if math.isfinite(gpu) else None,
+                               "selected_device": chosen.value,
+                               "timestamp_s": time.monotonic()})
+        return chosen

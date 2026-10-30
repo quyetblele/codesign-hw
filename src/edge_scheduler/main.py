@@ -16,7 +16,8 @@ import platform
 import sys
 from threading import Lock
 import time
-from uuid import uuid4
+
+from .artifacts import mark_latest, new_run
 
 from .core.models import Device, Job
 from .inference.cpu_backend import CPUBackend
@@ -24,16 +25,18 @@ from .inference.gpu_backend import GPUBackend
 from .inference.model_registry import MODEL_REGISTRY, PROJECT_ROOT
 from .inference.verification import summarize_profile
 from .monitoring.gpu_probe import GPUProbe
-from .monitoring.monitoring_models import WorkerRegistry
+from .monitoring.monitoring_models import MEMORY_UNIT, WorkerRegistry
 from .monitoring.resource_log import ResourceCSVLogger
 from .monitoring.resource_monitor import ResourceMonitor
 from .runtime.backend_adapter import MonitoredBackend
 from .runtime.controller import Controller
 from .runtime.run_results import summarize_jobs, summarize_resources, write_job_csv, write_json
-from .runtime.schedulers import CpuOnlyScheduler, GpuOnlyScheduler, RoundRobinScheduler
+from .runtime.schedulers import CpuOnlyScheduler, GpuOnlyScheduler, RoundRobinScheduler, ResourceAwareScheduler, ServiceTimeProfile
 from .workload.generator import generate_workload
 from .workload.manifest import WorkloadManifest
 from .workload.replay import replay_workload, write_replay_csv, summarize_replay
+from .runtime.metrics_collector import MetricsCollector
+from .runtime.live_display import LiveDisplay
 
 
 class Phase:
@@ -57,6 +60,8 @@ class Pipeline:
     logger: ResourceCSVLogger
     backends: dict[Device, MonitoredBackend]
     phase: Phase
+    collector: MetricsCollector
+    display: LiveDisplay | None = None
 
 
 def _positive_integer(value: str) -> int:
@@ -75,8 +80,9 @@ def _positive_seconds(value: str) -> float:
 
 def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--scheduler", choices=("cpu-only", "gpu-only", "round-robin"),
+    parser.add_argument("--scheduler", choices=("cpu-only", "gpu-only", "round-robin", "resource-aware"),
                         default="round-robin")
+    parser.add_argument("--service-profile", type=Path, default=None, help="T11 profile.json for resource-aware")
     parser.add_argument("--jobs", type=_positive_integer, default=20, help="total jobs in one workload")
     parser.add_argument("--workload-pattern", choices=("batch", "low", "medium", "high", "burst"), default="batch")
     parser.add_argument("--seed", type=int, default=0)
@@ -101,6 +107,9 @@ def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
     parser.add_argument("--no-gpu-telemetry", action="store_true", help="disable NVML only; GPU inference is still required")
     parser.add_argument("--require-gpu-metrics", action="store_true", help="require VRAM telemetry; utilization remains optional")
     parser.add_argument("--profile", action="store_true", help="save ORT traces and require CUDA compute for both models")
+    parser.add_argument("--window", type=_positive_seconds, default=5.0, help="recent successful-completion window, seconds")
+    parser.add_argument("--update", type=_positive_seconds, default=1.0, help="display refresh interval, seconds")
+    parser.add_argument("--live", action="store_true", help="show T10 metrics; plain log lines when redirected")
     args = parser.parse_args(argv)
     if args.device_id < 0 or args.gpu_index < 0:
         parser.error("device-id and gpu-index must be >= 0")
@@ -112,21 +121,24 @@ def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
         parser.error("set --gpu-uuid to map NVML to CUDA_VISIBLE_DEVICES, or disable GPU telemetry")
     args.root = args.root.resolve()
     args.output_dir = args.output_dir.resolve()
+    if args.scheduler == "resource-aware" and args.service_profile is None:
+        parser.error("--service-profile is required for resource-aware")
     return args
 
 
 def create_run_directory(args) -> Path:
-    run_id = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ") + "_" + uuid4().hex[:8]
-    directory = args.output_dir / run_id
-    directory.mkdir(parents=True, exist_ok=False)
+    directory = new_run(args.output_dir)
     config = {key: str(value) if isinstance(value, Path) else value for key, value in vars(args).items()}
-    config.update(run_id=run_id, workload="versioned manifest, deadline-based replay",
+    config.update(run_id=directory.name, run_type="pipeline", schema_version=2,
+                  started_at=datetime.now(timezone.utc).isoformat(),
+                  workload="versioned manifest, deadline-based replay",
                   prepared_devices=[device.value for device in Device], clock="time.monotonic",
-                  memory_unit="MiB", resource_scope="OS-visible CPU/RAM; whole-process RSS; whole selected GPU",
+                  memory_unit=MEMORY_UNIT, resource_scope="OS-visible CPU/RAM; whole-process RSS; whole selected GPU",
                   timing_scope="job timestamps exclude prepare/warmup; execution includes preprocessing, transfer and validation",
                   python=sys.version, platform=platform.platform(),
                   packages={name: version(name) for name in ("numpy", "onnxruntime-gpu", "psutil", "nvidia-ml-py")})
     write_json(directory / "config.json", config)
+    mark_latest(directory, "pipeline", "running")
     return directory
 
 
@@ -139,9 +151,15 @@ def build_pipeline(args, directory: Path) -> Pipeline:
                 for device, cls in ((Device.CPU, CPUBackend), (Device.GPU, GPUBackend))}
     policies = {"cpu-only": CpuOnlyScheduler, "gpu-only": GpuOnlyScheduler,
                 "round-robin": RoundRobinScheduler}
-    controller = Controller(policies[args.scheduler](), backends)
+    if args.scheduler == "resource-aware":
+        scheduler = ResourceAwareScheduler(ServiceTimeProfile.from_file(args.service_profile))
+    else:
+        scheduler = policies[args.scheduler]()
     logger = ResourceCSVLogger(directory / "resources.csv")
+    collector = None
     try:
+        collector = MetricsCollector(directory)
+        controller = Controller(scheduler, backends, collector=collector)
         monitor = ResourceMonitor(
             interval_s=args.monitor_interval, max_age_s=args.max_sample_age,
             gpu_probe=GPUProbe(device_index=args.gpu_index, device_uuid=args.gpu_uuid,
@@ -152,9 +170,13 @@ def build_pipeline(args, directory: Path) -> Pipeline:
         )
     except BaseException:
         logger.close()
+        if collector is not None:
+            collector.close()
         raise
     controller.monitor = monitor
-    return Pipeline(controller, monitor, logger, backends, phase)
+    display = LiveDisplay(collector, monitor, logger, phase, args.scheduler,
+                          window_s=args.window, update_s=args.update) if args.live else None
+    return Pipeline(controller, monitor, logger, backends, phase, collector, display)
 
 
 def create_jobs(args) -> list[Job]:
@@ -179,14 +201,27 @@ def write_results(directory: Path, pipeline: Pipeline | None, report: dict) -> N
     report["jobs"] = summarize_jobs(jobs, accepted, terminal)
     if pipeline:
         report["controller"] = pipeline.controller.diagnostics
+        if isinstance(pipeline.controller.scheduler, ResourceAwareScheduler):
+            import json
+            decisions = pipeline.controller.scheduler.decisions
+            (directory / "scheduler_decisions.jsonl").write_text(
+                "".join(json.dumps(row, ensure_ascii=False) + "\n" for row in decisions), encoding="utf-8")
+            report["scheduler_decisions"] = len(decisions)
         report["monitor"] = pipeline.monitor.diagnostics
         report["logger"] = pipeline.logger.stats
-    write_job_csv(directory / "jobs.csv", jobs)
+        report["collector"] = pipeline.collector.stats
+        report["collected_jobs"] = pipeline.collector.summary()
+        if any(report["collected_jobs"][key] != report["jobs"][key]
+               for key in ("accepted_jobs", "completed_jobs", "failed_jobs", "terminal_jobs")):
+            report["errors"].append("collector and controller outcomes differ")
+    else:
+        write_job_csv(directory / "jobs.csv", jobs)
     write_json(directory / "summary.json", report)
 
 
 def run_pipeline(args, directory: Path) -> dict:
     report = {"status": "running", "run_directory": str(directory),
+              "schema_version": 2, "memory_unit": MEMORY_UNIT,
               "requested_jobs": args.jobs, "errors": [], "interrupted": False}
     pipeline = None
     replay_records = []
@@ -198,6 +233,8 @@ def run_pipeline(args, directory: Path) -> dict:
         pipeline = build_pipeline(args, directory)
         pipeline.phase.set("prepare")
         pipeline.monitor.start()
+        if pipeline.display:
+            pipeline.display.start()
         if not pipeline.monitor.wait_for_sample(max(5.0, args.monitor_interval * 3)):
             raise RuntimeError(f"monitor produced no sample: {pipeline.monitor.diagnostics}")
         started = time.monotonic()
@@ -212,8 +249,12 @@ def run_pipeline(args, directory: Path) -> dict:
             if sample.values["gpu_memory_total_mb"] is None:
                 raise RuntimeError(f"VRAM telemetry required: {sample.errors}")
         pipeline.phase.set("workload")
-        replay_workload(manifest, pipeline.controller.submit,
-                        lambda: (pipeline.controller.dispatch_pending(), pipeline.controller.drain_events()),
+        def pump():
+            if pipeline.collector.stats["error"]:
+                raise RuntimeError(pipeline.collector.stats["error"])
+            pipeline.controller.dispatch_pending()
+            pipeline.controller.drain_events()
+        replay_workload(manifest, pipeline.controller.submit, pump,
                         on_record=replay_records.append)
         report["replay"] = summarize_replay(replay_records)
         if not pipeline.controller.wait_all(args.timeout):
@@ -251,7 +292,8 @@ def run_pipeline(args, directory: Path) -> dict:
                     report["errors"].append(_error(exc))
                     break
             pipeline.phase.set("shutdown")
-            for component in (pipeline.monitor, pipeline.logger):
+            components = ([pipeline.display] if pipeline.display else []) + [pipeline.monitor, pipeline.logger]
+            for component in components:
                 try:
                     component.close()
                 except Exception as exc:
@@ -291,6 +333,7 @@ def run_pipeline(args, directory: Path) -> dict:
             report["errors"].append("not all requested jobs were accepted")
         report["status"] = "interrupted" if report["interrupted"] else "failed" if report["errors"] else "passed"
         write_json(directory / "summary.json", report)
+        mark_latest(directory, "pipeline", report["status"])
     return report
 
 

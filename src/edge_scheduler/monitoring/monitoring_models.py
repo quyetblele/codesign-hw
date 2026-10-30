@@ -9,7 +9,11 @@ from typing import Mapping
 from ..core.interfaces import ResourceSnapshot, WorkerState
 from ..core.models import Device
 
+# New telemetry uses decimal MB. Keep the binary constant for legacy consumers;
+# its value must never be redefined to mean decimal megabytes.
 MIB = 1024 ** 2
+MB = 1_000_000
+MEMORY_UNIT = "MB"
 SYSTEM_METRICS = (
     "cpu_load_pct", "ram_total_mb", "ram_free_mb", "ram_used_pct",
     "process_rss_mb", "process_cpu_pct",

@@ -1,11 +1,13 @@
-"""Final reports for finite pipeline runs; not a streaming MetricsCollector."""
+"""Shared row format and metric definitions for streaming and final reports."""
 from __future__ import annotations
 
 from collections import Counter
 import csv
 import json
+import os
 from pathlib import Path
 import statistics
+import tempfile
 
 import numpy as np
 
@@ -14,10 +16,16 @@ from ..monitoring.monitoring_models import METRICS
 
 
 def write_json(path: Path, value: dict) -> None:
-    temporary = path.with_suffix(path.suffix + ".tmp")
-    temporary.write_text(json.dumps(value, indent=2, ensure_ascii=False,
-                                    allow_nan=False) + "\n", encoding="utf-8")
-    temporary.replace(path)
+    payload = json.dumps(value, indent=2, ensure_ascii=False, allow_nan=False) + "\n"
+    with tempfile.NamedTemporaryFile(mode="w", encoding="utf-8", dir=path.parent,
+                                     prefix=path.name + "_", suffix=".tmp", delete=False) as stream:
+        temporary = Path(stream.name)
+        try:
+            stream.write(payload)
+            stream.close()
+            os.replace(temporary, path)
+        finally:
+            temporary.unlink(missing_ok=True)
 
 
 def _duration(start, finish):
@@ -39,27 +47,31 @@ def job_row(job: Job) -> dict:
         "top1_class": int(np.asarray(job.result)[0].argmax())
         if job.status is JobStatus.COMPLETED else None,
         "error": job.error,
+        "scheduler_overhead_s": job.scheduler_overhead_s,
     }
 
 
 def summarize_jobs(jobs: list[Job], accepted: int, terminal: int) -> dict:
-    completed = [job for job in jobs if job.status is JobStatus.COMPLETED]
-    failed = [job for job in jobs if job.status is JobStatus.FAILED]
-    unfinished = [job.job_id for job in jobs if not job.terminal]
+    return summarize_rows([job_row(job) for job in jobs], accepted, terminal)
+
+
+def summarize_rows(rows: list[dict], accepted: int, terminal: int) -> dict:
+    completed = [row for row in rows if row["status"] == "COMPLETED"]
+    failed = [row for row in rows if row["status"] == "FAILED"]
+    unfinished = [row["job_id"] for row in rows if row["status"] not in ("COMPLETED", "FAILED")]
     errors = []
-    if accepted != len(jobs) or terminal != len(completed) + len(failed):
+    if accepted != len(rows) or terminal != len(completed) + len(failed):
         errors.append("queue counters do not match Job outcomes")
-    for job in completed:
-        times = (job.arrival_time, job.dispatch_time, job.start_time, job.finish_time)
+    for row in completed:
+        times = tuple(row[key + "_time_s"] for key in ("arrival", "dispatch", "start", "finish"))
         if any(value is None for value in times) or list(times) != sorted(times):
-            errors.append(f"invalid lifecycle timestamps: {job.job_id}")
+            errors.append(f"invalid lifecycle timestamps: {row['job_id']}")
     elapsed = None
-    if jobs and not unfinished:
-        elapsed = max(job.finish_time for job in jobs) - min(job.arrival_time for job in jobs)
+    if rows and not unfinished:
+        elapsed = max(row["finish_time_s"] for row in rows) - min(row["arrival_time_s"] for row in rows)
     metrics = {}
-    rows = [job_row(job) for job in completed]
     for name in ("dispatch_wait_s", "device_wait_s", "total_wait_s", "execution_s", "latency_s"):
-        values = [row[name] * 1000 for row in rows if row[name] is not None]
+        values = [row[name] * 1000 for row in completed if row[name] is not None]
         metrics[name.removesuffix("_s") + "_ms"] = {
             "count": len(values),
             "mean": statistics.fmean(values) if values else None,
@@ -77,13 +89,23 @@ def summarize_jobs(jobs: list[Job], accepted: int, terminal: int) -> dict:
         "throughput_jobs_s": len(completed) / elapsed if elapsed and elapsed > 0 else None,
         "devices": {
             device.value: {
-                "assigned": sum(job.assigned_device is device for job in jobs),
-                "completed": sum(job.assigned_device is device for job in completed),
-                "failed": sum(job.assigned_device is device for job in failed),
+                "assigned": sum(row["device"] == device.value for row in rows),
+                "completed": sum(row["device"] == device.value for row in completed),
+                "failed": sum(row["device"] == device.value for row in failed),
             } for device in Device
         },
         "successful_job_metrics": metrics,
+        "scheduler_overhead_ms": distribution([
+            row["scheduler_overhead_s"] * 1000 for row in rows
+            if row.get("scheduler_overhead_s") is not None
+        ]),
     }
+
+
+def distribution(values: list[float]) -> dict:
+    return {"count": len(values), "mean": statistics.fmean(values) if values else None,
+            "total": sum(values),
+            **{f"p{p}": float(np.percentile(values, p)) if values else None for p in (50, 95, 99)}}
 
 
 def write_job_csv(path: Path, jobs: list[Job]) -> None:

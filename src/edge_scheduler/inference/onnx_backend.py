@@ -28,6 +28,7 @@ class OnnxBackend:
         device_id: int = 0,
         profile_dir: str | Path | None = None,
         preload_cuda: bool = True,
+        model_ids: tuple[str, ...] | None = None,
     ) -> None:
         if not isinstance(device, Device):
             raise ValueError("device must be Device.CPU or Device.GPU")
@@ -45,6 +46,11 @@ class OnnxBackend:
         self.device_id = device_id
         self.profile_dir = Path(profile_dir).resolve() if profile_dir is not None else None
         self.preload_cuda = preload_cuda
+        self.model_ids = tuple(MODEL_REGISTRY) if model_ids is None else tuple(model_ids)
+        if not self.model_ids or len(set(self.model_ids)) != len(self.model_ids) or any(
+            model not in MODEL_REGISTRY for model in self.model_ids
+        ):
+            raise ValueError("model_ids must contain distinct supported model IDs")
         self._sessions: dict[str, ort.InferenceSession] = {}
         self._input_names: dict[str, str] = {}
         self._output_names: dict[str, str] = {}
@@ -94,7 +100,7 @@ class OnnxBackend:
             raise ValueError("inference output must be finite float32 scores")
 
     def prepare(self) -> None:
-        """Load/warm both models atomically; a second call while ready is a no-op."""
+        """Load/warm selected models atomically; a second ready call is a no-op."""
         if self.ready:
             return
         self._profile_paths.clear()
@@ -102,7 +108,7 @@ class OnnxBackend:
             if self._provider not in ort.get_available_providers():
                 raise RuntimeError(f"{self._provider} is unavailable in this ONNX Runtime build")
             paths = {model: repository_file(self.root, spec.filename)
-                     for model, spec in MODEL_REGISTRY.items()}
+                     for model, spec in MODEL_REGISTRY.items() if model in self.model_ids}
             if self.device is Device.GPU and self.preload_cuda:
                 # ORT >= 1.21: load CUDA/cuDNN from installed NVIDIA site packages.
                 # System libraries remain available through the normal loader.
@@ -158,7 +164,7 @@ class OnnxBackend:
     def infer(self, model_id: str, input_ref: str) -> np.ndarray:
         if not self.ready:
             raise RuntimeError("backend is not prepared; call prepare() before infer()")
-        if not isinstance(model_id, str) or model_id not in MODEL_REGISTRY:
+        if not isinstance(model_id, str) or model_id not in self.model_ids:
             raise ValueError(f"unsupported model_id: {model_id!r}")
         image_path = repository_file(self.root, input_ref)
         tensor = preprocess_image(image_path)

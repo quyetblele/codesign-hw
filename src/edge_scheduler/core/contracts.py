@@ -27,6 +27,8 @@ class JobEvent:
     device: Device | None = None
     top1_class: int | None = None
     error: str | None = None
+    input_ref: str | None = None
+    scheduler_overhead_s: float | None = None
 
     def __post_init__(self) -> None:
         if not self.job_id or not self.model_id:

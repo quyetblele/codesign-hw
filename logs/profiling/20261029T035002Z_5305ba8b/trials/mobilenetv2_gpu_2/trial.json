@@ -1,0 +1,132 @@
+{
+  "model_id": "mobilenetv2",
+  "device": "gpu",
+  "repeat": 2,
+  "status": "passed",
+  "errors": [],
+  "baseline_process_rss_mb": 73.015625,
+  "baseline_gpu_memory_used_mb": 749.9140625,
+  "prepare_s": 1.0123349880004753,
+  "session_providers": {
+    "mobilenetv2": [
+      "CUDAExecutionProvider",
+      "CPUExecutionProvider"
+    ]
+  },
+  "ready_process_rss_mb": 770.0,
+  "delta_process_rss_mb": 696.984375,
+  "ready_gpu_memory_used_mb": 852.14453125,
+  "delta_gpu_memory_used_mb": 102.23046875,
+  "monitor": {
+    "running": false,
+    "sampler_error": null,
+    "sink_error": null,
+    "sequence": 8
+  },
+  "logger": {
+    "written_samples": 8,
+    "dropped_samples": 0,
+    "error": null,
+    "closed": true,
+    "running": false
+  },
+  "resource_metadata": {
+    "system": {
+      "platform": "Linux-6.18.33.2-microsoft-standard-WSL2-x86_64-with-glibc2.35",
+      "logical_cpus": 12,
+      "pid": 31102,
+      "memory_unit": "MiB (bytes / 1024**2)",
+      "scope": "Linux/WSL guest"
+    },
+    "gpu": {
+      "nvml_index": 0,
+      "requested_uuid": null,
+      "name": "NVIDIA GeForce GTX 1650",
+      "uuid": "GPU-6befd361-4ca0-7d6d-3432-8ea3bbca9130"
+    }
+  },
+  "resources": {
+    "samples": 8,
+    "metrics": {
+      "cpu_load_pct": {
+        "valid_samples": 8,
+        "unavailable_samples": 0,
+        "mean": 22.575,
+        "observed_max": 39.5,
+        "errors": {}
+      },
+      "ram_total_mb": {
+        "valid_samples": 8,
+        "unavailable_samples": 0,
+        "mean": 7604.64453125,
+        "observed_max": 7604.64453125,
+        "errors": {}
+      },
+      "ram_free_mb": {
+        "valid_samples": 8,
+        "unavailable_samples": 0,
+        "mean": 5487.44189453125,
+        "observed_max": 5806.546875,
+        "errors": {}
+      },
+      "ram_used_pct": {
+        "valid_samples": 8,
+        "unavailable_samples": 0,
+        "mean": 27.8375,
+        "observed_max": 30.2,
+        "errors": {}
+      },
+      "process_rss_mb": {
+        "valid_samples": 8,
+        "unavailable_samples": 0,
+        "mean": 531.21533203125,
+        "observed_max": 775.01171875,
+        "errors": {}
+      },
+      "process_cpu_pct": {
+        "valid_samples": 8,
+        "unavailable_samples": 0,
+        "mean": 63.85,
+        "observed_max": 113.4,
+        "errors": {}
+      },
+      "gpu_memory_total_mb": {
+        "valid_samples": 8,
+        "unavailable_samples": 0,
+        "mean": 4096.0,
+        "observed_max": 4096.0,
+        "errors": {}
+      },
+      "gpu_memory_used_mb": {
+        "valid_samples": 8,
+        "unavailable_samples": 0,
+        "mean": 833.8369140625,
+        "observed_max": 884.14453125,
+        "errors": {}
+      },
+      "gpu_memory_free_mb": {
+        "valid_samples": 8,
+        "unavailable_samples": 0,
+        "mean": 3262.1630859375,
+        "observed_max": 3346.0859375,
+        "errors": {}
+      },
+      "gpu_utilization_pct": {
+        "valid_samples": 8,
+        "unavailable_samples": 0,
+        "mean": 16.375,
+        "observed_max": 18.0,
+        "errors": {}
+      }
+    },
+    "stale_samples": 0,
+    "phases": {
+      "baseline": 2,
+      "prepare_warmup": 3,
+      "ready": 1,
+      "inference": 2
+    },
+    "max_sample_duration_s": 0.02427636500033259,
+    "scope": "all phases; arithmetic sample means; maxima are observed, not absolute peaks"
+  }
+}

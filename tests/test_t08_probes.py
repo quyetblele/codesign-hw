@@ -8,7 +8,6 @@ import psutil
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
 from edge_scheduler.monitoring.gpu_probe import GPUProbe
-from edge_scheduler.monitoring.monitoring_models import MIB
 from edge_scheduler.monitoring.system_probe import SystemProbe
 
 
@@ -18,9 +17,9 @@ class SystemProbeTest(unittest.TestCase):
         self.api.cpu_count.return_value = 8
         self.api.cpu_percent.return_value = 25.0
         self.api.virtual_memory.return_value = SimpleNamespace(
-            total=8000 * MIB, available=3000 * MIB, free=100 * MIB, percent=62.5)
+            total=8_000_000_000, available=3_000_000_000, free=100_000_000, percent=62.5)
         self.process = self.api.Process.return_value
-        self.process.memory_info.return_value = SimpleNamespace(rss=120 * MIB)
+        self.process.memory_info.return_value = SimpleNamespace(rss=120_000_000)
         self.process.cpu_percent.return_value = 240.0
         self.probe = SystemProbe(self.api)
 
@@ -29,6 +28,7 @@ class SystemProbeTest(unittest.TestCase):
         sample = self.probe.read()
         self.assertEqual(sample.values["ram_free_mb"], 3000)
         self.assertEqual(sample.values["process_rss_mb"], 120)
+        self.assertEqual(self.probe.metadata["memory_unit"], "MB (bytes / 1000000)")
         self.assertEqual(sample.values["process_cpu_pct"], 240)
         self.assertEqual(sample.errors, {})
         self.assertTrue(all(call.kwargs == {"interval": None}
@@ -74,7 +74,7 @@ class GPUProbeTest(unittest.TestCase):
         self.api.nvmlDeviceGetName.return_value = b"Test GPU"
         self.api.nvmlDeviceGetUUID.return_value = "GPU-test"
         self.api.nvmlDeviceGetMemoryInfo.return_value = SimpleNamespace(
-            total=4096 * MIB, used=1024 * MIB, free=3072 * MIB)
+            total=4_294_967_296, used=1_073_741_824, free=3_221_225_472)
         self.api.nvmlDeviceGetUtilizationRates.return_value = SimpleNamespace(gpu=50)
         self.probe = GPUProbe(api=self.api)
 
@@ -82,7 +82,10 @@ class GPUProbeTest(unittest.TestCase):
         self.probe.start()
         self.probe.start()
         sample = self.probe.read()
-        self.assertEqual(sample.values["gpu_memory_free_mb"], 3072)
+        self.assertAlmostEqual(sample.values["gpu_memory_total_mb"], 4294.967296)
+        self.assertAlmostEqual(sample.values["gpu_memory_used_mb"], 1073.741824)
+        self.assertAlmostEqual(sample.values["gpu_memory_free_mb"], 3221.225472)
+        self.assertEqual(self.probe.metadata["memory_unit"], "MB (bytes / 1000000)")
         self.assertEqual(sample.values["gpu_utilization_pct"], 50)
         self.assertEqual(self.probe.metadata["name"], "Test GPU")
         self.probe.close()
@@ -94,7 +97,7 @@ class GPUProbeTest(unittest.TestCase):
         self.api.nvmlDeviceGetUtilizationRates.side_effect = type("NVMLError_NotSupported", (Exception,), {})()
         self.probe.start()
         sample = self.probe.read()
-        self.assertEqual(sample.values["gpu_memory_free_mb"], 3072)
+        self.assertAlmostEqual(sample.values["gpu_memory_free_mb"], 3221.225472)
         self.assertIsNone(sample.values["gpu_utilization_pct"])
         self.assertEqual(sample.errors["gpu_utilization_pct"], "not_supported")
         self.probe.close()
