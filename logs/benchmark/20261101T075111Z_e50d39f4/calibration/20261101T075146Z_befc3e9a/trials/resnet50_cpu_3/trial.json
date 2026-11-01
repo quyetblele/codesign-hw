@@ -1,0 +1,139 @@
+{
+  "model_id": "resnet50",
+  "device": "cpu",
+  "repeat": 3,
+  "status": "passed",
+  "errors": [],
+  "memory_unit": "MB",
+  "baseline_process_rss_mb": 53.645312,
+  "baseline_gpu_memory_used_mb": null,
+  "prepare_s": 0.6075808540008438,
+  "session_providers": {
+    "resnet50": [
+      "CPUExecutionProvider"
+    ]
+  },
+  "ready_process_rss_mb": 391.94624,
+  "delta_process_rss_mb": 338.300928,
+  "ready_gpu_memory_used_mb": null,
+  "delta_gpu_memory_used_mb": null,
+  "monitor": {
+    "running": false,
+    "sampler_error": null,
+    "sink_error": null,
+    "sequence": 57
+  },
+  "logger": {
+    "written_samples": 57,
+    "dropped_samples": 0,
+    "error": null,
+    "closed": true,
+    "running": false
+  },
+  "resource_metadata": {
+    "system": {
+      "platform": "Linux-6.18.33.2-microsoft-standard-WSL2-x86_64-with-glibc2.35",
+      "logical_cpus": 12,
+      "pid": 39965,
+      "memory_unit": "MB (bytes / 1000000)",
+      "scope": "Linux/WSL guest"
+    },
+    "gpu": {
+      "nvml_index": 0,
+      "requested_uuid": null,
+      "memory_unit": "MB (bytes / 1000000)"
+    }
+  },
+  "resources": {
+    "samples": 57,
+    "metrics": {
+      "cpu_load_pct": {
+        "valid_samples": 57,
+        "unavailable_samples": 0,
+        "mean": 16.821052631578947,
+        "observed_max": 24.2,
+        "errors": {}
+      },
+      "ram_total_mb": {
+        "valid_samples": 57,
+        "unavailable_samples": 0,
+        "mean": 7974.043648,
+        "observed_max": 7974.043648,
+        "errors": {}
+      },
+      "ram_free_mb": {
+        "valid_samples": 57,
+        "unavailable_samples": 0,
+        "mean": 5856.280072982457,
+        "observed_max": 6154.56768,
+        "errors": {}
+      },
+      "ram_used_pct": {
+        "valid_samples": 57,
+        "unavailable_samples": 0,
+        "mean": 26.545614035087716,
+        "observed_max": 26.9,
+        "errors": {}
+      },
+      "process_rss_mb": {
+        "valid_samples": 57,
+        "unavailable_samples": 0,
+        "mean": 381.1851856842106,
+        "observed_max": 393.535488,
+        "errors": {}
+      },
+      "process_cpu_pct": {
+        "valid_samples": 57,
+        "unavailable_samples": 0,
+        "mean": 187.2175438596491,
+        "observed_max": 211.1,
+        "errors": {}
+      },
+      "gpu_memory_total_mb": {
+        "valid_samples": 0,
+        "unavailable_samples": 57,
+        "mean": null,
+        "observed_max": null,
+        "errors": {
+          "disabled": 57
+        }
+      },
+      "gpu_memory_used_mb": {
+        "valid_samples": 0,
+        "unavailable_samples": 57,
+        "mean": null,
+        "observed_max": null,
+        "errors": {
+          "disabled": 57
+        }
+      },
+      "gpu_memory_free_mb": {
+        "valid_samples": 0,
+        "unavailable_samples": 57,
+        "mean": null,
+        "observed_max": null,
+        "errors": {
+          "disabled": 57
+        }
+      },
+      "gpu_utilization_pct": {
+        "valid_samples": 0,
+        "unavailable_samples": 57,
+        "mean": null,
+        "observed_max": null,
+        "errors": {
+          "disabled": 57
+        }
+      }
+    },
+    "stale_samples": 0,
+    "phases": {
+      "baseline": 2,
+      "prepare_warmup": 3,
+      "ready": 1,
+      "inference": 51
+    },
+    "max_sample_duration_s": 0.002024616999733553,
+    "scope": "all phases; arithmetic sample means; maxima are observed, not absolute peaks"
+  }
+}

@@ -1,0 +1,98 @@
+{
+  "low/cpu-only": {
+    "index": 32,
+    "repeat": 2,
+    "run_path": "runs/low/repeat-2/cpu-only/20261101T081209Z_cbd62ab5",
+    "p95_ms": 145.9375585002817
+  },
+  "low/gpu-only": {
+    "index": 29,
+    "repeat": 2,
+    "run_path": "runs/low/repeat-2/gpu-only/20261101T080811Z_99be38e6",
+    "p95_ms": 53.808044050038
+  },
+  "low/round-robin": {
+    "index": 41,
+    "repeat": 3,
+    "run_path": "runs/low/repeat-3/round-robin/20261101T081643Z_801740d1",
+    "p95_ms": 67.27061214946842
+  },
+  "low/resource-aware": {
+    "index": 42,
+    "repeat": 3,
+    "run_path": "runs/low/repeat-3/resource-aware/20261101T081805Z_e53c037d",
+    "p95_ms": 48.15217239961383
+  },
+  "medium/cpu-only": {
+    "index": 19,
+    "repeat": 2,
+    "run_path": "runs/medium/repeat-2/cpu-only/20261101T080401Z_a7a5b05f",
+    "p95_ms": 15515.137177849783
+  },
+  "medium/gpu-only": {
+    "index": 20,
+    "repeat": 2,
+    "run_path": "runs/medium/repeat-2/gpu-only/20261101T080438Z_e05bbc22",
+    "p95_ms": 107.65565445044554
+  },
+  "medium/round-robin": {
+    "index": 48,
+    "repeat": 3,
+    "run_path": "runs/medium/repeat-3/round-robin/20261101T082315Z_93d49905",
+    "p95_ms": 3806.15273420035
+  },
+  "medium/resource-aware": {
+    "index": 45,
+    "repeat": 3,
+    "run_path": "runs/medium/repeat-3/resource-aware/20261101T082200Z_2504499a",
+    "p95_ms": 49.77440040020155
+  },
+  "high/cpu-only": {
+    "index": 22,
+    "repeat": 2,
+    "run_path": "runs/high/repeat-2/cpu-only/20261101T080512Z_93792c9c",
+    "p95_ms": 22486.394489849543
+  },
+  "high/gpu-only": {
+    "index": 23,
+    "repeat": 2,
+    "run_path": "runs/high/repeat-2/gpu-only/20261101T080551Z_214101cf",
+    "p95_ms": 3824.951156250245
+  },
+  "high/round-robin": {
+    "index": 24,
+    "repeat": 2,
+    "run_path": "runs/high/repeat-2/round-robin/20261101T080607Z_491adfc8",
+    "p95_ms": 8458.164851349602
+  },
+  "high/resource-aware": {
+    "index": 36,
+    "repeat": 3,
+    "run_path": "runs/high/repeat-3/resource-aware/20261101T081450Z_e26f009c",
+    "p95_ms": 1304.953927700035
+  },
+  "burst/cpu-only": {
+    "index": 25,
+    "repeat": 2,
+    "run_path": "runs/burst/repeat-2/cpu-only/20261101T080631Z_838a9620",
+    "p95_ms": 16223.862692649891
+  },
+  "burst/gpu-only": {
+    "index": 15,
+    "repeat": 1,
+    "run_path": "runs/burst/repeat-1/gpu-only/20261101T080236Z_4e3de4ad",
+    "p95_ms": 967.490486099723
+  },
+  "burst/round-robin": {
+    "index": 38,
+    "repeat": 3,
+    "run_path": "runs/burst/repeat-3/round-robin/20261101T081524Z_b04dccff",
+    "p95_ms": 3612.6332840497976
+  },
+  "burst/resource-aware": {
+    "index": 39,
+    "repeat": 3,
+    "run_path": "runs/burst/repeat-3/resource-aware/20261101T081547Z_49992a2c",
+    "p95_ms": 766.4652041003592
+  }
+}

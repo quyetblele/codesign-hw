@@ -1,0 +1,301 @@
+{
+  "status": "passed",
+  "run_directory": "/home/yoo/HDH/logs/benchmark/20261101T075111Z_e50d39f4/runs/burst/repeat-2/resource-aware/20261101T080751Z_966e3e16",
+  "schema_version": 2,
+  "memory_unit": "MB",
+  "requested_jobs": 1000,
+  "errors": [],
+  "interrupted": false,
+  "manifest_sha256": "6d03ef3b0cd14040e60d3da00e837bf92da88d5b5e5a4fdbcb89ba62bfe24086",
+  "prepare_s": 2.054799421000098,
+  "session_providers": {
+    "cpu": {
+      "mobilenetv2": [
+        "CPUExecutionProvider"
+      ],
+      "resnet50": [
+        "CPUExecutionProvider"
+      ]
+    },
+    "gpu": {
+      "mobilenetv2": [
+        "CUDAExecutionProvider",
+        "CPUExecutionProvider"
+      ],
+      "resnet50": [
+        "CUDAExecutionProvider",
+        "CPUExecutionProvider"
+      ]
+    }
+  },
+  "replay": {
+    "submitted_jobs": 1000,
+    "max_jitter_ms": 4.432,
+    "mean_jitter_ms": 2.313
+  },
+  "resources": {
+    "samples": 133,
+    "metrics": {
+      "cpu_load_pct": {
+        "valid_samples": 133,
+        "unavailable_samples": 0,
+        "mean": 16.12330827067669,
+        "observed_max": 35.3,
+        "errors": {}
+      },
+      "ram_total_mb": {
+        "valid_samples": 133,
+        "unavailable_samples": 0,
+        "mean": 7974.043648,
+        "observed_max": 7974.043648,
+        "errors": {}
+      },
+      "ram_free_mb": {
+        "valid_samples": 133,
+        "unavailable_samples": 0,
+        "mean": 5395.086836451128,
+        "observed_max": 6201.97888,
+        "errors": {}
+      },
+      "ram_used_pct": {
+        "valid_samples": 133,
+        "unavailable_samples": 0,
+        "mean": 32.339097744360906,
+        "observed_max": 32.9,
+        "errors": {}
+      },
+      "process_rss_mb": {
+        "valid_samples": 133,
+        "unavailable_samples": 0,
+        "mean": 1097.0839732932332,
+        "observed_max": 1129.61536,
+        "errors": {}
+      },
+      "process_cpu_pct": {
+        "valid_samples": 133,
+        "unavailable_samples": 0,
+        "mean": 180.42030075187972,
+        "observed_max": 316.0,
+        "errors": {}
+      },
+      "gpu_memory_total_mb": {
+        "valid_samples": 133,
+        "unavailable_samples": 0,
+        "mean": 4294.967296,
+        "observed_max": 4294.967296,
+        "errors": {}
+      },
+      "gpu_memory_used_mb": {
+        "valid_samples": 133,
+        "unavailable_samples": 0,
+        "mean": 1017.1784969624061,
+        "observed_max": 1033.641984,
+        "errors": {}
+      },
+      "gpu_memory_free_mb": {
+        "valid_samples": 133,
+        "unavailable_samples": 0,
+        "mean": 3277.788799037594,
+        "observed_max": 3567.972352,
+        "errors": {}
+      },
+      "gpu_utilization_pct": {
+        "valid_samples": 133,
+        "unavailable_samples": 0,
+        "mean": 26.60902255639098,
+        "observed_max": 45.0,
+        "errors": {}
+      }
+    },
+    "stale_samples": 0,
+    "phases": {
+      "prepare": 8,
+      "workload": 124,
+      "drain": 1
+    },
+    "max_sample_duration_s": 0.31393611099974805,
+    "scope": "all phases; arithmetic sample means; maxima are observed, not absolute peaks"
+  },
+  "resource_metadata": {
+    "system": {
+      "platform": "Linux-6.18.33.2-microsoft-standard-WSL2-x86_64-with-glibc2.35",
+      "logical_cpus": 12,
+      "pid": 49068,
+      "memory_unit": "MB (bytes / 1000000)",
+      "scope": "Linux/WSL guest"
+    },
+    "gpu": {
+      "nvml_index": 0,
+      "requested_uuid": null,
+      "memory_unit": "MB (bytes / 1000000)",
+      "name": "NVIDIA GeForce GTX 1650",
+      "uuid": "GPU-6befd361-4ca0-7d6d-3432-8ea3bbca9130"
+    }
+  },
+  "jobs": {
+    "accepted_jobs": 1000,
+    "completed_jobs": 1000,
+    "failed_jobs": 0,
+    "terminal_jobs": 1000,
+    "unfinished_job_ids": [],
+    "reconciled": true,
+    "invariant_errors": [],
+    "failure_rate": 0.0,
+    "workload_elapsed_s": 12.343668915999842,
+    "throughput_jobs_s": 81.01319038975532,
+    "devices": {
+      "cpu": {
+        "assigned": 435,
+        "completed": 435,
+        "failed": 0
+      },
+      "gpu": {
+        "assigned": 565,
+        "completed": 565,
+        "failed": 0
+      }
+    },
+    "successful_job_metrics": {
+      "dispatch_wait_ms": {
+        "count": 1000,
+        "mean": 7.562591384999905,
+        "p50": 7.217477000267536,
+        "p95": 12.319934349625328,
+        "p99": 13.462755029868276
+      },
+      "device_wait_ms": {
+        "count": 1000,
+        "mean": 392.98431860200344,
+        "p50": 388.12326250035767,
+        "p95": 753.9406598497408,
+        "p99": 858.646614039735
+      },
+      "total_wait_ms": {
+        "count": 1000,
+        "mean": 400.54690998700335,
+        "p50": 395.5824485001358,
+        "p95": 765.3265622493562,
+        "p99": 872.1910159794696
+      },
+      "execution_ms": {
+        "count": 1000,
+        "mean": 15.816829061014687,
+        "p50": 13.401265500306181,
+        "p95": 29.932465900128577,
+        "p99": 62.077969219235456
+      },
+      "latency_ms": {
+        "count": 1000,
+        "mean": 416.363739048018,
+        "p50": 409.5222074997764,
+        "p95": 783.771904549985,
+        "p99": 890.3105526401032
+      }
+    },
+    "scheduler_overhead_ms": {
+      "count": 1000,
+      "mean": 0.06610104700121155,
+      "total": 66.10104700121155,
+      "p50": 0.05081100016468554,
+      "p95": 0.12126909959988551,
+      "p99": 0.3557930702118027
+    }
+  },
+  "controller": {
+    "started": true,
+    "closed": true,
+    "accepting_jobs": false,
+    "running_workers": [],
+    "collector_errors": []
+  },
+  "scheduler_decisions": 1000,
+  "monitor": {
+    "running": false,
+    "sampler_error": null,
+    "sink_error": null,
+    "sequence": 133
+  },
+  "logger": {
+    "written_samples": 133,
+    "dropped_samples": 0,
+    "error": null,
+    "closed": true,
+    "running": false
+  },
+  "collector": {
+    "written_events": 4000,
+    "dropped_events": 0,
+    "error": null,
+    "closed": true,
+    "running": false
+  },
+  "collected_jobs": {
+    "accepted_jobs": 1000,
+    "completed_jobs": 1000,
+    "failed_jobs": 0,
+    "terminal_jobs": 1000,
+    "unfinished_job_ids": [],
+    "reconciled": true,
+    "invariant_errors": [],
+    "failure_rate": 0.0,
+    "workload_elapsed_s": 12.343668915999842,
+    "throughput_jobs_s": 81.01319038975532,
+    "devices": {
+      "cpu": {
+        "assigned": 435,
+        "completed": 435,
+        "failed": 0
+      },
+      "gpu": {
+        "assigned": 565,
+        "completed": 565,
+        "failed": 0
+      }
+    },
+    "successful_job_metrics": {
+      "dispatch_wait_ms": {
+        "count": 1000,
+        "mean": 7.562591384999905,
+        "p50": 7.217477000267536,
+        "p95": 12.319934349625328,
+        "p99": 13.462755029868276
+      },
+      "device_wait_ms": {
+        "count": 1000,
+        "mean": 392.98431860200344,
+        "p50": 388.12326250035767,
+        "p95": 753.9406598497408,
+        "p99": 858.646614039735
+      },
+      "total_wait_ms": {
+        "count": 1000,
+        "mean": 400.54690998700335,
+        "p50": 395.5824485001358,
+        "p95": 765.3265622493562,
+        "p99": 872.1910159794696
+      },
+      "execution_ms": {
+        "count": 1000,
+        "mean": 15.816829061014687,
+        "p50": 13.401265500306181,
+        "p95": 29.932465900128577,
+        "p99": 62.077969219235456
+      },
+      "latency_ms": {
+        "count": 1000,
+        "mean": 416.363739048018,
+        "p50": 409.5222074997764,
+        "p95": 783.771904549985,
+        "p99": 890.3105526401032
+      }
+    },
+    "scheduler_overhead_ms": {
+      "count": 1000,
+      "mean": 0.06610104700121155,
+      "total": 66.10104700121155,
+      "p50": 0.05081100016468554,
+      "p95": 0.12126909959988551,
+      "p99": 0.3557930702118027
+    }
+  }
+}

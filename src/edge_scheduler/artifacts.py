@@ -22,7 +22,7 @@ def mark_latest(directory: Path, run_type: str, status: str) -> None:
                "run_type": run_type, "status": status,
                "started_at": config.get("started_at", directory.name)}
     targets = [directory.parent / "latest.json"]
-    if directory.parent in (PROJECT_ROOT / "logs" / "pipeline", PROJECT_ROOT / "logs" / "profiling"):
+    if directory.parent in (PROJECT_ROOT / "logs" / name for name in ("pipeline", "profiling", "benchmark")):
         targets.append(PROJECT_ROOT / "logs" / "latest.json")
     for target in targets:
         with target.with_name(".latest.lock").open("a") as lock:

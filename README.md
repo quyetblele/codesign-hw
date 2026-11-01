@@ -2,6 +2,15 @@
 
 **CPU–GPU AI Inference Scheduling for Edge AI**
 
+> Cập nhật T15/T16: đã bổ sung bộ benchmark bốn scheduler, manifest trộn model
+> cố định, calibration tại máy đo và báo cáo so sánh HTML/PNG/CSV. Xem
+> [BENCHMARK.md](BENCHMARK.md) cho quy trình và giới hạn. Code hiện đã có T09 replay
+> và CLI Resource-aware; các mô tả tiến độ chưa có chúng ở phần cũ bên dưới là lịch sử.
+>
+> Đã chạy 48/48 lượt (48.000 job, 0 failed) ngày 01/11/2026 trên GTX 1650;
+> [kết quả và phân tích](reports/261101_t15_t16_results.md),
+> [HTML trực quan](logs/benchmark/20261101T075111Z_e50d39f4/report/index.html).
+
 ## Problem Statement
 
 Hệ thống dự kiến tiếp nhận nhiều AI inference jobs, mỗi job có thể thực thi trên CPU hoặc GPU. Đưa toàn bộ job lên GPU có thể gây nghẽn GPU queue trong khi CPU còn rảnh. Tuy nhiên, phân phối job không hợp lý cũng có thể tăng latency vì thời gian inference và chi phí truyền dữ liệu khác nhau giữa các thiết bị.

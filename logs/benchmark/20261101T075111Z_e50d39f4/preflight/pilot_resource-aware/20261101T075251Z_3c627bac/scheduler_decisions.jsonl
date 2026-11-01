@@ -1,0 +1,12 @@
+{"job_id": "job-000001", "model_id": "mobilenetv2", "cpu_eta_s": 0.012083529459996498, "gpu_eta_s": 0.008664798576661874, "selected_device": "gpu", "timestamp_s": 6069.075776837}
+{"job_id": "job-000002", "model_id": "mobilenetv2", "cpu_eta_s": 0.012083529459996498, "gpu_eta_s": 0.017329597153323748, "selected_device": "cpu", "timestamp_s": 6069.076353659}
+{"job_id": "job-000003", "model_id": "resnet50", "cpu_eta_s": 0.06410843655331215, "gpu_eta_s": 0.022507929286609094, "selected_device": "gpu", "timestamp_s": 6069.076785104}
+{"job_id": "job-000004", "model_id": "resnet50", "cpu_eta_s": 0.06410843655331215, "gpu_eta_s": 0.036351059996556315, "selected_device": "gpu", "timestamp_s": 6069.077006507}
+{"job_id": "job-000005", "model_id": "mobilenetv2", "cpu_eta_s": 0.012083529459996498, "gpu_eta_s": 0.020237513286507844, "selected_device": "cpu", "timestamp_s": 6069.122366416}
+{"job_id": "job-000006", "model_id": "resnet50", "cpu_eta_s": 0.06410843655331215, "gpu_eta_s": 0.025165980419678817, "selected_device": "gpu", "timestamp_s": 6069.122614609}
+{"job_id": "job-000007", "model_id": "mobilenetv2", "cpu_eta_s": 0.024167058919992997, "gpu_eta_s": 0.03370551599636807, "selected_device": "cpu", "timestamp_s": 6069.122739459}
+{"job_id": "job-000008", "model_id": "mobilenetv2", "cpu_eta_s": 0.0362505883799895, "gpu_eta_s": 0.03362638499602023, "selected_device": "gpu", "timestamp_s": 6069.122818103}
+{"job_id": "job-000009", "model_id": "resnet50", "cpu_eta_s": 0.052024907093315656, "gpu_eta_s": 0.022507929286609094, "selected_device": "gpu", "timestamp_s": 6069.172448744}
+{"job_id": "job-000010", "model_id": "resnet50", "cpu_eta_s": 0.052024907093315656, "gpu_eta_s": 0.036351059996556315, "selected_device": "gpu", "timestamp_s": 6069.172616236}
+{"job_id": "job-000011", "model_id": "resnet50", "cpu_eta_s": 0.052024907093315656, "gpu_eta_s": 0.050194190706503536, "selected_device": "gpu", "timestamp_s": 6069.172725794}
+{"job_id": "job-000012", "model_id": "mobilenetv2", "cpu_eta_s": 0.012083529459996498, "gpu_eta_s": 0.05885898928316541, "selected_device": "cpu", "timestamp_s": 6069.172835031}

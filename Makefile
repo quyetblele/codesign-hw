@@ -11,7 +11,7 @@ ARGS ?=
 export PYTHONPATH := $(CURDIR)/src
 export RUN
 
-.PHONY: run profile report test help
+.PHONY: run profile report benchmark benchmark-report test help
 
 run:
 	@$(PYTHON) -m edge_scheduler.main --live --scheduler $(POLICY) --jobs $(JOBS) --window $(WINDOW) --update $(UPDATE) $(ARGS)
@@ -22,6 +22,12 @@ profile:
 report:
 	@$(PYTHON) -m edge_scheduler.reporting $(ARGS)
 
+benchmark:
+	@$(PYTHON) -m edge_scheduler.benchmark --jobs $(JOBS) --repeats $(REPEATS) $(ARGS)
+
+benchmark-report:
+	@$(PYTHON) -m edge_scheduler.benchmark_report $(ARGS)
+
 test:
 	@$(PYTHON) -m unittest discover -s tests -v
 
@@ -29,4 +35,6 @@ help:
 	@echo 'make run [POLICY=round-robin JOBS=1000 WINDOW=5 UPDATE=1]'
 	@echo 'make profile [DEVICE=both RUNS=100 REPEATS=3]'
 	@echo 'make report [RUN=logs/pipeline/<run_id>]'
+	@echo 'make benchmark [JOBS=1000 REPEATS=3] [ARGS="--require-gpu-metrics"]'
+	@echo 'make benchmark-report [RUN=logs/benchmark/<experiment_id>]'
 	@echo 'Optional CLI arguments: ARGS="--warmup 1"'

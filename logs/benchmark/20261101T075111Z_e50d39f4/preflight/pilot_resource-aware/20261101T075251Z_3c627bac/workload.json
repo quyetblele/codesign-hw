@@ -1,0 +1,79 @@
+{
+  "schema_version": 1,
+  "pattern": "burst",
+  "seed": 42,
+  "items": [
+    {
+      "job_id": "job-000001",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 0.0
+    },
+    {
+      "job_id": "job-000002",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 0.0
+    },
+    {
+      "job_id": "job-000003",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 0.0
+    },
+    {
+      "job_id": "job-000004",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 0.0
+    },
+    {
+      "job_id": "job-000005",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 0.05
+    },
+    {
+      "job_id": "job-000006",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 0.05
+    },
+    {
+      "job_id": "job-000007",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 0.05
+    },
+    {
+      "job_id": "job-000008",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 0.05
+    },
+    {
+      "job_id": "job-000009",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 0.1
+    },
+    {
+      "job_id": "job-000010",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 0.1
+    },
+    {
+      "job_id": "job-000011",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 0.1
+    },
+    {
+      "job_id": "job-000012",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 0.1
+    }
+  ]
+}

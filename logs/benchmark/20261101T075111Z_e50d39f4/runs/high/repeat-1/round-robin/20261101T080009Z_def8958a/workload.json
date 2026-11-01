@@ -1,0 +1,6007 @@
+{
+  "schema_version": 1,
+  "pattern": "high",
+  "seed": 44,
+  "items": [
+    {
+      "job_id": "job-000001",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 0.0
+    },
+    {
+      "job_id": "job-000002",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 0.003499
+    },
+    {
+      "job_id": "job-000003",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 0.008703
+    },
+    {
+      "job_id": "job-000004",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 0.021902
+    },
+    {
+      "job_id": "job-000005",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 0.023197
+    },
+    {
+      "job_id": "job-000006",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 0.024897
+    },
+    {
+      "job_id": "job-000007",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 0.025094
+    },
+    {
+      "job_id": "job-000008",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 0.02592
+    },
+    {
+      "job_id": "job-000009",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 0.025979
+    },
+    {
+      "job_id": "job-000010",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 0.027115
+    },
+    {
+      "job_id": "job-000011",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 0.031919
+    },
+    {
+      "job_id": "job-000012",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 0.062276
+    },
+    {
+      "job_id": "job-000013",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 0.070157
+    },
+    {
+      "job_id": "job-000014",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 0.073325
+    },
+    {
+      "job_id": "job-000015",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 0.076785
+    },
+    {
+      "job_id": "job-000016",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 0.084618
+    },
+    {
+      "job_id": "job-000017",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 0.087248
+    },
+    {
+      "job_id": "job-000018",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 0.087757
+    },
+    {
+      "job_id": "job-000019",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 0.100033
+    },
+    {
+      "job_id": "job-000020",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 0.106432
+    },
+    {
+      "job_id": "job-000021",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 0.107223
+    },
+    {
+      "job_id": "job-000022",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 0.107707
+    },
+    {
+      "job_id": "job-000023",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 0.10837
+    },
+    {
+      "job_id": "job-000024",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 0.129642
+    },
+    {
+      "job_id": "job-000025",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 0.130402
+    },
+    {
+      "job_id": "job-000026",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 0.136943
+    },
+    {
+      "job_id": "job-000027",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 0.160214
+    },
+    {
+      "job_id": "job-000028",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 0.160452
+    },
+    {
+      "job_id": "job-000029",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 0.163701
+    },
+    {
+      "job_id": "job-000030",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 0.168023
+    },
+    {
+      "job_id": "job-000031",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 0.1846
+    },
+    {
+      "job_id": "job-000032",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 0.185992
+    },
+    {
+      "job_id": "job-000033",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 0.187984
+    },
+    {
+      "job_id": "job-000034",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 0.189883
+    },
+    {
+      "job_id": "job-000035",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 0.190219
+    },
+    {
+      "job_id": "job-000036",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 0.197682
+    },
+    {
+      "job_id": "job-000037",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 0.208988
+    },
+    {
+      "job_id": "job-000038",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 0.212809
+    },
+    {
+      "job_id": "job-000039",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 0.213066
+    },
+    {
+      "job_id": "job-000040",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 0.221397
+    },
+    {
+      "job_id": "job-000041",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 0.230298
+    },
+    {
+      "job_id": "job-000042",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 0.23736
+    },
+    {
+      "job_id": "job-000043",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 0.240015
+    },
+    {
+      "job_id": "job-000044",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 0.251842
+    },
+    {
+      "job_id": "job-000045",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 0.258477
+    },
+    {
+      "job_id": "job-000046",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 0.264418
+    },
+    {
+      "job_id": "job-000047",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 0.2696
+    },
+    {
+      "job_id": "job-000048",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 0.27137
+    },
+    {
+      "job_id": "job-000049",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 0.275422
+    },
+    {
+      "job_id": "job-000050",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 0.285951
+    },
+    {
+      "job_id": "job-000051",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 0.293623
+    },
+    {
+      "job_id": "job-000052",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 0.296451
+    },
+    {
+      "job_id": "job-000053",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 0.307864
+    },
+    {
+      "job_id": "job-000054",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 0.320051
+    },
+    {
+      "job_id": "job-000055",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 0.320349
+    },
+    {
+      "job_id": "job-000056",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 0.321489
+    },
+    {
+      "job_id": "job-000057",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 0.323171
+    },
+    {
+      "job_id": "job-000058",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 0.323269
+    },
+    {
+      "job_id": "job-000059",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 0.3326
+    },
+    {
+      "job_id": "job-000060",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 0.339535
+    },
+    {
+      "job_id": "job-000061",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 0.344756
+    },
+    {
+      "job_id": "job-000062",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 0.37963
+    },
+    {
+      "job_id": "job-000063",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 0.382569
+    },
+    {
+      "job_id": "job-000064",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 0.384048
+    },
+    {
+      "job_id": "job-000065",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 0.384836
+    },
+    {
+      "job_id": "job-000066",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 0.387607
+    },
+    {
+      "job_id": "job-000067",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 0.399738
+    },
+    {
+      "job_id": "job-000068",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 0.405957
+    },
+    {
+      "job_id": "job-000069",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 0.406364
+    },
+    {
+      "job_id": "job-000070",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 0.410147
+    },
+    {
+      "job_id": "job-000071",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 0.410475
+    },
+    {
+      "job_id": "job-000072",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 0.416977
+    },
+    {
+      "job_id": "job-000073",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 0.417848
+    },
+    {
+      "job_id": "job-000074",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 0.419166
+    },
+    {
+      "job_id": "job-000075",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 0.426019
+    },
+    {
+      "job_id": "job-000076",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 0.438048
+    },
+    {
+      "job_id": "job-000077",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 0.444489
+    },
+    {
+      "job_id": "job-000078",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 0.446806
+    },
+    {
+      "job_id": "job-000079",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 0.453713
+    },
+    {
+      "job_id": "job-000080",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 0.455829
+    },
+    {
+      "job_id": "job-000081",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 0.455874
+    },
+    {
+      "job_id": "job-000082",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 0.458007
+    },
+    {
+      "job_id": "job-000083",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 0.465774
+    },
+    {
+      "job_id": "job-000084",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 0.472336
+    },
+    {
+      "job_id": "job-000085",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 0.473762
+    },
+    {
+      "job_id": "job-000086",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 0.485999
+    },
+    {
+      "job_id": "job-000087",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 0.497834
+    },
+    {
+      "job_id": "job-000088",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 0.500017
+    },
+    {
+      "job_id": "job-000089",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 0.521623
+    },
+    {
+      "job_id": "job-000090",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 0.523653
+    },
+    {
+      "job_id": "job-000091",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 0.5241
+    },
+    {
+      "job_id": "job-000092",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 0.528884
+    },
+    {
+      "job_id": "job-000093",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 0.542224
+    },
+    {
+      "job_id": "job-000094",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 0.548325
+    },
+    {
+      "job_id": "job-000095",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 0.553592
+    },
+    {
+      "job_id": "job-000096",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 0.558049
+    },
+    {
+      "job_id": "job-000097",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 0.560276
+    },
+    {
+      "job_id": "job-000098",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 0.562652
+    },
+    {
+      "job_id": "job-000099",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 0.56609
+    },
+    {
+      "job_id": "job-000100",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 0.571368
+    },
+    {
+      "job_id": "job-000101",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 0.590441
+    },
+    {
+      "job_id": "job-000102",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 0.590944
+    },
+    {
+      "job_id": "job-000103",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 0.59288
+    },
+    {
+      "job_id": "job-000104",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 0.612027
+    },
+    {
+      "job_id": "job-000105",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 0.619163
+    },
+    {
+      "job_id": "job-000106",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 0.619678
+    },
+    {
+      "job_id": "job-000107",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 0.623561
+    },
+    {
+      "job_id": "job-000108",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 0.630575
+    },
+    {
+      "job_id": "job-000109",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 0.646768
+    },
+    {
+      "job_id": "job-000110",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 0.647354
+    },
+    {
+      "job_id": "job-000111",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 0.662852
+    },
+    {
+      "job_id": "job-000112",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 0.672666
+    },
+    {
+      "job_id": "job-000113",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 0.674842
+    },
+    {
+      "job_id": "job-000114",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 0.679922
+    },
+    {
+      "job_id": "job-000115",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 0.691553
+    },
+    {
+      "job_id": "job-000116",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 0.693409
+    },
+    {
+      "job_id": "job-000117",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 0.701461
+    },
+    {
+      "job_id": "job-000118",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 0.706933
+    },
+    {
+      "job_id": "job-000119",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 0.707438
+    },
+    {
+      "job_id": "job-000120",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 0.709551
+    },
+    {
+      "job_id": "job-000121",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 0.713095
+    },
+    {
+      "job_id": "job-000122",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 0.714096
+    },
+    {
+      "job_id": "job-000123",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 0.733284
+    },
+    {
+      "job_id": "job-000124",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 0.735202
+    },
+    {
+      "job_id": "job-000125",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 0.736959
+    },
+    {
+      "job_id": "job-000126",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 0.743018
+    },
+    {
+      "job_id": "job-000127",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 0.748014
+    },
+    {
+      "job_id": "job-000128",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 0.750576
+    },
+    {
+      "job_id": "job-000129",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 0.753199
+    },
+    {
+      "job_id": "job-000130",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 0.757772
+    },
+    {
+      "job_id": "job-000131",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 0.773762
+    },
+    {
+      "job_id": "job-000132",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 0.774311
+    },
+    {
+      "job_id": "job-000133",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 0.790509
+    },
+    {
+      "job_id": "job-000134",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 0.809038
+    },
+    {
+      "job_id": "job-000135",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 0.816701
+    },
+    {
+      "job_id": "job-000136",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 0.827515
+    },
+    {
+      "job_id": "job-000137",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 0.830723
+    },
+    {
+      "job_id": "job-000138",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 0.852627
+    },
+    {
+      "job_id": "job-000139",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 0.861665
+    },
+    {
+      "job_id": "job-000140",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 0.8694
+    },
+    {
+      "job_id": "job-000141",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 0.873371
+    },
+    {
+      "job_id": "job-000142",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 0.875033
+    },
+    {
+      "job_id": "job-000143",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 0.882869
+    },
+    {
+      "job_id": "job-000144",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 0.891738
+    },
+    {
+      "job_id": "job-000145",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 0.891772
+    },
+    {
+      "job_id": "job-000146",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 0.894257
+    },
+    {
+      "job_id": "job-000147",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 0.899369
+    },
+    {
+      "job_id": "job-000148",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 0.900956
+    },
+    {
+      "job_id": "job-000149",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 0.901879
+    },
+    {
+      "job_id": "job-000150",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 0.903266
+    },
+    {
+      "job_id": "job-000151",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 0.903372
+    },
+    {
+      "job_id": "job-000152",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 0.904228
+    },
+    {
+      "job_id": "job-000153",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 0.907537
+    },
+    {
+      "job_id": "job-000154",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 0.912175
+    },
+    {
+      "job_id": "job-000155",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 0.918951
+    },
+    {
+      "job_id": "job-000156",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 0.921405
+    },
+    {
+      "job_id": "job-000157",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 0.92232
+    },
+    {
+      "job_id": "job-000158",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 0.939165
+    },
+    {
+      "job_id": "job-000159",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 0.945824
+    },
+    {
+      "job_id": "job-000160",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 0.953393
+    },
+    {
+      "job_id": "job-000161",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 0.961177
+    },
+    {
+      "job_id": "job-000162",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 0.963765
+    },
+    {
+      "job_id": "job-000163",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 0.969767
+    },
+    {
+      "job_id": "job-000164",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 0.972325
+    },
+    {
+      "job_id": "job-000165",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 0.979376
+    },
+    {
+      "job_id": "job-000166",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 0.990724
+    },
+    {
+      "job_id": "job-000167",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 0.990833
+    },
+    {
+      "job_id": "job-000168",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 1.001416
+    },
+    {
+      "job_id": "job-000169",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 1.002246
+    },
+    {
+      "job_id": "job-000170",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 1.002354
+    },
+    {
+      "job_id": "job-000171",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 1.002876
+    },
+    {
+      "job_id": "job-000172",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 1.008383
+    },
+    {
+      "job_id": "job-000173",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 1.021378
+    },
+    {
+      "job_id": "job-000174",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 1.038672
+    },
+    {
+      "job_id": "job-000175",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 1.039815
+    },
+    {
+      "job_id": "job-000176",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 1.043549
+    },
+    {
+      "job_id": "job-000177",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 1.062511
+    },
+    {
+      "job_id": "job-000178",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 1.07707
+    },
+    {
+      "job_id": "job-000179",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 1.088734
+    },
+    {
+      "job_id": "job-000180",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 1.090636
+    },
+    {
+      "job_id": "job-000181",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 1.092775
+    },
+    {
+      "job_id": "job-000182",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 1.093851
+    },
+    {
+      "job_id": "job-000183",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 1.095888
+    },
+    {
+      "job_id": "job-000184",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 1.099343
+    },
+    {
+      "job_id": "job-000185",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 1.109964
+    },
+    {
+      "job_id": "job-000186",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 1.117152
+    },
+    {
+      "job_id": "job-000187",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 1.11841
+    },
+    {
+      "job_id": "job-000188",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 1.119722
+    },
+    {
+      "job_id": "job-000189",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 1.123713
+    },
+    {
+      "job_id": "job-000190",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 1.138449
+    },
+    {
+      "job_id": "job-000191",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 1.14271
+    },
+    {
+      "job_id": "job-000192",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 1.153077
+    },
+    {
+      "job_id": "job-000193",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 1.160855
+    },
+    {
+      "job_id": "job-000194",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 1.174871
+    },
+    {
+      "job_id": "job-000195",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 1.179442
+    },
+    {
+      "job_id": "job-000196",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 1.182605
+    },
+    {
+      "job_id": "job-000197",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 1.186681
+    },
+    {
+      "job_id": "job-000198",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 1.197474
+    },
+    {
+      "job_id": "job-000199",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 1.199651
+    },
+    {
+      "job_id": "job-000200",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 1.201082
+    },
+    {
+      "job_id": "job-000201",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 1.213163
+    },
+    {
+      "job_id": "job-000202",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 1.217524
+    },
+    {
+      "job_id": "job-000203",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 1.22436
+    },
+    {
+      "job_id": "job-000204",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 1.225635
+    },
+    {
+      "job_id": "job-000205",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 1.225917
+    },
+    {
+      "job_id": "job-000206",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 1.227615
+    },
+    {
+      "job_id": "job-000207",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 1.231354
+    },
+    {
+      "job_id": "job-000208",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 1.231578
+    },
+    {
+      "job_id": "job-000209",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 1.233702
+    },
+    {
+      "job_id": "job-000210",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 1.252795
+    },
+    {
+      "job_id": "job-000211",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 1.256624
+    },
+    {
+      "job_id": "job-000212",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 1.256655
+    },
+    {
+      "job_id": "job-000213",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 1.267464
+    },
+    {
+      "job_id": "job-000214",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 1.269857
+    },
+    {
+      "job_id": "job-000215",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 1.271121
+    },
+    {
+      "job_id": "job-000216",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 1.277891
+    },
+    {
+      "job_id": "job-000217",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 1.28517
+    },
+    {
+      "job_id": "job-000218",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 1.287782
+    },
+    {
+      "job_id": "job-000219",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 1.296041
+    },
+    {
+      "job_id": "job-000220",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 1.309925
+    },
+    {
+      "job_id": "job-000221",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 1.31269
+    },
+    {
+      "job_id": "job-000222",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 1.31727
+    },
+    {
+      "job_id": "job-000223",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 1.317307
+    },
+    {
+      "job_id": "job-000224",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 1.323271
+    },
+    {
+      "job_id": "job-000225",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 1.325575
+    },
+    {
+      "job_id": "job-000226",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 1.332616
+    },
+    {
+      "job_id": "job-000227",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 1.342074
+    },
+    {
+      "job_id": "job-000228",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 1.344848
+    },
+    {
+      "job_id": "job-000229",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 1.352181
+    },
+    {
+      "job_id": "job-000230",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 1.37123
+    },
+    {
+      "job_id": "job-000231",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 1.372464
+    },
+    {
+      "job_id": "job-000232",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 1.383108
+    },
+    {
+      "job_id": "job-000233",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 1.38743
+    },
+    {
+      "job_id": "job-000234",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 1.406591
+    },
+    {
+      "job_id": "job-000235",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 1.407096
+    },
+    {
+      "job_id": "job-000236",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 1.410314
+    },
+    {
+      "job_id": "job-000237",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 1.411493
+    },
+    {
+      "job_id": "job-000238",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 1.41349
+    },
+    {
+      "job_id": "job-000239",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 1.428208
+    },
+    {
+      "job_id": "job-000240",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 1.43325
+    },
+    {
+      "job_id": "job-000241",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 1.436202
+    },
+    {
+      "job_id": "job-000242",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 1.458134
+    },
+    {
+      "job_id": "job-000243",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 1.458493
+    },
+    {
+      "job_id": "job-000244",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 1.458617
+    },
+    {
+      "job_id": "job-000245",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 1.468349
+    },
+    {
+      "job_id": "job-000246",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 1.473787
+    },
+    {
+      "job_id": "job-000247",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 1.485703
+    },
+    {
+      "job_id": "job-000248",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 1.490272
+    },
+    {
+      "job_id": "job-000249",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 1.509481
+    },
+    {
+      "job_id": "job-000250",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 1.512169
+    },
+    {
+      "job_id": "job-000251",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 1.513901
+    },
+    {
+      "job_id": "job-000252",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 1.52824
+    },
+    {
+      "job_id": "job-000253",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 1.533318
+    },
+    {
+      "job_id": "job-000254",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 1.533521
+    },
+    {
+      "job_id": "job-000255",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 1.53359
+    },
+    {
+      "job_id": "job-000256",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 1.533696
+    },
+    {
+      "job_id": "job-000257",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 1.542409
+    },
+    {
+      "job_id": "job-000258",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 1.549192
+    },
+    {
+      "job_id": "job-000259",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 1.549991
+    },
+    {
+      "job_id": "job-000260",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 1.560602
+    },
+    {
+      "job_id": "job-000261",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 1.570573
+    },
+    {
+      "job_id": "job-000262",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 1.577216
+    },
+    {
+      "job_id": "job-000263",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 1.582964
+    },
+    {
+      "job_id": "job-000264",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 1.586758
+    },
+    {
+      "job_id": "job-000265",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 1.594616
+    },
+    {
+      "job_id": "job-000266",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 1.597896
+    },
+    {
+      "job_id": "job-000267",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 1.615337
+    },
+    {
+      "job_id": "job-000268",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 1.621291
+    },
+    {
+      "job_id": "job-000269",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 1.628737
+    },
+    {
+      "job_id": "job-000270",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 1.646059
+    },
+    {
+      "job_id": "job-000271",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 1.673324
+    },
+    {
+      "job_id": "job-000272",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 1.678397
+    },
+    {
+      "job_id": "job-000273",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 1.679193
+    },
+    {
+      "job_id": "job-000274",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 1.684155
+    },
+    {
+      "job_id": "job-000275",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 1.700879
+    },
+    {
+      "job_id": "job-000276",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 1.702431
+    },
+    {
+      "job_id": "job-000277",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 1.704396
+    },
+    {
+      "job_id": "job-000278",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 1.70654
+    },
+    {
+      "job_id": "job-000279",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 1.708302
+    },
+    {
+      "job_id": "job-000280",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 1.719448
+    },
+    {
+      "job_id": "job-000281",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 1.72456
+    },
+    {
+      "job_id": "job-000282",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 1.725156
+    },
+    {
+      "job_id": "job-000283",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 1.729926
+    },
+    {
+      "job_id": "job-000284",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 1.737862
+    },
+    {
+      "job_id": "job-000285",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 1.738041
+    },
+    {
+      "job_id": "job-000286",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 1.739497
+    },
+    {
+      "job_id": "job-000287",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 1.739591
+    },
+    {
+      "job_id": "job-000288",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 1.747529
+    },
+    {
+      "job_id": "job-000289",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 1.750934
+    },
+    {
+      "job_id": "job-000290",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 1.751026
+    },
+    {
+      "job_id": "job-000291",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 1.752916
+    },
+    {
+      "job_id": "job-000292",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 1.754341
+    },
+    {
+      "job_id": "job-000293",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 1.759946
+    },
+    {
+      "job_id": "job-000294",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 1.763654
+    },
+    {
+      "job_id": "job-000295",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 1.767294
+    },
+    {
+      "job_id": "job-000296",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 1.769958
+    },
+    {
+      "job_id": "job-000297",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 1.770224
+    },
+    {
+      "job_id": "job-000298",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 1.772856
+    },
+    {
+      "job_id": "job-000299",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 1.779553
+    },
+    {
+      "job_id": "job-000300",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 1.784692
+    },
+    {
+      "job_id": "job-000301",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 1.790599
+    },
+    {
+      "job_id": "job-000302",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 1.791755
+    },
+    {
+      "job_id": "job-000303",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 1.792041
+    },
+    {
+      "job_id": "job-000304",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 1.801622
+    },
+    {
+      "job_id": "job-000305",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 1.809953
+    },
+    {
+      "job_id": "job-000306",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 1.817106
+    },
+    {
+      "job_id": "job-000307",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 1.838983
+    },
+    {
+      "job_id": "job-000308",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 1.841422
+    },
+    {
+      "job_id": "job-000309",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 1.850192
+    },
+    {
+      "job_id": "job-000310",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 1.852459
+    },
+    {
+      "job_id": "job-000311",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 1.858549
+    },
+    {
+      "job_id": "job-000312",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 1.874358
+    },
+    {
+      "job_id": "job-000313",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 1.878408
+    },
+    {
+      "job_id": "job-000314",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 1.884766
+    },
+    {
+      "job_id": "job-000315",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 1.913949
+    },
+    {
+      "job_id": "job-000316",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 1.918434
+    },
+    {
+      "job_id": "job-000317",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 1.920255
+    },
+    {
+      "job_id": "job-000318",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 1.940828
+    },
+    {
+      "job_id": "job-000319",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 1.948303
+    },
+    {
+      "job_id": "job-000320",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 1.95093
+    },
+    {
+      "job_id": "job-000321",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 1.953071
+    },
+    {
+      "job_id": "job-000322",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 1.953221
+    },
+    {
+      "job_id": "job-000323",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 1.953822
+    },
+    {
+      "job_id": "job-000324",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 1.979616
+    },
+    {
+      "job_id": "job-000325",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 1.98507
+    },
+    {
+      "job_id": "job-000326",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 1.995109
+    },
+    {
+      "job_id": "job-000327",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 1.996941
+    },
+    {
+      "job_id": "job-000328",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 2.009185
+    },
+    {
+      "job_id": "job-000329",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 2.01735
+    },
+    {
+      "job_id": "job-000330",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 2.031205
+    },
+    {
+      "job_id": "job-000331",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 2.035629
+    },
+    {
+      "job_id": "job-000332",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 2.052279
+    },
+    {
+      "job_id": "job-000333",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 2.057881
+    },
+    {
+      "job_id": "job-000334",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 2.058918
+    },
+    {
+      "job_id": "job-000335",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 2.07487
+    },
+    {
+      "job_id": "job-000336",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 2.077259
+    },
+    {
+      "job_id": "job-000337",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 2.09438
+    },
+    {
+      "job_id": "job-000338",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 2.099694
+    },
+    {
+      "job_id": "job-000339",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 2.103098
+    },
+    {
+      "job_id": "job-000340",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 2.107985
+    },
+    {
+      "job_id": "job-000341",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 2.11109
+    },
+    {
+      "job_id": "job-000342",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 2.111631
+    },
+    {
+      "job_id": "job-000343",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 2.111943
+    },
+    {
+      "job_id": "job-000344",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 2.112531
+    },
+    {
+      "job_id": "job-000345",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 2.128079
+    },
+    {
+      "job_id": "job-000346",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 2.130934
+    },
+    {
+      "job_id": "job-000347",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 2.131087
+    },
+    {
+      "job_id": "job-000348",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 2.134499
+    },
+    {
+      "job_id": "job-000349",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 2.141212
+    },
+    {
+      "job_id": "job-000350",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 2.147913
+    },
+    {
+      "job_id": "job-000351",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 2.164259
+    },
+    {
+      "job_id": "job-000352",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 2.167135
+    },
+    {
+      "job_id": "job-000353",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 2.187649
+    },
+    {
+      "job_id": "job-000354",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 2.187728
+    },
+    {
+      "job_id": "job-000355",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 2.188877
+    },
+    {
+      "job_id": "job-000356",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 2.19337
+    },
+    {
+      "job_id": "job-000357",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 2.200296
+    },
+    {
+      "job_id": "job-000358",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 2.203898
+    },
+    {
+      "job_id": "job-000359",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 2.21413
+    },
+    {
+      "job_id": "job-000360",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 2.219394
+    },
+    {
+      "job_id": "job-000361",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 2.219394
+    },
+    {
+      "job_id": "job-000362",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 2.22269
+    },
+    {
+      "job_id": "job-000363",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 2.229522
+    },
+    {
+      "job_id": "job-000364",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 2.23151
+    },
+    {
+      "job_id": "job-000365",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 2.232881
+    },
+    {
+      "job_id": "job-000366",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 2.239754
+    },
+    {
+      "job_id": "job-000367",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 2.243861
+    },
+    {
+      "job_id": "job-000368",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 2.273361
+    },
+    {
+      "job_id": "job-000369",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 2.293556
+    },
+    {
+      "job_id": "job-000370",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 2.296005
+    },
+    {
+      "job_id": "job-000371",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 2.296226
+    },
+    {
+      "job_id": "job-000372",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 2.297531
+    },
+    {
+      "job_id": "job-000373",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 2.301308
+    },
+    {
+      "job_id": "job-000374",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 2.304983
+    },
+    {
+      "job_id": "job-000375",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 2.308754
+    },
+    {
+      "job_id": "job-000376",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 2.309353
+    },
+    {
+      "job_id": "job-000377",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 2.311724
+    },
+    {
+      "job_id": "job-000378",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 2.315242
+    },
+    {
+      "job_id": "job-000379",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 2.324597
+    },
+    {
+      "job_id": "job-000380",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 2.325416
+    },
+    {
+      "job_id": "job-000381",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 2.332111
+    },
+    {
+      "job_id": "job-000382",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 2.33529
+    },
+    {
+      "job_id": "job-000383",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 2.345226
+    },
+    {
+      "job_id": "job-000384",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 2.352828
+    },
+    {
+      "job_id": "job-000385",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 2.354244
+    },
+    {
+      "job_id": "job-000386",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 2.362395
+    },
+    {
+      "job_id": "job-000387",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 2.365468
+    },
+    {
+      "job_id": "job-000388",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 2.377391
+    },
+    {
+      "job_id": "job-000389",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 2.37753
+    },
+    {
+      "job_id": "job-000390",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 2.380033
+    },
+    {
+      "job_id": "job-000391",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 2.384889
+    },
+    {
+      "job_id": "job-000392",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 2.387207
+    },
+    {
+      "job_id": "job-000393",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 2.390495
+    },
+    {
+      "job_id": "job-000394",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 2.396225
+    },
+    {
+      "job_id": "job-000395",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 2.398041
+    },
+    {
+      "job_id": "job-000396",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 2.411112
+    },
+    {
+      "job_id": "job-000397",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 2.413347
+    },
+    {
+      "job_id": "job-000398",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 2.421164
+    },
+    {
+      "job_id": "job-000399",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 2.442624
+    },
+    {
+      "job_id": "job-000400",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 2.443323
+    },
+    {
+      "job_id": "job-000401",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 2.457268
+    },
+    {
+      "job_id": "job-000402",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 2.458556
+    },
+    {
+      "job_id": "job-000403",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 2.46258
+    },
+    {
+      "job_id": "job-000404",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 2.463417
+    },
+    {
+      "job_id": "job-000405",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 2.480926
+    },
+    {
+      "job_id": "job-000406",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 2.483402
+    },
+    {
+      "job_id": "job-000407",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 2.488216
+    },
+    {
+      "job_id": "job-000408",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 2.511876
+    },
+    {
+      "job_id": "job-000409",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 2.512932
+    },
+    {
+      "job_id": "job-000410",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 2.513475
+    },
+    {
+      "job_id": "job-000411",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 2.521378
+    },
+    {
+      "job_id": "job-000412",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 2.521689
+    },
+    {
+      "job_id": "job-000413",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 2.522589
+    },
+    {
+      "job_id": "job-000414",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 2.524548
+    },
+    {
+      "job_id": "job-000415",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 2.52462
+    },
+    {
+      "job_id": "job-000416",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 2.52742
+    },
+    {
+      "job_id": "job-000417",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 2.527809
+    },
+    {
+      "job_id": "job-000418",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 2.545668
+    },
+    {
+      "job_id": "job-000419",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 2.550426
+    },
+    {
+      "job_id": "job-000420",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 2.550636
+    },
+    {
+      "job_id": "job-000421",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 2.559843
+    },
+    {
+      "job_id": "job-000422",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 2.561656
+    },
+    {
+      "job_id": "job-000423",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 2.575843
+    },
+    {
+      "job_id": "job-000424",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 2.576085
+    },
+    {
+      "job_id": "job-000425",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 2.576948
+    },
+    {
+      "job_id": "job-000426",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 2.58004
+    },
+    {
+      "job_id": "job-000427",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 2.591616
+    },
+    {
+      "job_id": "job-000428",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 2.609618
+    },
+    {
+      "job_id": "job-000429",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 2.631937
+    },
+    {
+      "job_id": "job-000430",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 2.633477
+    },
+    {
+      "job_id": "job-000431",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 2.63658
+    },
+    {
+      "job_id": "job-000432",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 2.64937
+    },
+    {
+      "job_id": "job-000433",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 2.660515
+    },
+    {
+      "job_id": "job-000434",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 2.679293
+    },
+    {
+      "job_id": "job-000435",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 2.679858
+    },
+    {
+      "job_id": "job-000436",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 2.680117
+    },
+    {
+      "job_id": "job-000437",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 2.683543
+    },
+    {
+      "job_id": "job-000438",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 2.695894
+    },
+    {
+      "job_id": "job-000439",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 2.703663
+    },
+    {
+      "job_id": "job-000440",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 2.707238
+    },
+    {
+      "job_id": "job-000441",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 2.714885
+    },
+    {
+      "job_id": "job-000442",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 2.718798
+    },
+    {
+      "job_id": "job-000443",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 2.730776
+    },
+    {
+      "job_id": "job-000444",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 2.733036
+    },
+    {
+      "job_id": "job-000445",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 2.742326
+    },
+    {
+      "job_id": "job-000446",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 2.743426
+    },
+    {
+      "job_id": "job-000447",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 2.749357
+    },
+    {
+      "job_id": "job-000448",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 2.751858
+    },
+    {
+      "job_id": "job-000449",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 2.754602
+    },
+    {
+      "job_id": "job-000450",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 2.75667
+    },
+    {
+      "job_id": "job-000451",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 2.756883
+    },
+    {
+      "job_id": "job-000452",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 2.757545
+    },
+    {
+      "job_id": "job-000453",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 2.764956
+    },
+    {
+      "job_id": "job-000454",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 2.77226
+    },
+    {
+      "job_id": "job-000455",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 2.779413
+    },
+    {
+      "job_id": "job-000456",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 2.783186
+    },
+    {
+      "job_id": "job-000457",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 2.789121
+    },
+    {
+      "job_id": "job-000458",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 2.799663
+    },
+    {
+      "job_id": "job-000459",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 2.827504
+    },
+    {
+      "job_id": "job-000460",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 2.83081
+    },
+    {
+      "job_id": "job-000461",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 2.839986
+    },
+    {
+      "job_id": "job-000462",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 2.851106
+    },
+    {
+      "job_id": "job-000463",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 2.86351
+    },
+    {
+      "job_id": "job-000464",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 2.870894
+    },
+    {
+      "job_id": "job-000465",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 2.872628
+    },
+    {
+      "job_id": "job-000466",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 2.883765
+    },
+    {
+      "job_id": "job-000467",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 2.889241
+    },
+    {
+      "job_id": "job-000468",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 2.898251
+    },
+    {
+      "job_id": "job-000469",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 2.907356
+    },
+    {
+      "job_id": "job-000470",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 2.908904
+    },
+    {
+      "job_id": "job-000471",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 2.909399
+    },
+    {
+      "job_id": "job-000472",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 2.919508
+    },
+    {
+      "job_id": "job-000473",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 2.926832
+    },
+    {
+      "job_id": "job-000474",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 2.926945
+    },
+    {
+      "job_id": "job-000475",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 2.927262
+    },
+    {
+      "job_id": "job-000476",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 2.930922
+    },
+    {
+      "job_id": "job-000477",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 2.937966
+    },
+    {
+      "job_id": "job-000478",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 2.938842
+    },
+    {
+      "job_id": "job-000479",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 2.946755
+    },
+    {
+      "job_id": "job-000480",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 2.949565
+    },
+    {
+      "job_id": "job-000481",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 2.956526
+    },
+    {
+      "job_id": "job-000482",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 2.958647
+    },
+    {
+      "job_id": "job-000483",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 2.960422
+    },
+    {
+      "job_id": "job-000484",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 2.961487
+    },
+    {
+      "job_id": "job-000485",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 2.969213
+    },
+    {
+      "job_id": "job-000486",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 2.97571
+    },
+    {
+      "job_id": "job-000487",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 2.97619
+    },
+    {
+      "job_id": "job-000488",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 2.976993
+    },
+    {
+      "job_id": "job-000489",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 2.989039
+    },
+    {
+      "job_id": "job-000490",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 2.991051
+    },
+    {
+      "job_id": "job-000491",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 3.008618
+    },
+    {
+      "job_id": "job-000492",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 3.033718
+    },
+    {
+      "job_id": "job-000493",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 3.044803
+    },
+    {
+      "job_id": "job-000494",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 3.045795
+    },
+    {
+      "job_id": "job-000495",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 3.046523
+    },
+    {
+      "job_id": "job-000496",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 3.05827
+    },
+    {
+      "job_id": "job-000497",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 3.06186
+    },
+    {
+      "job_id": "job-000498",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 3.062079
+    },
+    {
+      "job_id": "job-000499",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 3.062811
+    },
+    {
+      "job_id": "job-000500",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 3.065042
+    },
+    {
+      "job_id": "job-000501",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 3.066942
+    },
+    {
+      "job_id": "job-000502",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 3.067191
+    },
+    {
+      "job_id": "job-000503",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 3.075608
+    },
+    {
+      "job_id": "job-000504",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 3.076006
+    },
+    {
+      "job_id": "job-000505",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 3.07827
+    },
+    {
+      "job_id": "job-000506",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 3.086255
+    },
+    {
+      "job_id": "job-000507",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 3.095483
+    },
+    {
+      "job_id": "job-000508",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 3.105892
+    },
+    {
+      "job_id": "job-000509",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 3.107693
+    },
+    {
+      "job_id": "job-000510",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 3.108935
+    },
+    {
+      "job_id": "job-000511",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 3.115388
+    },
+    {
+      "job_id": "job-000512",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 3.126302
+    },
+    {
+      "job_id": "job-000513",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 3.135245
+    },
+    {
+      "job_id": "job-000514",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 3.144242
+    },
+    {
+      "job_id": "job-000515",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 3.147808
+    },
+    {
+      "job_id": "job-000516",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 3.156222
+    },
+    {
+      "job_id": "job-000517",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 3.172189
+    },
+    {
+      "job_id": "job-000518",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 3.178567
+    },
+    {
+      "job_id": "job-000519",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 3.179612
+    },
+    {
+      "job_id": "job-000520",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 3.191256
+    },
+    {
+      "job_id": "job-000521",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 3.191495
+    },
+    {
+      "job_id": "job-000522",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 3.191567
+    },
+    {
+      "job_id": "job-000523",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 3.193927
+    },
+    {
+      "job_id": "job-000524",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 3.19704
+    },
+    {
+      "job_id": "job-000525",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 3.220397
+    },
+    {
+      "job_id": "job-000526",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 3.229272
+    },
+    {
+      "job_id": "job-000527",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 3.233077
+    },
+    {
+      "job_id": "job-000528",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 3.238759
+    },
+    {
+      "job_id": "job-000529",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 3.242341
+    },
+    {
+      "job_id": "job-000530",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 3.257657
+    },
+    {
+      "job_id": "job-000531",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 3.264066
+    },
+    {
+      "job_id": "job-000532",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 3.267072
+    },
+    {
+      "job_id": "job-000533",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 3.285336
+    },
+    {
+      "job_id": "job-000534",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 3.296598
+    },
+    {
+      "job_id": "job-000535",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 3.300109
+    },
+    {
+      "job_id": "job-000536",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 3.321772
+    },
+    {
+      "job_id": "job-000537",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 3.322164
+    },
+    {
+      "job_id": "job-000538",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 3.336062
+    },
+    {
+      "job_id": "job-000539",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 3.340065
+    },
+    {
+      "job_id": "job-000540",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 3.344517
+    },
+    {
+      "job_id": "job-000541",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 3.358627
+    },
+    {
+      "job_id": "job-000542",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 3.362283
+    },
+    {
+      "job_id": "job-000543",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 3.366092
+    },
+    {
+      "job_id": "job-000544",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 3.3679
+    },
+    {
+      "job_id": "job-000545",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 3.375559
+    },
+    {
+      "job_id": "job-000546",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 3.383974
+    },
+    {
+      "job_id": "job-000547",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 3.3914
+    },
+    {
+      "job_id": "job-000548",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 3.392554
+    },
+    {
+      "job_id": "job-000549",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 3.40632
+    },
+    {
+      "job_id": "job-000550",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 3.410825
+    },
+    {
+      "job_id": "job-000551",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 3.41163
+    },
+    {
+      "job_id": "job-000552",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 3.413177
+    },
+    {
+      "job_id": "job-000553",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 3.414069
+    },
+    {
+      "job_id": "job-000554",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 3.415098
+    },
+    {
+      "job_id": "job-000555",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 3.419918
+    },
+    {
+      "job_id": "job-000556",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 3.429207
+    },
+    {
+      "job_id": "job-000557",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 3.437184
+    },
+    {
+      "job_id": "job-000558",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 3.460758
+    },
+    {
+      "job_id": "job-000559",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 3.490202
+    },
+    {
+      "job_id": "job-000560",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 3.496696
+    },
+    {
+      "job_id": "job-000561",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 3.509644
+    },
+    {
+      "job_id": "job-000562",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 3.525857
+    },
+    {
+      "job_id": "job-000563",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 3.530623
+    },
+    {
+      "job_id": "job-000564",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 3.542883
+    },
+    {
+      "job_id": "job-000565",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 3.548412
+    },
+    {
+      "job_id": "job-000566",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 3.557805
+    },
+    {
+      "job_id": "job-000567",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 3.568764
+    },
+    {
+      "job_id": "job-000568",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 3.584622
+    },
+    {
+      "job_id": "job-000569",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 3.589351
+    },
+    {
+      "job_id": "job-000570",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 3.589908
+    },
+    {
+      "job_id": "job-000571",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 3.59033
+    },
+    {
+      "job_id": "job-000572",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 3.598513
+    },
+    {
+      "job_id": "job-000573",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 3.604743
+    },
+    {
+      "job_id": "job-000574",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 3.617186
+    },
+    {
+      "job_id": "job-000575",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 3.618469
+    },
+    {
+      "job_id": "job-000576",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 3.6298
+    },
+    {
+      "job_id": "job-000577",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 3.662092
+    },
+    {
+      "job_id": "job-000578",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 3.666456
+    },
+    {
+      "job_id": "job-000579",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 3.667092
+    },
+    {
+      "job_id": "job-000580",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 3.674861
+    },
+    {
+      "job_id": "job-000581",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 3.675411
+    },
+    {
+      "job_id": "job-000582",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 3.685963
+    },
+    {
+      "job_id": "job-000583",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 3.697078
+    },
+    {
+      "job_id": "job-000584",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 3.700261
+    },
+    {
+      "job_id": "job-000585",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 3.715899
+    },
+    {
+      "job_id": "job-000586",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 3.719052
+    },
+    {
+      "job_id": "job-000587",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 3.730621
+    },
+    {
+      "job_id": "job-000588",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 3.732943
+    },
+    {
+      "job_id": "job-000589",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 3.741486
+    },
+    {
+      "job_id": "job-000590",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 3.742266
+    },
+    {
+      "job_id": "job-000591",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 3.745023
+    },
+    {
+      "job_id": "job-000592",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 3.748383
+    },
+    {
+      "job_id": "job-000593",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 3.76299
+    },
+    {
+      "job_id": "job-000594",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 3.774617
+    },
+    {
+      "job_id": "job-000595",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 3.775348
+    },
+    {
+      "job_id": "job-000596",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 3.779459
+    },
+    {
+      "job_id": "job-000597",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 3.791875
+    },
+    {
+      "job_id": "job-000598",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 3.817988
+    },
+    {
+      "job_id": "job-000599",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 3.822101
+    },
+    {
+      "job_id": "job-000600",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 3.823271
+    },
+    {
+      "job_id": "job-000601",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 3.833514
+    },
+    {
+      "job_id": "job-000602",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 3.834937
+    },
+    {
+      "job_id": "job-000603",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 3.840976
+    },
+    {
+      "job_id": "job-000604",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 3.843482
+    },
+    {
+      "job_id": "job-000605",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 3.843947
+    },
+    {
+      "job_id": "job-000606",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 3.844097
+    },
+    {
+      "job_id": "job-000607",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 3.847661
+    },
+    {
+      "job_id": "job-000608",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 3.847978
+    },
+    {
+      "job_id": "job-000609",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 3.854752
+    },
+    {
+      "job_id": "job-000610",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 3.863876
+    },
+    {
+      "job_id": "job-000611",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 3.87261
+    },
+    {
+      "job_id": "job-000612",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 3.87723
+    },
+    {
+      "job_id": "job-000613",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 3.883793
+    },
+    {
+      "job_id": "job-000614",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 3.897222
+    },
+    {
+      "job_id": "job-000615",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 3.899743
+    },
+    {
+      "job_id": "job-000616",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 3.905879
+    },
+    {
+      "job_id": "job-000617",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 3.907101
+    },
+    {
+      "job_id": "job-000618",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 3.914733
+    },
+    {
+      "job_id": "job-000619",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 3.953682
+    },
+    {
+      "job_id": "job-000620",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 3.956367
+    },
+    {
+      "job_id": "job-000621",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 3.964117
+    },
+    {
+      "job_id": "job-000622",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 3.965244
+    },
+    {
+      "job_id": "job-000623",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 4.017789
+    },
+    {
+      "job_id": "job-000624",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 4.018214
+    },
+    {
+      "job_id": "job-000625",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 4.020134
+    },
+    {
+      "job_id": "job-000626",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 4.023682
+    },
+    {
+      "job_id": "job-000627",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 4.033283
+    },
+    {
+      "job_id": "job-000628",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 4.038452
+    },
+    {
+      "job_id": "job-000629",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 4.039036
+    },
+    {
+      "job_id": "job-000630",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 4.045883
+    },
+    {
+      "job_id": "job-000631",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 4.046392
+    },
+    {
+      "job_id": "job-000632",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 4.049108
+    },
+    {
+      "job_id": "job-000633",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 4.070375
+    },
+    {
+      "job_id": "job-000634",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 4.075237
+    },
+    {
+      "job_id": "job-000635",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 4.075273
+    },
+    {
+      "job_id": "job-000636",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 4.077089
+    },
+    {
+      "job_id": "job-000637",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 4.079216
+    },
+    {
+      "job_id": "job-000638",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 4.080494
+    },
+    {
+      "job_id": "job-000639",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 4.089908
+    },
+    {
+      "job_id": "job-000640",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 4.092001
+    },
+    {
+      "job_id": "job-000641",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 4.099377
+    },
+    {
+      "job_id": "job-000642",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 4.10471
+    },
+    {
+      "job_id": "job-000643",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 4.118391
+    },
+    {
+      "job_id": "job-000644",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 4.121151
+    },
+    {
+      "job_id": "job-000645",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 4.121165
+    },
+    {
+      "job_id": "job-000646",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 4.127995
+    },
+    {
+      "job_id": "job-000647",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 4.133543
+    },
+    {
+      "job_id": "job-000648",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 4.133778
+    },
+    {
+      "job_id": "job-000649",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 4.1381
+    },
+    {
+      "job_id": "job-000650",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 4.139189
+    },
+    {
+      "job_id": "job-000651",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 4.175969
+    },
+    {
+      "job_id": "job-000652",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 4.181437
+    },
+    {
+      "job_id": "job-000653",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 4.192431
+    },
+    {
+      "job_id": "job-000654",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 4.199093
+    },
+    {
+      "job_id": "job-000655",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 4.205311
+    },
+    {
+      "job_id": "job-000656",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 4.21817
+    },
+    {
+      "job_id": "job-000657",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 4.218351
+    },
+    {
+      "job_id": "job-000658",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 4.221188
+    },
+    {
+      "job_id": "job-000659",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 4.228343
+    },
+    {
+      "job_id": "job-000660",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 4.231002
+    },
+    {
+      "job_id": "job-000661",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 4.246519
+    },
+    {
+      "job_id": "job-000662",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 4.248868
+    },
+    {
+      "job_id": "job-000663",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 4.257339
+    },
+    {
+      "job_id": "job-000664",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 4.262439
+    },
+    {
+      "job_id": "job-000665",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 4.267343
+    },
+    {
+      "job_id": "job-000666",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 4.280492
+    },
+    {
+      "job_id": "job-000667",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 4.302079
+    },
+    {
+      "job_id": "job-000668",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 4.328343
+    },
+    {
+      "job_id": "job-000669",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 4.331056
+    },
+    {
+      "job_id": "job-000670",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 4.336163
+    },
+    {
+      "job_id": "job-000671",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 4.337171
+    },
+    {
+      "job_id": "job-000672",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 4.347282
+    },
+    {
+      "job_id": "job-000673",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 4.353613
+    },
+    {
+      "job_id": "job-000674",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 4.358036
+    },
+    {
+      "job_id": "job-000675",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 4.3629
+    },
+    {
+      "job_id": "job-000676",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 4.365943
+    },
+    {
+      "job_id": "job-000677",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 4.367442
+    },
+    {
+      "job_id": "job-000678",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 4.371494
+    },
+    {
+      "job_id": "job-000679",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 4.379373
+    },
+    {
+      "job_id": "job-000680",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 4.379925
+    },
+    {
+      "job_id": "job-000681",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 4.381824
+    },
+    {
+      "job_id": "job-000682",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 4.384113
+    },
+    {
+      "job_id": "job-000683",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 4.393851
+    },
+    {
+      "job_id": "job-000684",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 4.398344
+    },
+    {
+      "job_id": "job-000685",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 4.412441
+    },
+    {
+      "job_id": "job-000686",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 4.415819
+    },
+    {
+      "job_id": "job-000687",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 4.417103
+    },
+    {
+      "job_id": "job-000688",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 4.419281
+    },
+    {
+      "job_id": "job-000689",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 4.419477
+    },
+    {
+      "job_id": "job-000690",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 4.424017
+    },
+    {
+      "job_id": "job-000691",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 4.428106
+    },
+    {
+      "job_id": "job-000692",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 4.431523
+    },
+    {
+      "job_id": "job-000693",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 4.43851
+    },
+    {
+      "job_id": "job-000694",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 4.444474
+    },
+    {
+      "job_id": "job-000695",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 4.447117
+    },
+    {
+      "job_id": "job-000696",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 4.454912
+    },
+    {
+      "job_id": "job-000697",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 4.456061
+    },
+    {
+      "job_id": "job-000698",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 4.463307
+    },
+    {
+      "job_id": "job-000699",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 4.466736
+    },
+    {
+      "job_id": "job-000700",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 4.476531
+    },
+    {
+      "job_id": "job-000701",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 4.48886
+    },
+    {
+      "job_id": "job-000702",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 4.493283
+    },
+    {
+      "job_id": "job-000703",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 4.493995
+    },
+    {
+      "job_id": "job-000704",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 4.500972
+    },
+    {
+      "job_id": "job-000705",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 4.50102
+    },
+    {
+      "job_id": "job-000706",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 4.501498
+    },
+    {
+      "job_id": "job-000707",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 4.503014
+    },
+    {
+      "job_id": "job-000708",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 4.513544
+    },
+    {
+      "job_id": "job-000709",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 4.516654
+    },
+    {
+      "job_id": "job-000710",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 4.524847
+    },
+    {
+      "job_id": "job-000711",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 4.529492
+    },
+    {
+      "job_id": "job-000712",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 4.535495
+    },
+    {
+      "job_id": "job-000713",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 4.535563
+    },
+    {
+      "job_id": "job-000714",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 4.553816
+    },
+    {
+      "job_id": "job-000715",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 4.557653
+    },
+    {
+      "job_id": "job-000716",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 4.558205
+    },
+    {
+      "job_id": "job-000717",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 4.563693
+    },
+    {
+      "job_id": "job-000718",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 4.577377
+    },
+    {
+      "job_id": "job-000719",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 4.581595
+    },
+    {
+      "job_id": "job-000720",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 4.588499
+    },
+    {
+      "job_id": "job-000721",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 4.589138
+    },
+    {
+      "job_id": "job-000722",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 4.590372
+    },
+    {
+      "job_id": "job-000723",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 4.592972
+    },
+    {
+      "job_id": "job-000724",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 4.593234
+    },
+    {
+      "job_id": "job-000725",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 4.599626
+    },
+    {
+      "job_id": "job-000726",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 4.59966
+    },
+    {
+      "job_id": "job-000727",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 4.603818
+    },
+    {
+      "job_id": "job-000728",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 4.611379
+    },
+    {
+      "job_id": "job-000729",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 4.612451
+    },
+    {
+      "job_id": "job-000730",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 4.653341
+    },
+    {
+      "job_id": "job-000731",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 4.659342
+    },
+    {
+      "job_id": "job-000732",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 4.668616
+    },
+    {
+      "job_id": "job-000733",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 4.67708
+    },
+    {
+      "job_id": "job-000734",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 4.682628
+    },
+    {
+      "job_id": "job-000735",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 4.685884
+    },
+    {
+      "job_id": "job-000736",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 4.6921
+    },
+    {
+      "job_id": "job-000737",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 4.700202
+    },
+    {
+      "job_id": "job-000738",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 4.703221
+    },
+    {
+      "job_id": "job-000739",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 4.703276
+    },
+    {
+      "job_id": "job-000740",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 4.72147
+    },
+    {
+      "job_id": "job-000741",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 4.72361
+    },
+    {
+      "job_id": "job-000742",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 4.741162
+    },
+    {
+      "job_id": "job-000743",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 4.784902
+    },
+    {
+      "job_id": "job-000744",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 4.785245
+    },
+    {
+      "job_id": "job-000745",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 4.801194
+    },
+    {
+      "job_id": "job-000746",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 4.804026
+    },
+    {
+      "job_id": "job-000747",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 4.817299
+    },
+    {
+      "job_id": "job-000748",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 4.827237
+    },
+    {
+      "job_id": "job-000749",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 4.829361
+    },
+    {
+      "job_id": "job-000750",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 4.839895
+    },
+    {
+      "job_id": "job-000751",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 4.84058
+    },
+    {
+      "job_id": "job-000752",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 4.856081
+    },
+    {
+      "job_id": "job-000753",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 4.86204
+    },
+    {
+      "job_id": "job-000754",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 4.887946
+    },
+    {
+      "job_id": "job-000755",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 4.892102
+    },
+    {
+      "job_id": "job-000756",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 4.900223
+    },
+    {
+      "job_id": "job-000757",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 4.902522
+    },
+    {
+      "job_id": "job-000758",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 4.904646
+    },
+    {
+      "job_id": "job-000759",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 4.904908
+    },
+    {
+      "job_id": "job-000760",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 4.913468
+    },
+    {
+      "job_id": "job-000761",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 4.935961
+    },
+    {
+      "job_id": "job-000762",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 4.939557
+    },
+    {
+      "job_id": "job-000763",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 4.939979
+    },
+    {
+      "job_id": "job-000764",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 4.94053
+    },
+    {
+      "job_id": "job-000765",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 4.942044
+    },
+    {
+      "job_id": "job-000766",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 4.951061
+    },
+    {
+      "job_id": "job-000767",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 4.953441
+    },
+    {
+      "job_id": "job-000768",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 4.957592
+    },
+    {
+      "job_id": "job-000769",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 4.970678
+    },
+    {
+      "job_id": "job-000770",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 4.97823
+    },
+    {
+      "job_id": "job-000771",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 4.978507
+    },
+    {
+      "job_id": "job-000772",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 4.996382
+    },
+    {
+      "job_id": "job-000773",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 5.004176
+    },
+    {
+      "job_id": "job-000774",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 5.005343
+    },
+    {
+      "job_id": "job-000775",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 5.005642
+    },
+    {
+      "job_id": "job-000776",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 5.020283
+    },
+    {
+      "job_id": "job-000777",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 5.022387
+    },
+    {
+      "job_id": "job-000778",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 5.027157
+    },
+    {
+      "job_id": "job-000779",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 5.029397
+    },
+    {
+      "job_id": "job-000780",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 5.038381
+    },
+    {
+      "job_id": "job-000781",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 5.042131
+    },
+    {
+      "job_id": "job-000782",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 5.049599
+    },
+    {
+      "job_id": "job-000783",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 5.065567
+    },
+    {
+      "job_id": "job-000784",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 5.06634
+    },
+    {
+      "job_id": "job-000785",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 5.069447
+    },
+    {
+      "job_id": "job-000786",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 5.078174
+    },
+    {
+      "job_id": "job-000787",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 5.090111
+    },
+    {
+      "job_id": "job-000788",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 5.103259
+    },
+    {
+      "job_id": "job-000789",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 5.106602
+    },
+    {
+      "job_id": "job-000790",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 5.114107
+    },
+    {
+      "job_id": "job-000791",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 5.119748
+    },
+    {
+      "job_id": "job-000792",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 5.132616
+    },
+    {
+      "job_id": "job-000793",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 5.133836
+    },
+    {
+      "job_id": "job-000794",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 5.134357
+    },
+    {
+      "job_id": "job-000795",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 5.135615
+    },
+    {
+      "job_id": "job-000796",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 5.138153
+    },
+    {
+      "job_id": "job-000797",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 5.146927
+    },
+    {
+      "job_id": "job-000798",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 5.153283
+    },
+    {
+      "job_id": "job-000799",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 5.155503
+    },
+    {
+      "job_id": "job-000800",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 5.155818
+    },
+    {
+      "job_id": "job-000801",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 5.159205
+    },
+    {
+      "job_id": "job-000802",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 5.182937
+    },
+    {
+      "job_id": "job-000803",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 5.183532
+    },
+    {
+      "job_id": "job-000804",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 5.199589
+    },
+    {
+      "job_id": "job-000805",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 5.202946
+    },
+    {
+      "job_id": "job-000806",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 5.209223
+    },
+    {
+      "job_id": "job-000807",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 5.21218
+    },
+    {
+      "job_id": "job-000808",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 5.231693
+    },
+    {
+      "job_id": "job-000809",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 5.242546
+    },
+    {
+      "job_id": "job-000810",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 5.249934
+    },
+    {
+      "job_id": "job-000811",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 5.254606
+    },
+    {
+      "job_id": "job-000812",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 5.260448
+    },
+    {
+      "job_id": "job-000813",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 5.262224
+    },
+    {
+      "job_id": "job-000814",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 5.268818
+    },
+    {
+      "job_id": "job-000815",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 5.284388
+    },
+    {
+      "job_id": "job-000816",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 5.284887
+    },
+    {
+      "job_id": "job-000817",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 5.289072
+    },
+    {
+      "job_id": "job-000818",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 5.293619
+    },
+    {
+      "job_id": "job-000819",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 5.298631
+    },
+    {
+      "job_id": "job-000820",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 5.328671
+    },
+    {
+      "job_id": "job-000821",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 5.334447
+    },
+    {
+      "job_id": "job-000822",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 5.338528
+    },
+    {
+      "job_id": "job-000823",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 5.339128
+    },
+    {
+      "job_id": "job-000824",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 5.341457
+    },
+    {
+      "job_id": "job-000825",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 5.355527
+    },
+    {
+      "job_id": "job-000826",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 5.362047
+    },
+    {
+      "job_id": "job-000827",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 5.371317
+    },
+    {
+      "job_id": "job-000828",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 5.38821
+    },
+    {
+      "job_id": "job-000829",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 5.403242
+    },
+    {
+      "job_id": "job-000830",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 5.417974
+    },
+    {
+      "job_id": "job-000831",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 5.443189
+    },
+    {
+      "job_id": "job-000832",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 5.46
+    },
+    {
+      "job_id": "job-000833",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 5.467829
+    },
+    {
+      "job_id": "job-000834",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 5.472659
+    },
+    {
+      "job_id": "job-000835",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 5.472938
+    },
+    {
+      "job_id": "job-000836",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 5.491495
+    },
+    {
+      "job_id": "job-000837",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 5.495797
+    },
+    {
+      "job_id": "job-000838",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 5.498224
+    },
+    {
+      "job_id": "job-000839",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 5.501209
+    },
+    {
+      "job_id": "job-000840",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 5.510558
+    },
+    {
+      "job_id": "job-000841",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 5.52036
+    },
+    {
+      "job_id": "job-000842",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 5.522662
+    },
+    {
+      "job_id": "job-000843",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 5.523823
+    },
+    {
+      "job_id": "job-000844",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 5.527293
+    },
+    {
+      "job_id": "job-000845",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 5.528181
+    },
+    {
+      "job_id": "job-000846",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 5.534399
+    },
+    {
+      "job_id": "job-000847",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 5.547282
+    },
+    {
+      "job_id": "job-000848",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 5.55073
+    },
+    {
+      "job_id": "job-000849",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 5.551782
+    },
+    {
+      "job_id": "job-000850",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 5.570736
+    },
+    {
+      "job_id": "job-000851",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 5.572026
+    },
+    {
+      "job_id": "job-000852",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 5.573393
+    },
+    {
+      "job_id": "job-000853",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 5.57829
+    },
+    {
+      "job_id": "job-000854",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 5.585857
+    },
+    {
+      "job_id": "job-000855",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 5.588775
+    },
+    {
+      "job_id": "job-000856",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 5.589616
+    },
+    {
+      "job_id": "job-000857",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 5.59201
+    },
+    {
+      "job_id": "job-000858",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 5.605957
+    },
+    {
+      "job_id": "job-000859",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 5.630513
+    },
+    {
+      "job_id": "job-000860",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 5.632381
+    },
+    {
+      "job_id": "job-000861",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 5.64031
+    },
+    {
+      "job_id": "job-000862",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 5.65067
+    },
+    {
+      "job_id": "job-000863",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 5.662379
+    },
+    {
+      "job_id": "job-000864",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 5.66246
+    },
+    {
+      "job_id": "job-000865",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 5.66267
+    },
+    {
+      "job_id": "job-000866",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 5.663259
+    },
+    {
+      "job_id": "job-000867",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 5.668804
+    },
+    {
+      "job_id": "job-000868",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 5.670307
+    },
+    {
+      "job_id": "job-000869",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 5.6869
+    },
+    {
+      "job_id": "job-000870",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 5.688791
+    },
+    {
+      "job_id": "job-000871",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 5.692773
+    },
+    {
+      "job_id": "job-000872",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 5.69374
+    },
+    {
+      "job_id": "job-000873",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 5.709191
+    },
+    {
+      "job_id": "job-000874",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 5.710878
+    },
+    {
+      "job_id": "job-000875",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 5.712997
+    },
+    {
+      "job_id": "job-000876",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 5.715383
+    },
+    {
+      "job_id": "job-000877",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 5.716894
+    },
+    {
+      "job_id": "job-000878",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 5.71748
+    },
+    {
+      "job_id": "job-000879",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 5.728231
+    },
+    {
+      "job_id": "job-000880",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 5.728851
+    },
+    {
+      "job_id": "job-000881",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 5.731241
+    },
+    {
+      "job_id": "job-000882",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 5.731404
+    },
+    {
+      "job_id": "job-000883",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 5.736729
+    },
+    {
+      "job_id": "job-000884",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 5.741406
+    },
+    {
+      "job_id": "job-000885",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 5.758054
+    },
+    {
+      "job_id": "job-000886",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 5.758244
+    },
+    {
+      "job_id": "job-000887",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 5.778571
+    },
+    {
+      "job_id": "job-000888",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 5.779471
+    },
+    {
+      "job_id": "job-000889",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 5.782431
+    },
+    {
+      "job_id": "job-000890",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 5.799096
+    },
+    {
+      "job_id": "job-000891",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 5.812436
+    },
+    {
+      "job_id": "job-000892",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 5.828229
+    },
+    {
+      "job_id": "job-000893",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 5.829529
+    },
+    {
+      "job_id": "job-000894",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 5.830613
+    },
+    {
+      "job_id": "job-000895",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 5.8335
+    },
+    {
+      "job_id": "job-000896",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 5.836198
+    },
+    {
+      "job_id": "job-000897",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 5.842241
+    },
+    {
+      "job_id": "job-000898",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 5.842534
+    },
+    {
+      "job_id": "job-000899",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 5.848311
+    },
+    {
+      "job_id": "job-000900",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 5.848334
+    },
+    {
+      "job_id": "job-000901",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 5.850924
+    },
+    {
+      "job_id": "job-000902",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 5.856241
+    },
+    {
+      "job_id": "job-000903",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 5.858267
+    },
+    {
+      "job_id": "job-000904",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 5.866714
+    },
+    {
+      "job_id": "job-000905",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 5.875996
+    },
+    {
+      "job_id": "job-000906",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 5.882476
+    },
+    {
+      "job_id": "job-000907",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 5.886445
+    },
+    {
+      "job_id": "job-000908",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 5.889979
+    },
+    {
+      "job_id": "job-000909",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 5.894772
+    },
+    {
+      "job_id": "job-000910",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 5.906843
+    },
+    {
+      "job_id": "job-000911",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 5.977869
+    },
+    {
+      "job_id": "job-000912",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 5.979508
+    },
+    {
+      "job_id": "job-000913",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 5.992463
+    },
+    {
+      "job_id": "job-000914",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 6.001787
+    },
+    {
+      "job_id": "job-000915",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 6.006933
+    },
+    {
+      "job_id": "job-000916",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 6.010868
+    },
+    {
+      "job_id": "job-000917",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 6.0206
+    },
+    {
+      "job_id": "job-000918",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 6.04595
+    },
+    {
+      "job_id": "job-000919",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 6.050812
+    },
+    {
+      "job_id": "job-000920",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 6.050994
+    },
+    {
+      "job_id": "job-000921",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 6.057106
+    },
+    {
+      "job_id": "job-000922",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 6.058568
+    },
+    {
+      "job_id": "job-000923",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 6.059361
+    },
+    {
+      "job_id": "job-000924",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 6.065155
+    },
+    {
+      "job_id": "job-000925",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 6.067273
+    },
+    {
+      "job_id": "job-000926",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 6.07726
+    },
+    {
+      "job_id": "job-000927",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 6.080691
+    },
+    {
+      "job_id": "job-000928",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 6.093931
+    },
+    {
+      "job_id": "job-000929",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 6.094358
+    },
+    {
+      "job_id": "job-000930",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 6.115394
+    },
+    {
+      "job_id": "job-000931",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 6.123113
+    },
+    {
+      "job_id": "job-000932",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 6.123397
+    },
+    {
+      "job_id": "job-000933",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 6.125534
+    },
+    {
+      "job_id": "job-000934",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 6.143378
+    },
+    {
+      "job_id": "job-000935",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 6.154489
+    },
+    {
+      "job_id": "job-000936",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 6.154903
+    },
+    {
+      "job_id": "job-000937",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 6.16541
+    },
+    {
+      "job_id": "job-000938",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 6.169129
+    },
+    {
+      "job_id": "job-000939",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 6.172932
+    },
+    {
+      "job_id": "job-000940",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 6.183714
+    },
+    {
+      "job_id": "job-000941",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 6.184881
+    },
+    {
+      "job_id": "job-000942",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 6.191477
+    },
+    {
+      "job_id": "job-000943",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 6.193865
+    },
+    {
+      "job_id": "job-000944",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 6.206808
+    },
+    {
+      "job_id": "job-000945",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 6.224238
+    },
+    {
+      "job_id": "job-000946",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 6.241943
+    },
+    {
+      "job_id": "job-000947",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 6.243311
+    },
+    {
+      "job_id": "job-000948",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 6.243815
+    },
+    {
+      "job_id": "job-000949",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 6.247628
+    },
+    {
+      "job_id": "job-000950",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 6.248548
+    },
+    {
+      "job_id": "job-000951",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 6.250253
+    },
+    {
+      "job_id": "job-000952",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 6.255507
+    },
+    {
+      "job_id": "job-000953",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 6.264859
+    },
+    {
+      "job_id": "job-000954",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 6.270528
+    },
+    {
+      "job_id": "job-000955",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 6.316852
+    },
+    {
+      "job_id": "job-000956",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 6.32605
+    },
+    {
+      "job_id": "job-000957",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 6.349297
+    },
+    {
+      "job_id": "job-000958",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 6.355769
+    },
+    {
+      "job_id": "job-000959",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 6.358784
+    },
+    {
+      "job_id": "job-000960",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 6.380048
+    },
+    {
+      "job_id": "job-000961",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 6.385964
+    },
+    {
+      "job_id": "job-000962",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 6.392528
+    },
+    {
+      "job_id": "job-000963",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 6.393578
+    },
+    {
+      "job_id": "job-000964",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 6.394226
+    },
+    {
+      "job_id": "job-000965",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 6.394255
+    },
+    {
+      "job_id": "job-000966",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 6.395189
+    },
+    {
+      "job_id": "job-000967",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 6.397356
+    },
+    {
+      "job_id": "job-000968",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 6.400415
+    },
+    {
+      "job_id": "job-000969",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 6.40869
+    },
+    {
+      "job_id": "job-000970",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 6.411983
+    },
+    {
+      "job_id": "job-000971",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 6.415079
+    },
+    {
+      "job_id": "job-000972",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 6.418957
+    },
+    {
+      "job_id": "job-000973",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 6.424809
+    },
+    {
+      "job_id": "job-000974",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 6.437249
+    },
+    {
+      "job_id": "job-000975",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 6.464893
+    },
+    {
+      "job_id": "job-000976",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 6.466607
+    },
+    {
+      "job_id": "job-000977",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 6.469957
+    },
+    {
+      "job_id": "job-000978",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 6.473606
+    },
+    {
+      "job_id": "job-000979",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 6.480366
+    },
+    {
+      "job_id": "job-000980",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 6.483265
+    },
+    {
+      "job_id": "job-000981",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 6.484674
+    },
+    {
+      "job_id": "job-000982",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 6.501208
+    },
+    {
+      "job_id": "job-000983",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 6.503866
+    },
+    {
+      "job_id": "job-000984",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 6.512876
+    },
+    {
+      "job_id": "job-000985",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 6.519774
+    },
+    {
+      "job_id": "job-000986",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 6.520014
+    },
+    {
+      "job_id": "job-000987",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 6.522049
+    },
+    {
+      "job_id": "job-000988",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 6.527215
+    },
+    {
+      "job_id": "job-000989",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 6.536192
+    },
+    {
+      "job_id": "job-000990",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 6.560828
+    },
+    {
+      "job_id": "job-000991",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 6.562352
+    },
+    {
+      "job_id": "job-000992",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 6.562773
+    },
+    {
+      "job_id": "job-000993",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 6.574237
+    },
+    {
+      "job_id": "job-000994",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 6.590555
+    },
+    {
+      "job_id": "job-000995",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 6.59126
+    },
+    {
+      "job_id": "job-000996",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 6.594639
+    },
+    {
+      "job_id": "job-000997",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 6.596425
+    },
+    {
+      "job_id": "job-000998",
+      "model_id": "resnet50",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 6.598664
+    },
+    {
+      "job_id": "job-000999",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 6.601434
+    },
+    {
+      "job_id": "job-001000",
+      "model_id": "mobilenetv2",
+      "input_ref": "inputs/test.jpg",
+      "arrival_offset_s": 6.60509
+    }
+  ]
+}

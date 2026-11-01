@@ -57,8 +57,8 @@ def select_run(run: str | None, logs_dir: Path) -> Path:
         return directory
     pointer_path = logs_dir / "latest.json"
     if not pointer_path.exists():
-        candidates = [path for path in (logs_dir / "pipeline" / "latest.json",
-                                        logs_dir / "profiling" / "latest.json") if path.exists()]
+        candidates = [logs_dir / name / "latest.json" for name in ("pipeline", "profiling", "benchmark")
+                      if (logs_dir / name / "latest.json").exists()]
         if not candidates:
             raise ValueError("no latest run; use make run, make profile, or specify RUN=...")
         pointer_path = max(candidates, key=lambda path: json.loads(path.read_text()).get("started_at", ""))
@@ -232,6 +232,9 @@ def profiling_report(plt, directory, config, summary, figures):
 
 def generate_report(directory: Path) -> Path:
     config = json.loads((directory / "config.json").read_text(encoding="utf-8"))
+    if config.get("run_type") == "benchmark":
+        from .benchmark_report import generate_benchmark_report
+        return generate_benchmark_report(directory)
     summary = json.loads((directory / "summary.json").read_text(encoding="utf-8"))
     run_type = config.get("run_type")
     # Compatibility with original saved pipeline runs, independent of folder name.
